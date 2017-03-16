@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Nav from '../src/nav.js'
 import $ from 'jquery';
 import Home from './home.jsx'
+import AddRecipe from './components/addRecipe.jsx';
 
 class App extends React.Component {
   constructor(props) {
