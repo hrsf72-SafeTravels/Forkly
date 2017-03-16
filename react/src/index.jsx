@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Home from './home.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      items: [],
+      currentPage: 'home'
     }
   }
 
   render () {
     return (<div>
+      <Home /> 
     </div>)
   }
 }
