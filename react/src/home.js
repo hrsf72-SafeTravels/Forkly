@@ -9,8 +9,20 @@ class Home extends React.Component {
   	return (
   	  <div>
         <h3>Welcome! Which recipes would you like to search for?</h3>
-  	  	<input></input>
-        <button>Search</button>
+  	  	<input type="text" 
+               onKeyUp={ (event) => {
+                          this.props.setSearchTerm(event.target.value)
+                        }}
+        />
+        <button onClick={(event) => {
+                          this.props.searchRecipes(this.props.searchTerm)
+                        }}
+        >Search</button>
+        <div>
+          <ul>
+            {this.props.recipes.map(recipe => <RecipeSearch recipe={recipe}/>)}
+          </ul>
+        </div>
   	  </div>
   	)
   }
@@ -18,3 +30,4 @@ class Home extends React.Component {
 }
 
 export default Home; 
+
