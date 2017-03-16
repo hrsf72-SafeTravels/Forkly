@@ -15,17 +15,21 @@ class AddRecipe extends React.Component {
         <form>
           Name: <input type="text" name="addRecipeName" />
           <table>
-            <tr>
-              <td>Quantity</td>
-              <td>Units</td>
-              <td>Ingredient</td>
-            </tr>
-            <tr>
-              <td><input type="number" name="addRecipeQuantity" /></td>
-              <td><input type="text" name="addRecipeUnits" /></td>
-              <td><input type="text" name="addRecipeIngredient" /></td>
-              <td><input type="button" name="addRecipeNewRow" value="Add Row" /></td>
-            </tr>
+            <thead>
+              <tr>
+                <td>Quantity</td>
+                <td>Units</td>
+                <td>Ingredient</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="number" name="addRecipeQuantity" /></td>
+                <td><input type="text" name="addRecipeUnits" /></td>
+                <td><input type="text" name="addRecipeIngredient" /></td>
+                <td><input type="button" name="addRecipeNewRow" value="Add Row" /></td>
+              </tr>
+            </tbody>
           </table>
           Directions: <br />
           <textarea name="addRecipeInstructions"></textarea>
