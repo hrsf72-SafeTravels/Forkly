@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './home.js'
+import $ from 'jquery';
+import Home from './home.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -12,27 +13,36 @@ class App extends React.Component {
     }
   }
 
+
+
   setSearchTerm(searchTerm) {
     this.setState({searchTerm: searchTerm});
-  };
+  }
 
   searchRecipes(searchTerm) {
     // send ajax request to server, which then searches db for searchTerm
+    var searchTerm = {searchTerm: this.state.searchTerm};
+    var context = this;
 
-    // adds results to this.state.recipes
-    this.setState({recipes: [
-      {
-        name: 'Hamburger', 
-        ingredients: '2 cups beef, 1 Tbsp salt',
-        directions: 'Mix it all up!'
-      }, 
-      {
-        name: 'Extra Beefy Hamburger',
-        ingredients: '3 cups beef, 1 Tbsp salt',
-        directions: 'Mix it all up!'
+    $.ajax({
+      url: '/searchRecipes',
+      type:'POST',
+      data: JSON.stringify(searchTerm),
+      // type: 'GET',
+      // data: searchTerm,
+      contentType: 'application/json',
+      // upon success, adds results to this.state.recipes
+      success: function(data){
+        console.log('ajax request was successful!');
+        console.log('response', data);
+        context.setState({recipes: data});
+        
+      },
+      error: function(err) {
+        console.log('ajax request failed');
       }
-      ]})
-    console.log(this.state);
+
+    });
   };
 
 
