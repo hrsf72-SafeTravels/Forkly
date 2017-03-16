@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeSearch from './recipeSearch.jsx'
 
 class Home extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Home extends React.Component {
   render() {
   	return (
   	  <div>
-        <h3>Welcome! Which recipes would you like to search for?</h3>
+        <h3>Welcome! Which recipes would you like to find?</h3>
   	  	<input type="text" 
                onKeyUp={ (event) => {
                           this.props.setSearchTerm(event.target.value)
@@ -26,7 +27,6 @@ class Home extends React.Component {
   	  </div>
   	)
   }
-
 }
 
 export default Home; 

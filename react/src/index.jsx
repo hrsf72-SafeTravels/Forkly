@@ -17,25 +17,23 @@ class App extends React.Component {
   };
 
   searchRecipes(searchTerm) {
-    console.log('search renders');
-    // searches db for searchTerm
+    // send ajax request to server, which then searches db for searchTerm
 
     // adds results to this.state.recipes
     this.setState({recipes: [
       {
-        name: 'hamburger', 
+        name: 'Hamburger', 
         ingredients: '2 cups beef, 1 Tbsp salt',
-        directions: 'mix it all up!'
+        directions: 'Mix it all up!'
       }, 
       {
-        name: 'most awesome hamburger',
+        name: 'Extra Beefy Hamburger',
         ingredients: '3 cups beef, 1 Tbsp salt',
-        directions: 'mix it all up!'
+        directions: 'Mix it all up!'
       }
       ]})
+    console.log(this.state);
   };
-
-
 
 
   render () {
@@ -45,7 +43,6 @@ class App extends React.Component {
             searchTerm={this.state.searchTerm}
             recipes={this.state.recipes}
       /> 
-
     </div>)
   }
 }
