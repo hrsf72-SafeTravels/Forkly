@@ -11,15 +11,40 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var recipeSchema = mongoose.Schema({
+  name: String,
+  ingredients: String,
+  directions: String
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Recipe = mongoose.model('Recipe', recipeSchema);
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+module.exports.Recipe = Recipe;
+
+Recipe.create(
+  {
+    name: 'Hamburger', 
+    ingredients: '2 cups beef, 1 Tbsp salt',
+    directions: 'Mix it all up!'
+  }
+  // ,
+  // {
+  //   name: 'Beefy Hamburger', 
+  //   ingredients: '10 cups beef, 1 Tbsp salt',
+  //   directions: 'Mix it all up!'
+  // }         
+  // ]
+  , function(err, recipe) {
+            if (err) {
+              console.log('error creating recipe', err);
+            } else {
+              console.log('successfully added recipe', recipe);
+            }
+          });
+
+
+var selectAllRecipes = function(callback) {
+  Recipe.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -28,4 +53,4 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+module.exports.selectAllRecipes = selectAllRecipes;
