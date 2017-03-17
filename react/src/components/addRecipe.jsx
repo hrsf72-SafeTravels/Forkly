@@ -1,9 +1,21 @@
 import React from 'react';
+import AddRecipeIngredients from './AddRecipeIngredients.jsx';
 // import ReactDOM from 'react-dom';
 
 class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      ingredients: [0, 1, 2]
+    }
+    this.addRow = this.addRow.bind(this);
+  }
+
+
+  addRow() {
+    myIngredients = this.state.ingredients;
+    myIngredients.push(0);
+    this.setState({ingredients: myIngredients});
   }
 
   render () {
@@ -22,14 +34,9 @@ class AddRecipe extends React.Component {
                 <td>Ingredient</td>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><input type="number" name="addRecipeQuantity" /></td>
-                <td><input type="text" name="addRecipeUnits" /></td>
-                <td><input type="text" name="addRecipeIngredient" /></td>
-                <td><input type="button" name="addRecipeNewRow" value="Add Row" /></td>
-              </tr>
-            </tbody>
+            {this.state.ingredients.map(function() {
+               return <AddRecipeIngredients addRow={this.addRow}/>;
+             })}
           </table>
           Directions: <br />
           <textarea name="addRecipeInstructions"></textarea>
