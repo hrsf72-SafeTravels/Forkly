@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class Login extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class Login extends React.Component {
     $.ajax({
       url: '/login',
       type: 'POST',
-      contentType: 'application/JSON',
+      // contentType: 'application/JSON',
       data: JSON.stringify(user),
       success: function(data) {
         console.log('successful login post');
