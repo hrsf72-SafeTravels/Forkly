@@ -4,6 +4,7 @@ import Nav from '../src/nav.js'
 import $ from 'jquery';
 import Home from './home.jsx'
 import AddRecipe from './components/addRecipe.jsx';
+import Login from './components/login.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class App extends React.Component {
             searchRecipes={this.searchRecipes.bind(this)}
             searchTerm={this.state.searchTerm}
             recipes={this.state.recipes}
-      /> 
+      />
     </div>)
   }
 }

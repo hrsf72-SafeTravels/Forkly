@@ -7,7 +7,14 @@ class Login extends React.Component {
     this.state = {
       username: '',
       password: ''
-    }
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   componentDidMount() {
@@ -20,11 +27,11 @@ class Login extends React.Component {
         <form>
           <label>
             Username: 
-            <input type="text" value={this.state.username}/>
+            <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange}/>
           </label>
           <label>
             Password: 
-            <input type="text" value={this.state.password}/>
+            <input name="password" type="text" value={this.state.password} onChange={this.handleInputChange}/>
           </label>
         </form>
       </div>
