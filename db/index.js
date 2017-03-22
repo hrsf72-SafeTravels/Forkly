@@ -60,4 +60,17 @@ var selectAllRecipes = function(callback) {
   });
 };
 
+// User schema
+var userSchema = mongoose.Schema({
+  username: {type: String, unique: true},
+  hash: String,
+  salt: String
+});
+
+var User = mongoose.model('User', userSchema);
+
+module.exports.verifyLogin = function() {
+
+};
+
 module.exports.selectAllRecipes = selectAllRecipes;
