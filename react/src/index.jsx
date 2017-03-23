@@ -53,6 +53,13 @@ class App extends React.Component {
 
 
   render () {
+    // return (<div>
+    //   <Home setSearchTerm={this.setSearchTerm.bind(this)}
+    //         searchRecipes={this.searchRecipes.bind(this)}
+    //         searchTerm={this.state.searchTerm}
+    //         recipes={this.state.recipes}
+    //   />
+    // </div>)
     return (<div>
       <Nav username={this.state.username}/>
       <Home setSearchTerm={this.setSearchTerm.bind(this)}

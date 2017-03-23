@@ -52,6 +52,7 @@ class Login extends React.Component {
     return (
       <div>
         <h1>Login</h1>
+        <a href="/auth/facebook">Login with Facebook</a>
         <form onSubmit={this.handleSubmit}>
           <label>
             Username: 
