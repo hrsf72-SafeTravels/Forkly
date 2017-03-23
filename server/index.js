@@ -14,5 +14,12 @@ app.post('/searchRecipes', handler.searchRecipes);
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
+
+app.post('/api/addRecipe', (req, res) => {
+  console.log(req.body);
+  res.send('');
 });
 
+app.listen(3000, function() {
+  console.log('listening on port 3000!');
+});
