@@ -16,9 +16,9 @@ class AddRecipeIngredients extends React.Component {
       return (
         <tbody>
           <tr>
-            <td><input type="number" name="addRecipeQuantity" value={this.props.addRecipeQuantity} onChange={this.handleChange} /></td>
-            <td><input type="text" name="addRecipeUnits" value={this.props.addRecipeUnits} onChange={this.handleChange} /></td>
-            <td><input type="text" name="addRecipeIngredient" value={this.props.addRecipeIngredient} onChange={this.handleChange}/></td>
+            <td><input type="number" name="quantity" value={this.props.quantity} onChange={this.handleChange} /></td>
+            <td><input type="text" name="units" value={this.props.units} onChange={this.handleChange} /></td>
+            <td><input type="text" name="ingredient" value={this.props.ingredient} onChange={this.handleChange}/></td>
             <td><input type="button" name="addRecipeNewRow" value="Add Row" onClick={this.props.addRow}/></td>
           </tr>
         </tbody>
@@ -27,9 +27,9 @@ class AddRecipeIngredients extends React.Component {
       return (
         <tbody>
           <tr>
-            <td><input type="number" name="addRecipeQuantity" value={this.props.addRecipeQuantity} onChange={this.handleChange} /></td>
-            <td><input type="text" name="addRecipeUnits" value={this.props.addRecipeUnits} onChange={this.handleChange} /></td>
-            <td><input type="text" name="addRecipeIngredient" value={this.props.addRecipeIngredient} onChange={this.handleChange}/></td>
+            <td><input type="number" name="quantity" value={this.props.quantity} onChange={this.handleChange} /></td>
+            <td><input type="text" name="units" value={this.props.units} onChange={this.handleChange} /></td>
+            <td><input type="text" name="ingredient" value={this.props.ingredient} onChange={this.handleChange}/></td>
           </tr>
         </tbody>
       )

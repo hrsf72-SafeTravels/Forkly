@@ -6,9 +6,9 @@ class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      addRecipeName: '',
-      addRecipeDirections: '',
-      ingredients: [{addRecipeQuantity: 1, addRecipeUnits: 'spoonful', addRecipeIngredient: 'sugar', showButton: true}]
+      name: '',
+      directions: '',
+      ingredients: [{quantity: 1, units: 'spoonful', ingredient: 'sugar', showButton: true}]
     }
     this.addRow = this.addRow.bind(this);
     this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
@@ -33,7 +33,7 @@ class AddRecipe extends React.Component {
   addRow() {
     let myIngredients = this.state.ingredients;
     myIngredients[myIngredients.length - 1].showButton = false;
-    myIngredients.push({addRecipeQuantity: 0, addRecipeUnits: '', addRecipeIngredient: '', showButton: true});
+    myIngredients.push({quantity: 0, units: '', ingredient: '', showButton: true});
     this.setState({ingredients: myIngredients});
   }
 
@@ -67,7 +67,7 @@ class AddRecipe extends React.Component {
           <h1>Add Recipe</h1>
         </header>
         <form onSubmit={this.handleSubmit}>
-          Name: <input type="text" name="addRecipeName" onChange={this.handleInputChange}/>
+          Name: <input type="text" name="name" onChange={this.handleInputChange}/>
           <table>
             <thead>
               <tr>
@@ -77,11 +77,11 @@ class AddRecipe extends React.Component {
               </tr>
             </thead>
             {this.state.ingredients.map(function(val, index) {
-               return <AddRecipeIngredients key={index} index={index} addRecipeQuantity={val.addRecipeQuantity} addRecipeUnits={val.addRecipeUnits} addRecipeIngredient={val.addRecipeIngredient} showButton={val.showButton} addRow={this.addRow} handleIngredientsChange={this.handleIngredientsChange}/>;
+               return <AddRecipeIngredients key={index} index={index} quantity={val.quantity} units={val.units} ingredient={val.ingredient} showButton={val.showButton} addRow={this.addRow} handleIngredientsChange={this.handleIngredientsChange}/>;
              }, this)}
           </table>
           Directions: <br />
-          <textarea name="addRecipeDirections" onChange={this.handleInputChange}></textarea>
+          <textarea name="directions" onChange={this.handleInputChange}></textarea>
           <div>
             <input type="submit" name="addRecipeSave" value="Save" />
             <input type="button" name="addRecipeCancel" value="Cancel" />
