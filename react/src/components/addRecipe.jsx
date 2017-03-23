@@ -1,21 +1,54 @@
 import React from 'react';
 import AddRecipeIngredients from './AddRecipeIngredients.jsx';
-// import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
 class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ingredients: [0, 1, 2]
+      addRecipeName: '',
+      addRecipeDirections: '',
+      ingredients: [{addRecipeQuantity: 1, addRecipeUnits: 'spoonful', addRecipeIngredient: 'sugar', showButton: true}]
     }
     this.addRow = this.addRow.bind(this);
+    this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit (event) {
+    console.log(this.state);
+    event.preventDefault();
+  }
 
   addRow() {
-    myIngredients = this.state.ingredients;
-    myIngredients.push(0);
+    let myIngredients = this.state.ingredients;
+    myIngredients[myIngredients.length - 1].showButton = false;
+    myIngredients.push({addRecipeQuantity: 0, addRecipeUnits: '', addRecipeIngredient: '', showButton: true});
     this.setState({ingredients: myIngredients});
+  }
+
+  handleIngredientsChange (event, index) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    let ing = this.state.ingredients;
+    ing[index][name] = value;
+
+    this.setState({
+      ingredients: ing
+    });
+  }
+
+  handleInputChange (event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   render () {
@@ -24,8 +57,8 @@ class AddRecipe extends React.Component {
         <header>
           <h1>Add Recipe</h1>
         </header>
-        <form>
-          Name: <input type="text" name="addRecipeName" />
+        <form onSubmit={this.handleSubmit}>
+          Name: <input type="text" name="addRecipeName" onChange={this.handleInputChange}/>
           <table>
             <thead>
               <tr>
@@ -34,15 +67,12 @@ class AddRecipe extends React.Component {
                 <td>Ingredient</td>
               </tr>
             </thead>
-            {this.state.ingredients.map(function() {
-               return <AddRecipeIngredients addRow={this.addRow}/>;
-             })}
+            {this.state.ingredients.map(function(val, index) {
+               return <AddRecipeIngredients key={index} index={index} addRecipeQuantity={val.addRecipeQuantity} addRecipeUnits={val.addRecipeUnits} addRecipeIngredient={val.addRecipeIngredient} showButton={val.showButton} addRow={this.addRow} handleIngredientsChange={this.handleIngredientsChange}/>;
+             }, this)}
           </table>
           Directions: <br />
-          <textarea name="addRecipeInstructions"></textarea>
-          <div>
-            <input type="file" name="addRecipePicture" />
-          </div>
+          <textarea name="addRecipeDirections" onChange={this.handleInputChange}></textarea>
           <div>
             <input type="submit" name="addRecipeSave" value="Save" />
             <input type="button" name="addRecipeCancel" value="Cancel" />
