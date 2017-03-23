@@ -10,14 +10,14 @@ class RecipeSearch extends React.Component {
   	return (
   	  <li>
         <div className='recipeName'>
-          <h3><em>{this.props.recipe.name}!</em></h3>
+          <h3><em>{this.props.recipe.name}</em></h3>
         </div>
         <div className='ingredients'>
-          <h4> Ingredients </h4>
+          <h4>Ingredients</h4>
           <p>{this.props.recipe.ingredients}</p>
         </div>
         <div className='directions'>
-          <h4> Directions </h4>
+          <h4>Directions</h4>
           <p>{this.props.recipe.directions}</p>
         </div>
   	  </li>

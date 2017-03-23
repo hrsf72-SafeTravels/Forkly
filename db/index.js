@@ -11,6 +11,8 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
+// db.Recipe.drop(); // this isn't working
+
 var recipeSchema = mongoose.Schema({
   name: String,
   ingredients: String,
@@ -22,18 +24,23 @@ var Recipe = mongoose.model('Recipe', recipeSchema);
 module.exports.Recipe = Recipe;
 
 Recipe.create(
-  {
-    name: 'Hamburger', 
-    ingredients: '2 cups beef, 1 Tbsp salt',
-    directions: 'Mix it all up!'
-  }
-  // ,
-  // {
-  //   name: 'Beefy Hamburger', 
-  //   ingredients: '10 cups beef, 1 Tbsp salt',
-  //   directions: 'Mix it all up!'
-  // }         
-  // ]
+  [
+    {
+      name: 'Hamburger', 
+      ingredients: '2 cups beef, 1 Tbsp salt',
+      directions: 'Mix it all up!'
+    },
+    {
+      name: 'Beefy Hamburger', 
+      ingredients: '10 cups beef, 1 Tbsp salt',
+      directions: 'Mix it all up!'
+    },
+    {
+      name: 'Noodles',
+      ingredients: '1 cup noodles, 1 tspn salt',
+      directions: 'Fry them together'
+    }         
+  ]
   , function(err, recipe) {
             if (err) {
               console.log('error creating recipe', err);
