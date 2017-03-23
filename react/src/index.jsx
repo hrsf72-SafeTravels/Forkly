@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Nav from '../src/nav.js'
 import $ from 'jquery';
 import Home from './home.jsx'
 
@@ -7,6 +8,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
+      items: [],
+      username: 'Forker Of Forks',
+      currentPage: '/home'
       recipes: [],
       currentPage: 'home',
       searchTerm: null
@@ -48,6 +52,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
+      <Nav username={this.state.username}/>
       <Home setSearchTerm={this.setSearchTerm.bind(this)}
             searchRecipes={this.searchRecipes.bind(this)}
             searchTerm={this.state.searchTerm}
@@ -58,3 +63,9 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+// from terminal, run:
+// npm run react-dev
+// npm run server-dev
+
