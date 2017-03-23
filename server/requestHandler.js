@@ -7,7 +7,8 @@ var db = require("../db/index.js");
 exports.searchRecipes = function(req, res) {
   var searchTerm = req.body.searchTerm;
  
-  db.Recipe.find({name: searchTerm})
+  //regex -> contains, options -> case insensitive
+  db.Recipe.find({name:{'$regex' : searchTerm, '$options' : 'i'}})
     .exec(function (err, recipe) {
       if (err) 
       	{
