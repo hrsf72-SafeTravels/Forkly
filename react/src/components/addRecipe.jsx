@@ -17,7 +17,16 @@ class AddRecipe extends React.Component {
   }
 
   handleSubmit (event) {
-    console.log(this.state);
+    $.ajax({
+      url: "/api/addRecipe",
+      data: JSON.stringify(this.state),
+      method: 'POST',
+      contentType: 'application/JSON',
+      success: (result) => {
+        //implement a redirect to the users recipe page
+        console.log('POST successful');
+      }
+    });
     event.preventDefault();
   }
 
