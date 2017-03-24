@@ -115,7 +115,10 @@ body {
   display: none;
 }
 
-
+.icon .logout {
+  position: absolute;
+  right: 200px;
+}
 
 
 
