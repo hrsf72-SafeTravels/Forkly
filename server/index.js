@@ -33,11 +33,18 @@ app.get('/auth/facebook',
   passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+  passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
+  // function(req, res) {
+  //   // Successful authentication, redirect home.
+  //   res.redirect('/');
+  // });
+
+app.post('/searchRecipes', handler.searchRecipes);
+
+app.post('/api/addRecipe', (req, res) => {
+  console.log(req.body);
+  res.send('');
+});
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
