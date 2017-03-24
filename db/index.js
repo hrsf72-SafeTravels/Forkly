@@ -31,6 +31,11 @@ Recipe.create(
       directions: 'Mix it all up!'
     },
     {
+      name: 'Hamburger', 
+      ingredients: '1 cup all the wrong things',
+      directions: 'This test should not go through.. UNIQUENESS!'
+    },
+    {
       name: 'Beefy Hamburger', 
       ingredients: '10 cups beef, 1 Tbsp salt',
       directions: 'Mix it all up!'
