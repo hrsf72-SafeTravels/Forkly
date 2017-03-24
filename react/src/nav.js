@@ -1,8 +1,29 @@
 import React from 'react';
+import $ from 'jquery';
 
 class Nav extends React.Component {
   constructor(props){
   	super(props);
+    this.state = {
+      username: 'Forker Of Forks'
+    };
+
+    this.findUsername();
+  }
+
+  findUsername () {
+    $.ajax({
+      url: '/username',
+      type: 'GET',
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('ajax request to search username was successful');
+        // this.state.username = data;
+      },
+      error: function(err) {
+        console.log('ajax request to search username failed');
+      }
+    });
   }
 
   render () {
@@ -11,7 +32,7 @@ class Nav extends React.Component {
   	  <div className="nav"> 
         <section className="group">
       		<h1 className="title logo">FORKLY</h1>
-      		<h3 className="title username">Welcome, {this.props.username}</h3>
+      		<h3 className="title username">Welcome, {this.state.username}</h3>
           <nav>
             <div className="icon">
               <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
@@ -34,7 +55,6 @@ class Nav extends React.Component {
 	   </div>
 	  )
   }
-
 }
 
 export default Nav;
