@@ -4,6 +4,11 @@ import $ from 'jquery';
 import Home from './home.jsx'
 import AddRecipe from './components/addRecipe.jsx';
 import Login from './components/login.jsx';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props){
@@ -36,31 +41,39 @@ class App extends React.Component {
   render () {
     // console.log(this.props);
     return (
-      <div className="nav"> 
-        <section className="group">
-          <h1 className="title logo">FORKLY</h1>
-          <h3 className="title username">Welcome, {this.state.username}</h3>
-          <nav>
-            <div className="icon logout">
-              <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-              <span>Logout</span>
-            </div>
-            <div className="icon addRecipe">
-              <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
-              <span>Add Recipe</span>
-            </div>
-            <div className="icon myForks">
-              <img className="navButton" src="assets/images/fork.png" alt="My Forks"/>
-              <span>My Forks</span>
-            </div>
-            <div className="icon home">
-              <img className="navButton" src="assets/images/home.png" alt="Home"/>
-              <span>Home</span>
-            </div>
-          </nav>
-        </section>
-       <Home />
-     </div>
+      <Router>
+        <div>
+          <div className="nav"> 
+            <section className="group">
+              <h1 className="title logo">FORKLY</h1>
+              <h3 className="title username">Welcome, {this.state.username}</h3>
+              <nav>
+                <div className="icon logout">
+                  <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
+                  <span>Logout</span>
+                </div>
+                <div className="icon addRecipe">
+                  <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
+                  <span><Link to="/addrecipe">Add Recipe</Link></span>
+                </div>
+                <div className="icon myForks">
+                  <img className="navButton" src="assets/images/fork.png" alt="My Forks"/>
+                  <span>My Forks</span>
+                </div>
+                <div className="icon home">
+                  <img className="navButton" src="assets/images/home.png" alt="Home"/>
+                  <span><Link to="/">Home</Link></span>
+                </div>
+              </nav>
+            </section>
+          </div>
+
+          <hr/>
+
+          <Route exact path="/" component={Home}/>
+          <Route path="/addrecipe" component={AddRecipe}/>
+        </div>
+      </Router>
     )
   }
 }
