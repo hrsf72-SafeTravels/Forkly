@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = { 
       items: [],
       username: 'Forker Of Forks',
-      currentPage: '/home'
+      currentPage: '/home',
       recipes: [],
       currentPage: 'home',
       searchTerm: null
@@ -60,14 +60,17 @@ class App extends React.Component {
     //         recipes={this.state.recipes}
     //   />
     // </div>)
-    return (<div>
-      <Nav username={this.state.username}/>
-      <Home setSearchTerm={this.setSearchTerm.bind(this)}
-            searchRecipes={this.searchRecipes.bind(this)}
-            searchTerm={this.state.searchTerm}
-            recipes={this.state.recipes}
-      />
-    </div>)
+    // return (<div>
+    //   <Nav username={this.state.username}/>
+    //   <Home setSearchTerm={this.setSearchTerm.bind(this)}
+    //         searchRecipes={this.searchRecipes.bind(this)}
+    //         searchTerm={this.state.searchTerm}
+    //         recipes={this.state.recipes}
+    //   />
+    // </div>)
+      return (
+        <Login />
+      )
   }
 }
 
