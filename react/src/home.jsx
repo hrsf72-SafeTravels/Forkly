@@ -56,7 +56,7 @@ class Home extends React.Component {
         >Search</button>
         <div>
           <ul>
-            {this.state.recipes.map(recipe => <RecipeSearch recipe={recipe}/>)}
+            {this.state.recipes.map((recipe, index) => <RecipeSearch recipe={recipe} key={index}/>)}
           </ul>
         </div>
   	  </div>
