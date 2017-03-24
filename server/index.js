@@ -20,10 +20,7 @@ app.use(passport.session());
 app.post('/searchRecipes', handler.searchRecipes);
 
 // for AddRecipe Component - from handleSubmit function
-app.post('/api/addRecipe', (req, res) => {
-  console.log(req.body);
-  res.send('');
-});
+app.post('/api/addRecipe', handler.addRecipe);
 
 // for Nav Component - from getUsername function
 app.get('/username', handler.getUsername);
@@ -40,11 +37,6 @@ app.get('/auth/facebook/callback',
   // });
 
 app.post('/searchRecipes', handler.searchRecipes);
-
-app.post('/api/addRecipe', (req, res) => {
-  console.log(req.body);
-  res.send('');
-});
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
