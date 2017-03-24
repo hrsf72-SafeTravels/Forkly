@@ -22,7 +22,6 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
-// NOTE TO SELF: 
 // To start, run from terminal the following...
 // npm run react-dev
 // npm run server-dev
