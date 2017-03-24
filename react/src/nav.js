@@ -8,17 +8,20 @@ class Nav extends React.Component {
       username: 'Forker Of Forks'
     };
 
-    this.findUsername();
+    this.getUsername();
   }
 
-  findUsername () {
+  getUsername () {
+    var context = this;
+
     $.ajax({
       url: '/username',
       type: 'GET',
       contentType: 'application/json',
       success: function(data) {
         console.log('ajax request to search username was successful');
-        // this.state.username = data;
+        console.log(data);
+        context.setState({username: data});
       },
       error: function(err) {
         console.log('ajax request to search username failed');
