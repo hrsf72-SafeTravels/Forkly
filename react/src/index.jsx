@@ -9,41 +9,15 @@ import Login from './components/login.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      items: [],
-      username: 'Forker Of Forks',
-      currentPage: '/home',
-      recipes: [],
-      currentPage: 'home',
-      searchTerm: null
-    }
-  }
-
-
-
-  setSearchTerm(searchTerm) {
-    this.setState({searchTerm: searchTerm});
+    this.state = {}
   }
 
   render () {
-    // return (<div>
-    //   <Home setSearchTerm={this.setSearchTerm.bind(this)}
-    //         searchRecipes={this.searchRecipes.bind(this)}
-    //         searchTerm={this.state.searchTerm}
-    //         recipes={this.state.recipes}
-    //   />
-    // </div>)
-    // return (<div>
-    //   <Nav username={this.state.username}/>
-    //   <Home setSearchTerm={this.setSearchTerm.bind(this)}
-    //         searchRecipes={this.searchRecipes.bind(this)}
-    //         searchTerm={this.state.searchTerm}
-    //         recipes={this.state.recipes}
-    //   />
-    // </div>)
-      return (
-        <Login />
-      )
+    return (<div>
+      <Login />
+      <Nav />
+      <Home />
+    </div>)
   }
 }
 

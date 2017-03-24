@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/../react/dist'));
 
+// for facebook passport authentication - don't move
+app.use(passport.initialize());
+app.use(passport.session());
+
 // for Home Component - from searchRecipes function
 app.post('/searchRecipes', handler.searchRecipes);
 
@@ -23,10 +27,6 @@ app.post('/api/addRecipe', (req, res) => {
 
 // for Nav Component - from getUsername function
 app.get('/username', handler.getUsername);
-
-
-app.use(passport.initialize());
-// app.use(passport.session());
 
 // facebook passport
 app.get('/auth/facebook',

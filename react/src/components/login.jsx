@@ -57,22 +57,24 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>Login</h1>
-        <a href="/auth/facebook">Login with Facebook</a>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Username: 
-            <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange}/>
-          </label>
-          <label>
-            Password: 
-            <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange}/>
-          </label>
-          <input type="submit"/>
-        </form>
-      </div>
+      <a href="/auth/facebook">Login with Facebook</a>
     )
+    // return (
+    //   <div>
+    //     <h1>Login</h1>
+    //     <form onSubmit={this.handleSubmit}>
+    //       <label>
+    //         Username: 
+    //         <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange}/>
+    //       </label>
+    //       <label>
+    //         Password: 
+    //         <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange}/>
+    //       </label>
+    //       <input type="submit"/>
+    //     </form>
+    //   </div>
+    // )
   }
 }
 
