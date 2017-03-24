@@ -4,10 +4,12 @@ var Promise = require("bluebird");
 
 var db = require("../db/index.js");
 
+// for Home Component - from searchRecipes function
 exports.searchRecipes = function(req, res) {
   var searchTerm = req.body.searchTerm;
  
-  //regex -> contains, options -> case insensitive
+  // regex -> allows the search to contain string instead of === string
+  // options i -> allows search to be case insensitive
   db.Recipe.find({name:{'$regex' : searchTerm, '$options' : 'i'}})
     .exec(function (err, recipe) {
       if (err) 
@@ -17,7 +19,9 @@ exports.searchRecipes = function(req, res) {
       	res.json(recipe);
       }
 	});
+};
 
-
-
-}
+// for Nav Component - from getUsername function
+exports.getUsername = function(req, res) {
+  res.json('Name Test');
+};

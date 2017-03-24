@@ -12,6 +12,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/../react/dist'));
 
+// for Home Component - from searchRecipes function
+app.post('/searchRecipes', handler.searchRecipes);
+
+// for AddRecipe Component - from handleSubmit function
+app.post('/api/addRecipe', (req, res) => {
+  console.log(req.body);
+  res.send('');
+});
+
+// for Nav Component - from getUsername function
+app.get('/username', handler.getUsername);
+
+
 app.use(passport.initialize());
 // app.use(passport.session());
 
@@ -25,13 +38,6 @@ app.get('/auth/facebook/callback',
     // Successful authentication, redirect home.
     res.redirect('/');
   });
-
-app.post('/searchRecipes', handler.searchRecipes);
-
-app.post('/api/addRecipe', (req, res) => {
-  console.log(req.body);
-  res.send('');
-});
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
