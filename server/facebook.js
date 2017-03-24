@@ -1,20 +1,21 @@
 var express = require('express');
 var db = require('../db/index.js');
 var User = db.User;
+var configAuth = require('../react/env/config.js');
 
 const passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
 
 // Use facebook strategy
 passport.use(new FacebookStrategy({
-    clientID: '1324391347626035',
-    clientSecret: 'd38f57c367a9000982c01b26ccd320c2',
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    clientID: configAuth.facebookAuth.clientID,
+    clientSecret: configAuth.facebookAuth.clientSecret,
+    callbackURL: configAuth.facebookAuth.callbackURL
   },
    function(accessToken, refreshToken, profile, done) {
-      // console.log('profile: ', profile);
-      // console.log('accessToken', accessToken);
-      // console.log('refreshToken', refreshToken);
+      console.log('profile: ', profile);
+      console.log('accessToken', accessToken);
+      console.log('refreshToken', refreshToken);
        //check user table for anyone with a facebook ID of profile.id
        User.findOne({
            'facebook.id': profile.id
