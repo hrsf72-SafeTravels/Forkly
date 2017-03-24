@@ -25,3 +25,7 @@ exports.searchRecipes = function(req, res) {
 exports.getUsername = function(req, res) {
   res.json('Name Test');
 };
+
+exports.addRecipe = function(req, res) {
+  db.Recipe.create(req.body);
+};
