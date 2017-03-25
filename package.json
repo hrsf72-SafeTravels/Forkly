@@ -53,7 +53,7 @@
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
     "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
-    "postinstall": "webpack -d"
+    //"postinstall": "webpack -d" this is for heroku, I'm not sure exactly what needs to be here to have webpack compile our bundle.js file
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/.eslintrc"
