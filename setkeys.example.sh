@@ -1,0 +1,1 @@
+# create a sample script that shows how to set CLIENT_ID and CLIENT_SECRET to the actual keys from the facebook app
