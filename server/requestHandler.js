@@ -29,6 +29,7 @@ exports.getUsername = function(req, res) {
     res.json('Forker Of Forks');
   }
 };
+
 exports.addRecipe = function(req, res) {
   db.Recipe.create(req.body);
 };
