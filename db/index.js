@@ -11,10 +11,10 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-// db.Recipe.drop(); // this isn't working
 
 var recipeSchema = mongoose.Schema({
-  name: String,
+  // dropDups will drop duplicates. will need to restart mongo router for these to kick in
+  name: {type: String, unique: true, dropDups: true, required: true},
   ingredients: String,
   directions: String
 });
@@ -29,6 +29,11 @@ Recipe.create(
       name: 'Hamburger', 
       ingredients: '2 cups beef, 1 Tbsp salt',
       directions: 'Mix it all up!'
+    },
+    {
+      name: 'Hamburger', 
+      ingredients: '1 cup all the wrong things',
+      directions: 'This test should not go through.. UNIQUENESS!'
     },
     {
       name: 'Beefy Hamburger', 
@@ -48,7 +53,6 @@ Recipe.create(
               console.log('successfully added recipe', recipe);
             }
           });
-
 
 var selectAllRecipes = function(callback) {
   Recipe.find({}, function(err, items) {
