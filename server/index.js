@@ -1,4 +1,4 @@
-var setup = require('./setup');
+var setup = require('./setup.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../db');
