@@ -53,6 +53,15 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
+    $.ajax({
+      url: '/verifylogin',
+      type: 'GET',
+      success: function(user) {
+        console.log('req.user object: ', user);
+      },
+      error: function(err) {
+      }
+    })
   }
 
   render () {

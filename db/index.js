@@ -65,18 +65,15 @@ var userSchema = mongoose.Schema({
   // username: {type: String, unique: true},
   // hash: String,
   // salt: String,
+  // username: String,
   name: String,
-  email: String,
-  username: String,
-  facebook: Object
+  provider: String,
+  facebook: Object,
+  forks: Array
 });
 
 var User = mongoose.model('User', userSchema);
 
 module.exports.User = User;
-
-// module.exports.verifyLogin = function() {
-
-// };
 
 module.exports.selectAllRecipes = selectAllRecipes;

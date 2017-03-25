@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../react/dist'));
 
 // for facebook passport authentication - don't move
+app.use(express.session({ secret: 'rum ham' }));
+app.use(express.cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -27,6 +29,11 @@ app.post('/api/addRecipe', (req, res) => {
 
 // for Nav Component - from getUsername function
 app.get('/username', handler.getUsername);
+
+// to verify login
+app.get('/verifylogin', (req, res) => {
+  res.send(req.user);
+});
 
 // facebook passport
 app.get('/auth/facebook',
