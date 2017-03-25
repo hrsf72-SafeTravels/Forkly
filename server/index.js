@@ -1,4 +1,6 @@
-var setup = require('./setup.js');
+if (!process.env.CLIENT_ID) {
+  var setup = require('./setup.js');
+};
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../db');
