@@ -25,6 +25,7 @@ class AddRecipe extends React.Component {
       success: (result) => {
         //implement a redirect to the users recipe page
         console.log('POST successful');
+        // this.transitionTo('/');
       }
     });
     event.preventDefault();
