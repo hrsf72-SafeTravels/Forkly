@@ -1,5 +1,5 @@
 import React from 'react';
-import AddRecipeIngredients from './AddRecipeIngredients.jsx';
+import AddRecipeIngredients from './addRecipeIngredients.jsx';
 import $ from 'jquery';
 
 class AddRecipe extends React.Component {
