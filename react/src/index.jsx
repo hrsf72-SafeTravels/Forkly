@@ -28,8 +28,8 @@ class App extends React.Component {
       type: 'GET',
       contentType: 'application/json',
       success: function(data) {
-        console.log('ajax request to search username was successful');
-        console.log(data);
+        // console.log('ajax request to search username was successful');
+        // console.log(data);
         context.setState({username: data});
       },
       error: function(err) {

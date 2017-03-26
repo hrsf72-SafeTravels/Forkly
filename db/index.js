@@ -42,7 +42,10 @@ var userSchema = mongoose.Schema({
   name: String,
   provider: String,
   facebook: Object,
-  forks: Array
+  forks: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Recipe'
+  }]
 });
 
 var User = mongoose.model('User', userSchema);
