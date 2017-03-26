@@ -82,6 +82,14 @@ body {
   ========================================
 */
 
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
 .logo {
   font-size: 40px;
   padding: 40px 0 22px 10px;
@@ -95,32 +103,31 @@ body {
 }
 
 .navButton {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   float: right;
 }
 
+.icon {
+  padding-top: 60px;
+  width: 50px;
+  float: right;
+  text-align: center;
+}
+
 .icon span {
-  margin: 20px 0 20px 0;
   display: none;
 }
 
 .icon:hover span {
-  margin-top: 10px;
-  display: inline;
-  float: right
+  display: inline-block;
+  text-align: center;
+  float: right;
 }
 
 .icon:hover img {
   display: none;
 }
-
-.icon .logout {
-  position: absolute;
-  right: 200px;
-}
-
-
 
 
 
