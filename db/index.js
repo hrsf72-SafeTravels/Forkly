@@ -23,37 +23,6 @@ var Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports.Recipe = Recipe;
 
-Recipe.create(
-  [
-    {
-      name: 'Hamburger', 
-      ingredients: '2 cups beef, 1 Tbsp salt',
-      directions: 'Mix it all up!'
-    },
-    {
-      name: 'Hamburger', 
-      ingredients: '1 cup all the wrong things',
-      directions: 'This test should not go through.. UNIQUENESS!'
-    },
-    {
-      name: 'Beefy Hamburger', 
-      ingredients: '10 cups beef, 1 Tbsp salt',
-      directions: 'Mix it all up!'
-    },
-    {
-      name: 'Noodles',
-      ingredients: '1 cup noodles, 1 tspn salt',
-      directions: 'Fry them together'
-    }         
-  ]
-  , function(err, recipe) {
-            if (err) {
-              console.log('error creating recipe', err);
-            } else {
-              console.log('successfully added recipe', recipe);
-            }
-          });
-
 var selectAllRecipes = function(callback) {
   Recipe.find({}, function(err, items) {
     if(err) {

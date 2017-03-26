@@ -14,7 +14,8 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      username: 'Forker Of Forks'
+      username: 'Forker Of Forks',
+      currentRecipe: []
     };
 
     this.getUsername();
