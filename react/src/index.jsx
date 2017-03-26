@@ -43,6 +43,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <Login />
           <div className="nav"> 
             <section className="group">
               <h1 className="title logo">FORKLY</h1>

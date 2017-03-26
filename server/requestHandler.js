@@ -23,7 +23,11 @@ exports.searchRecipes = function(req, res) {
 
 // for Nav Component - from getUsername function
 exports.getUsername = function(req, res) {
-  res.json('Name Test');
+  if (req.user) {
+    res.json(req.user.name);  
+  } else {
+    res.json('Forker Of Forks');
+  }
 };
 
 exports.addRecipe = function(req, res) {
