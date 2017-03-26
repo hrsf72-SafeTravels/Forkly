@@ -92,13 +92,13 @@ body {
 
 .logo {
   font-size: 40px;
-  padding: 40px 0 22px 10px;
+  padding: 40px 0 20px 10px;
   float: left;
   color: orange;
 }
 
 .username {
-  margin: 85px 0 22px 10px;
+  margin: 85px 0 20px 10px;
   font-size: 20px;
   text-align: left;
   color: orange;
@@ -137,13 +137,18 @@ body {
   ========================================
 */
 .searchImage {
-  position: absolute;
   width: 800px;
-  display: inline-block;
 }
 
 .search {
   position: relative;
+  display: table-cell;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  text-align: center;
+  max-width: 400px;
+  max-height: 200px;
 }
 
 .searchText {
@@ -155,6 +160,24 @@ body {
   text-shadow: 0 2px 5px #000, 0 0 10px #000;
   text-decoration-style: bold;
   font-size: 16px;
+}
+
+.results {
+  position: absolute;
+  top: 440px;
+}
+
+.recipeName, .ingredients .title, .directions .title {
+  color: orange;
+}
+
+.recipeName {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.recipe {
+  margin: 20px;
 }
 
 
