@@ -71,7 +71,6 @@ class App extends React.Component {
             </section>
           </div>
 
-          <hr />
 
           <Route exact path="/" component={Home}/>
           <Route path="/addrecipe" component={AddRecipe}/>

@@ -54,7 +54,7 @@ table {
 */
 
 body {
-  background: teal;
+  background: white;
   font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -94,12 +94,14 @@ body {
   font-size: 40px;
   padding: 40px 0 22px 10px;
   float: left;
+  color: orange;
 }
 
 .username {
   margin: 85px 0 22px 10px;
   font-size: 20px;
   text-align: left;
+  color: orange;
 }
 
 .navButton {
@@ -129,6 +131,31 @@ body {
   display: none;
 }
 
+/*
+  ========================================
+  Home
+  ========================================
+*/
+.searchImage {
+  position: absolute;
+  width: 800px;
+  display: inline-block;
+}
+
+.search {
+  position: relative;
+}
+
+.searchText {
+  position: absolute;
+  top: 120px;
+  text-align: center;
+  width: 100%;
+  color: white;
+  text-shadow: 0 2px 5px #000, 0 0 10px #000;
+  text-decoration-style: bold;
+  font-size: 16px;
+}
 
 
 
