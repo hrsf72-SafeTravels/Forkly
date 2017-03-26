@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Home from './home.jsx'
-import AddRecipe from './components/addRecipe.jsx';
-import Login from './components/login.jsx';
+import AddRecipe from './addRecipe.jsx';
+import Login from './login.jsx';
 import {
   BrowserRouter as Router,
   Route,
