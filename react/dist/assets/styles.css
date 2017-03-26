@@ -142,18 +142,16 @@ body {
 
 .search {
   position: relative;
-  display: table-cell;
   margin-left: auto;
   margin-right: auto;
   vertical-align: middle;
   text-align: center;
-  max-width: 400px;
-  max-height: 200px;
+  width: 800px;
 }
 
 .searchText {
-  position: absolute;
-  top: 120px;
+  position: relative;
+  top: -200px;
   text-align: center;
   width: 100%;
   color: white;
@@ -164,7 +162,7 @@ body {
 
 .results {
   position: absolute;
-  top: 440px;
+  top: 444px;
 }
 
 .recipeName, .ingredients .title, .directions .title {
