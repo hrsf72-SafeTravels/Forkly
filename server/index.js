@@ -1,9 +1,14 @@
+if (!process.env.CLIENT_ID) {
+  var setup = require('./setup.js');
+};
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../db');
 var handler = require('./requestHandler.js');
 var facebook = require('./facebook.js');
 var passport = require('passport');
+
+var port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -45,6 +50,6 @@ app.get('/auth/facebook/callback',
 
 app.post('/searchRecipes', handler.searchRecipes);
 
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+app.listen(port, function() {
+  console.log('listening on port '+ port + '!');
 });
