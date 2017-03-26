@@ -63,12 +63,17 @@ class AddRecipe extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="createRecipe">
         <header>
-          <h1>Add Recipe</h1>
+          <h1 className="recipeHeader">Create a Recipe</h1>
         </header>
+        <br />
+        <img className="recipeImage" src="assets/images/sushi.jpg" alt="sushi"/>
         <form onSubmit={this.handleSubmit}>
-          Name: <input type="text" name="name" onChange={this.handleInputChange}/>
+          <h3 className="title recipeName"> Recipe Name:</h3> 
+          <input type="text" name="name" onChange={this.handleInputChange}/>
+          <br />
+          <h3 className="title">Ingredients: </h3>
           <table>
             <thead>
               <tr>
@@ -81,7 +86,8 @@ class AddRecipe extends React.Component {
                return <AddRecipeIngredients key={index} index={index} quantity={val.quantity} units={val.units} ingredient={val.ingredient} showButton={val.showButton} addRow={this.addRow} handleIngredientsChange={this.handleIngredientsChange}/>;
              }, this)}
           </table>
-          Directions: <br />
+          <br />
+          <h3 className="title"> Directions: </h3>
           <textarea name="directions" onChange={this.handleInputChange}></textarea>
           <div>
             <input type="submit" name="addRecipeSave" value="Save" />
