@@ -58,11 +58,13 @@ body {
   font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
 /*
   ========================================
-  Clearfix
+  Navigation
   ========================================
 */
+
 .group:before,
 .group:after {
   content: "";
@@ -75,12 +77,6 @@ body {
   clear: both;
   *zoom: 1;
 }
-
-/*
-  ========================================
-  Navigation
-  ========================================
-*/
 
 .floatLeft {
   float: left;
@@ -151,7 +147,7 @@ body {
 
 .searchText {
   position: relative;
-  top: -200px;
+  top: -190px;
   text-align: center;
   width: 100%;
   color: white;
@@ -178,9 +174,32 @@ body {
   margin: 20px;
 }
 
+/*
+  ========================================
+  Add Recipe
+  ========================================
+*/
 
+.createRecipe {
+  position: absolute;
+  padding: 20px;
+  left: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
 
+.recipeImage {
+  max-width: 400px;
+}
 
+.recipeHeader {
+  text-transform: uppercase;
+  text-align: center;
+  color: orange;
+  font-size: 24px;
+}
 
-
-
+.createRecipe .title {
+  color: orange;
+  font-size: 16px;
+}
