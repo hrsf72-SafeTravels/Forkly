@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/../react/dist'));
 
 // for facebook passport authentication - don't move
 app.use(express.session({ secret: 'rum ham' }));
-app.use(express.cookieParser());
+// app.use(express.cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -47,6 +47,11 @@ app.get('/auth/facebook/callback',
   //   // Successful authentication, redirect home.
   //   res.redirect('/');
   // });
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 app.post('/searchRecipes', handler.searchRecipes);
 
