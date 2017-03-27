@@ -39,7 +39,15 @@ exports.getUserRecipes = function(req, res) {
 }
 
 exports.addRecipe = function(req, res) {
-  console.log('recipe: ', req.body);
-  db.Recipe.create(req.body);
+  req.body._creator = req.user._id;
+
+  // create recipe in database
+  db.Recipe.create(req.body).then((recipe) => {
+    db.User.findById(req.user._id).then((user) => {
+      // push recipe into user's recipes array
+      user.recipes.push(recipe.id);
+    });
+  });
+
   res.end();
 };
