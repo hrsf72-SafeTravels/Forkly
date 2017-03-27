@@ -76,7 +76,7 @@ class App extends React.Component {
           <Route exact path="/" component={Home}/>
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/myrecipes" component={ViewRecipes}/>
-          
+        
           <br />
           <br />
           <br />
