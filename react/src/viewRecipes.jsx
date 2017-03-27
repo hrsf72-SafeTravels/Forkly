@@ -37,7 +37,13 @@ class ViewRecipes extends React.Component {
     if (this.state) {
       console.log('RENDER STATE', this.state)
       this.state.recipes.forEach((recipe, index) => {
-      recipesArray.push(<li key={index} value={recipe} onClick={() => this.handleClick(recipe._id)}>{recipe.name}</li>)
+      recipesArray.push(
+        <li className="recipeSingle" 
+          key={index} 
+          value={recipe} 
+          onClick={() => this.handleClick(recipe._id)}>
+          {recipe.name}
+        </li>)
       });
 
       template = 
