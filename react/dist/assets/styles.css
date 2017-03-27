@@ -157,8 +157,21 @@ body {
 }
 
 .results {
-  position: absolute;
-  top: 444px;
+  padding: 20px;
+  top: -50px;
+}
+
+.searchName, .searchIngredients, .searchDirections {
+  color: orange;
+}
+
+.searchName {
+  font-size: 22px;
+}
+
+.searchIngredient {
+  font-size: 8px;
+  float: right;
 }
 
 /*
@@ -191,3 +204,4 @@ body {
   color: orange;
   font-size: 18px;
 }
+
