@@ -94,6 +94,7 @@ class AddRecipe extends React.Component {
         
           <h3 className="title"> Directions: </h3>
           <textarea name="directions" onChange={this.handleInputChange}></textarea>
+
           <br />
 
           <div>
@@ -101,6 +102,10 @@ class AddRecipe extends React.Component {
             <input type="button" name="addRecipeCancel" value="Cancel" />
           </div>
         </form>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       </div>
     )
   }
