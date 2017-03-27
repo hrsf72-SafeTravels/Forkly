@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeSearchIngredient from './RecipeSearchIngredient'
+import RecipeSearchIngredient from './recipeSearchIngredient'
 
 class RecipeSearch extends React.Component {
   constructor(props) {
