@@ -48,7 +48,7 @@ class App extends React.Component {
         <div>
           <div className="group"> 
             <section className="floatLeft">
-              <h1 className="title logo">FORKLY</h1>
+              <img className="logo" src="assets/images/forkly.png" alt="FORKLY"/>
               <h3 className="title username">Welcome, {this.state.username}</h3>
               <Login />
             </section>
@@ -56,7 +56,7 @@ class App extends React.Component {
               <nav>
                 <div className="icon logout">
                   <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-                  <span>Logout  </span>
+                  <span> <br />Logout </span>
                 </div>
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
@@ -68,7 +68,7 @@ class App extends React.Component {
                 </div>
                 <div className="icon home">
                   <img className="navButton" src="assets/images/home.png" alt="Home"/>
-                  <span><Link to="/">Home</Link></span>
+                  <span><Link to="/"><br />Home</Link></span>
                 </div>
               </nav>
             </section>
@@ -88,6 +88,10 @@ ReactDOM.render(<App />, document.getElementById('app'));
 // To start, run from terminal the following...
 // npm run react-dev
 // npm run server-dev
+
+// <footer>
+// <small>&copy; <a ref="https://github.com/TeamForkly/Forkly">TeamForkly</a></small>
+// </footer>
 
 // Fred, for good luck.
 // https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/c/e/b/e/highres_253972926.jpeg
