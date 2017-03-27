@@ -143,7 +143,7 @@ body {
   ========================================
 */
 .searchImage {
-  width: 800px;
+  width: 850px;
 }
 
 .search {
@@ -153,7 +153,7 @@ body {
   margin-right: auto;
   vertical-align: middle;
   text-align: center;
-  width: 800px;
+  width: 850px;
 }
 
 .searchText {
@@ -205,12 +205,12 @@ body {
   color: white;
   font-size: 24px;
   position: absolute;
-  top: 190px;
+  top: 200px;
   z-index: 1;
   text-shadow: 0 2px 5px #000, 0 0 10px #000;
   text-decoration-style: bold;
   font-size: 90px;
-  left: 130px;
+  left: 135px;
 }
 
 .recipeName {
@@ -235,13 +235,14 @@ body {
   max-width: 850px;
   z-index: -1;
   padding: 20px;
+  top: 20px;
 }
 
 .myRecipesTitle {
   color: white;
   font-size: 24px;
   position: absolute;
-  top: 350px;
+  top: 365px;
   left: 240px;
   z-index: 1;
   text-shadow: 0 2px 5px #000, 0 0 10px #000;
@@ -256,11 +257,14 @@ body {
 
 .recipesArray{
   padding: 20px;
+}
+
+.recipeSingle{
   font-size: 20px;
   color: orange;
 }
 
-.recipesArray:hover {
+.recipeSingle:hover {
   text-decoration: underline;
 }
 
