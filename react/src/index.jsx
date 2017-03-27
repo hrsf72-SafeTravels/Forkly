@@ -86,6 +86,10 @@ ReactDOM.render(<App />, document.getElementById('app'));
 // npm run react-dev
 // npm run server-dev
 
+// <footer>
+// <small>&copy; <a ref="https://github.com/TeamForkly/Forkly">TeamForkly</a></small>
+// </footer>
+
 // Fred, for good luck.
 // https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/c/e/b/e/highres_253972926.jpeg
 // ,,,,,,,,,,,,,,,,,*,,,,,,,***************,,/(//*((/*/*/(((#(#####((((#%%%%(*,,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
