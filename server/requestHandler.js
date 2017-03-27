@@ -58,3 +58,12 @@ exports.addRecipe = function(req, res) {
     res.end();
   }
 };
+
+exports.getRecipeById = function(req, res) {
+  console.log('getRecipeById is called: this is req.body', req.body);
+  db.Recipe.findById(req.body.id)
+  .then((recipe) => {
+    console.log('this is the recipe', recipe);
+    res.json(recipe);
+  })
+};
