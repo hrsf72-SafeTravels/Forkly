@@ -256,11 +256,14 @@ body {
 
 .recipesArray{
   padding: 20px;
+}
+
+.recipeSingle{
   font-size: 20px;
   color: orange;
 }
 
-.recipesArray:hover {
+.recipeSingle:hover {
   text-decoration: underline;
 }
 

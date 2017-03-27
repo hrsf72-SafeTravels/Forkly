@@ -19,7 +19,6 @@ class App extends React.Component {
       username: null,
       currentRecipe: []
     };
-
   }
 
   componentDidMount(){
@@ -58,7 +57,7 @@ class App extends React.Component {
               <nav>
                 <div className="icon logout">
                   <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-                  <span> <br />Logout </span>
+                  <span><br />Logout </span>
                 </div>
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
