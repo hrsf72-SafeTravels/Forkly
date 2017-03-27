@@ -1,10 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
+import RecipeIngredients from './recipeIngredients'
 
 class ViewFork extends React.Component {
+
   constructor(props) {
     super(props);
   }
+
   componentDidMount(){
     let pathname = this.context.router.route.location.pathname;
     let recipeId = pathname.slice(pathname.lastIndexOf('/') + 1);
@@ -22,42 +25,31 @@ class ViewFork extends React.Component {
       }
     });
   }
+
   render () {
     let template = '';
     if (this.state) {
       let { recipe } = this.state;
       template = 
-      <div>
+      <div className="viewFork">
         <header>
-          <h1>{recipe.name}</h1>
+          <h1 className="recipeName">{recipe.name}</h1>
+          <br />
         </header>
-        <table>
-          <thead>
-            <tr>
-              <td>Quantity</td>
-              <td>Units</td>
-              <td>Ingredient</td>
-            </tr>
-          </thead>
-          <tbody>
-          {recipe.ingredients.map(function(val, index) {
-            return (
-              <tr key={index}>
-                <td>{val.quantity}</td>
-                <td>{val.units}</td>
-                <td>{val.ingredient}</td>
-              </tr>
-            )
-           }, this)}
-          </tbody>
-        </table>
-        Directions: <br />
+        <h3 className="title">Ingredients: </h3>
+        <p>{recipe.ingredients.map( (ingredient, index) => 
+          <RecipeIngredients ingredient={ingredient} key={index}/>
+          )}
+        </p>
+        <br/>
+        <h3 className="title"> Directions: </h3>
         <p>{recipe.directions}</p>
+
       </div>
     } else {
       template = 
       <div>
-        <h3>Loading Your Recipes!</h3>
+        <h3>Loading Your Recipes...</h3>
       </div>
     }
     return (

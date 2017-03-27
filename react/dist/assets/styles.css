@@ -227,6 +227,27 @@ body {
 
 /*
   ========================================
+  View Fork
+  ========================================
+*/
+
+.viewFork {
+  padding: 20px;
+}
+
+.viewFork .recipeName {
+  color: orange;
+  font-size: 22px;
+  padding-top: 20px;
+}
+
+.viewFork .title {
+  color: orange;
+  font-size: 16px;
+}
+
+/*
+  ========================================
   My Recipes
   ========================================
 */
@@ -268,6 +289,7 @@ body {
 .recipeSingle:hover {
   text-decoration: underline;
 }
+
 
 /*
   ========================================

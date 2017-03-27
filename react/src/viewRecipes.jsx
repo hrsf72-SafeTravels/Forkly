@@ -64,7 +64,7 @@ class ViewRecipes extends React.Component {
         <div className="loadingText"> 
           <h3>Loading...</h3>
           <br/>
-          <h3>Please find or create your first recipe!</h3>
+          <h3>Please login or create your first recipe!</h3>
           <br />
           <br />
         </div>
