@@ -47,11 +47,13 @@ exports.addRecipe = function(req, res) {
     req.body._creator = req.user._id;
 
     // create recipe in database
+    let recipeId;
     db.Recipe.create(req.body).then((recipe) => {
       // push recipe into user's recipes array
+      recipeId = recipe.id;
       db.User.findByIdAndUpdate(req.user._id, {$push: {recipes: recipe.id}})
       .then(() => {
-        res.end();
+        res.json(recipeId);
       })
     });
   } else {
