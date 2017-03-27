@@ -31,6 +31,13 @@ exports.getUsername = function(req, res) {
   }
 };
 
+// for viewRecipes Component - get all recipes for user
+exports.getUserRecipes = function(req, res) {
+  db.User.find(req.body).exec().then(function(user) {
+    res.send(user.recipes);
+  });
+}
+
 exports.addRecipe = function(req, res) {
   db.Recipe.create(req.body);
 };
