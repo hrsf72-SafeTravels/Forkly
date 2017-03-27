@@ -87,10 +87,9 @@ body {
 }
 
 .logo {
-  font-size: 40px;
   padding: 40px 0 20px 10px;
   float: left;
-  color: orange;
+  width: 300px;
 }
 
 .username {
@@ -101,14 +100,13 @@ body {
 }
 
 .navButton {
-  height: 30px;
-  width: 30px;
+  height: 45px;
   float: right;
 }
 
 .icon {
   padding-top: 60px;
-  width: 50px;
+  width: 65px;
   float: right;
   text-align: center;
 }
