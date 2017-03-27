@@ -5,7 +5,7 @@ import Home from './home.jsx'
 import AddRecipe from './addRecipe.jsx';
 import Login from './login.jsx';
 import ViewFork from './viewFork.js';
-import ViewRecipes from './ViewRecipes.jsx';
+import ViewRecipes from './viewRecipes.jsx';
 import {
   BrowserRouter as Router,
   Route,
@@ -76,7 +76,7 @@ class App extends React.Component {
 
           <Route exact path="/" component={Home}/>
           <Route path="/addrecipe" component={AddRecipe}/>
-          <Route path="/viewrecipes" component={ViewRecipes}/>
+          <Route path="/myrecipes" component={ViewRecipes}/>
         </div>
       </Router>
     )
