@@ -16,10 +16,13 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      username: 'Forker Of Forks',
+      username: null,
       currentRecipe: []
     };
 
+  }
+
+  componentDidMount(){
     this.getUsername();
   }
 
@@ -49,7 +52,7 @@ class App extends React.Component {
           <div className="group"> 
             <section className="floatLeft">
               <img className="logo" src="assets/images/forkly.png" alt="FORKLY"/>
-              <h3 className="title username">Welcome, {this.state.username}</h3>
+              <h3 className="title username"><Login username={this.state.username}/></h3>
             </section>
             <section className="floatRight">
               <nav>

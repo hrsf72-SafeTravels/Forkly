@@ -6,8 +6,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      // username: '',
+      // password: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,9 +65,15 @@ class Login extends React.Component {
   }
 
   render () {
-    return (
-      <a href="/auth/facebook">Login with Facebook</a>
-    )
+    if (this.props.username === null) {
+      return (
+        <a href="/auth/facebook">Login with Facebook</a>
+      )      
+    } else {
+      return (
+        <div>Welcome, {this.props.username}</div>
+      )      
+    }
     // return (
     //   <div>
     //     <h1>Login</h1>
