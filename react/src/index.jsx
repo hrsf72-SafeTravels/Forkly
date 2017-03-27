@@ -19,6 +19,7 @@ class App extends React.Component {
       username: null,
       currentRecipe: []
     };
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount(){
@@ -44,15 +45,17 @@ class App extends React.Component {
   }
 
   logout() {
+    var context = this;
     $.ajax({
       url:'/logout',
       type: 'GET',
       success: function(data) {
-        this.getUsername();
-        console.log('successful logout');
+        context.getUsername();
+        // context.forceUpdate();
+        // console.log('successful logout');
       },
       error: function(err) {
-        console.log('unsuccessful logout');
+        // console.log('unsuccessful logout');
       }
     })
   }
