@@ -17,15 +17,14 @@ class AddRecipe extends React.Component {
   }
 
   handleSubmit (event) {
+    const { router } = this.context
     $.ajax({
       url: "/api/addRecipe",
       data: JSON.stringify(this.state),
       method: 'POST',
       contentType: 'application/JSON',
-      success: (result) => {
-        //implement a redirect to the users recipe page
-        console.log('POST successful');
-        // this.transitionTo('/');
+      success: (recipeId) => {
+        router.history.push('/recipe/' + recipeId);
       }
     });
     event.preventDefault();
@@ -109,6 +108,10 @@ class AddRecipe extends React.Component {
       </div>
     )
   }
+}
+
+AddRecipe.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default AddRecipe;
