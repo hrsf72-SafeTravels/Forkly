@@ -76,6 +76,14 @@ class App extends React.Component {
           <Route exact path="/" component={Home}/>
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/myrecipes" component={ViewRecipes}/>
+          
+          <br />
+          <br />
+          <br />
+          <footer>
+            <br />
+            <small>&copy; <a href="https://github.com/TeamForkly/Forkly">TeamForkly</a></small>
+          </footer>
         </div>
       </Router>
     )
@@ -87,10 +95,6 @@ ReactDOM.render(<App />, document.getElementById('app'));
 // To start, run from terminal the following...
 // npm run react-dev
 // npm run server-dev
-
-// <footer>
-// <small>&copy; <a ref="https://github.com/TeamForkly/Forkly">TeamForkly</a></small>
-// </footer>
 
 // Fred, for good luck.
 // https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/c/e/b/e/highres_253972926.jpeg
