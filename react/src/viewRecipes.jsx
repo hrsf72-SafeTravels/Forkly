@@ -41,7 +41,7 @@ class ViewRecipes extends React.Component {
       });
 
       template = <div>
-        <h3>Welcome, here are your recipes!</h3>
+        <h1>Welcome, here are your recipes!</h1>
         <ul>
           {recipesArray}
         </ul>

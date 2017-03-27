@@ -50,7 +50,6 @@ class App extends React.Component {
             <section className="floatLeft">
               <img className="logo" src="assets/images/forkly.png" alt="FORKLY"/>
               <h3 className="title username">Welcome, {this.state.username}</h3>
-              <Login />
             </section>
             <section className="floatRight">
               <nav>
