@@ -57,7 +57,7 @@ class App extends React.Component {
                 </div>
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
-                  <span><Link to="/addrecipe">Add Recipe</Link></span>
+                  <span><Link to="/addrecipe">Create Recipe</Link></span>
                 </div>
                 <div className="icon myForks">
                   <img className="navButton" src="assets/images/fork.png" alt="My Forks"/>
