@@ -19,6 +19,7 @@ class App extends React.Component {
       username: null,
       currentRecipe: []
     };
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount(){
@@ -43,6 +44,22 @@ class App extends React.Component {
     });
   }
 
+  logout() {
+    var context = this;
+    $.ajax({
+      url:'/logout',
+      type: 'GET',
+      success: function(data) {
+        context.getUsername();
+        // context.forceUpdate();
+        // console.log('successful logout');
+      },
+      error: function(err) {
+        // console.log('unsuccessful logout');
+      }
+    })
+  }
+
   render () {
     // console.log(this.props);
     return (
@@ -57,7 +74,7 @@ class App extends React.Component {
               <nav>
                 <div className="icon logout">
                   <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-                  <span><br />Logout </span>
+                  <span onClick={this.logout}><br />Logout</span>
                 </div>
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
