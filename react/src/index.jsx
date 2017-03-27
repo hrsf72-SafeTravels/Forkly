@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Home from './home.jsx'
 import AddRecipe from './addRecipe.jsx';
 import Login from './login.jsx';
+import ViewFork from './viewFork.js';
 import {
   BrowserRouter as Router,
   Route,
