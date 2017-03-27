@@ -9,65 +9,24 @@ class ViewFork extends React.Component {
       directions: 'Soak in rum and bake',
       ingredients: [{quantity: 1, units: 'whole', ingredient: 'ham'}, {quantity: 1, units: 'gallon', ingredient: 'rum'}]
     }
-    // this.addRow = this.addRow.bind(this);
-    // this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
-  // navigate() {
-  //   // const { router } = this.context
-  //   var router = this.context.router;
-  //   router.history.push('/')
-  // }
 
-  // handleSubmit (event) {
-  //   event.preventDefault();
-  //   $.ajax({
-  //     url: "/api/viewFork",
-  //     data: JSON.stringify(this.state),
-  //     method: 'POST',
-  //     contentType: 'application/JSON',
-  //     error: (error) => {
-  //       console.log('you have an error', error);
-  //     },
-  //     success: (result) => {
-  //       //implement a redirect to the users recipe page
-  //       console.log('POST successful');
-  //       this.navigate();
-  //     }
-  //   });
-  // }
-
-  // addRow() {
-  //   let myIngredients = this.state.ingredients;
-  //   myIngredients[myIngredients.length - 1].showButton = false;
-  //   myIngredients.push({quantity: 0, units: '', ingredient: '', showButton: true});
-  //   this.setState({ingredients: myIngredients});
-  // }
-
-  // handleIngredientsChange (event, index) {
-  //   const target = event.target;
-  //   const name = target.name;
-  //   const value = target.value;
-
-  //   let ing = this.state.ingredients;
-  //   ing[index][name] = value;
-
-  //   this.setState({
-  //     ingredients: ing
-  //   });
-  // }
-
-  // handleInputChange (event) {
-  //   const target = event.target;
-  //   const name = target.name;
-  //   const value = target.value;
-
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // }
+  componentWillMount () {
+    $.ajax({
+      url: "/searchRecipes",
+      data: JSON.stringify(this.state),
+      method: 'GET',
+      contentType: 'application/JSON',
+      error: (error) => {
+        console.log('Error trying to search for recipes', error);
+      },
+      success: (result) => {
+        //implement a redirect to the users recipe page
+        console.log('POST successful');
+        this.navigate();
+      }
+    });
+  }
 
   render () {
     return (
@@ -101,9 +60,5 @@ class ViewFork extends React.Component {
     )
   }
 }
-
-// viewFork.contextTypes = {
-//   router: React.PropTypes.object
-// }
 
 export default ViewFork;
