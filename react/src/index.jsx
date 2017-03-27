@@ -48,7 +48,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <div className="group"> 
+          <div className="group">
             <section className="floatLeft">
               <img className="logo" src="assets/images/forkly.png" alt="FORKLY"/>
               <h3 className="title username"><Login username={this.state.username}/></h3>
@@ -78,6 +78,7 @@ class App extends React.Component {
           <Route exact path="/" component={Home}/>
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/myrecipes" component={ViewRecipes}/>
+          <Route path="/recipe" component={ViewFork}/>
         
           <br />
           <br />
