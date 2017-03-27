@@ -33,13 +33,15 @@ exports.getUsername = function(req, res) {
 
 // for viewRecipes Component - get all recipes for user
 exports.getUserRecipes = function(req, res) {
-  console.log('INSIDE HANDLER: GET USER RECIPES');
-  db.User.findById(req.user._id)
-  .populate('recipes')
-  .exec(function(err, user) {
-    console.log('WHAT IS THIS', user);
-    res.send(user.recipes);
-  });
+  if (req.user) {
+    db.User.findById(req.user._id)
+    .populate('recipes')
+    .exec(function(err, user) {
+      res.send(user.recipes);
+    });
+  } else {
+    res.end();
+  }
 }
 
 exports.addRecipe = function(req, res) {

@@ -34,8 +34,6 @@ class App extends React.Component {
       type: 'GET',
       contentType: 'application/json',
       success: function(data) {
-        // console.log('ajax request to search username was successful');
-        // console.log(data);
         context.setState({username: data});
       },
       error: function(err) {
@@ -61,7 +59,6 @@ class App extends React.Component {
   }
 
   render () {
-    // console.log(this.props);
     return (
       <Router>
         <div>

@@ -8,13 +8,11 @@ class ViewRecipes extends React.Component {
 
   //before initial render, use ajax call to retrieve all recipes belonging to user
   componentDidMount() {
-    console.log('INSIDE GET REQUEST');
     var boundThis = this;
     $.ajax({
       url: '/getAllRecipes',
       type:'GET',
       success: function(data){
-        console.log('SUCCESS!', data);
         boundThis.setState({recipes: data});
       },
       error: function(err) {
@@ -30,12 +28,10 @@ class ViewRecipes extends React.Component {
   }
 
   render () {
-    console.log('RENDER COMPONENT STATE', this.state);
     var recipesArray = [];
     var template = '';
 
     if (this.state) {
-      console.log('RENDER STATE', this.state)
       this.state.recipes.forEach((recipe, index) => {
       recipesArray.push(
         <li className="recipeSingle" 
@@ -70,7 +66,6 @@ class ViewRecipes extends React.Component {
         </div>
       </div>
     }
-    //need to render list of all recipes belonging to user
     return (
       template
     )
