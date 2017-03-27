@@ -6,6 +6,7 @@ class ViewFork extends React.Component {
 
   constructor(props) {
     super(props);
+    this.forkMe = this.forkMe.bind(this);
   }
 
   componentDidMount(){
@@ -26,6 +27,15 @@ class ViewFork extends React.Component {
     });
   }
 
+  forkMe() {
+    const { router } = this.context;
+
+    var forked = router.route.location.pathname;
+    let forkedId = forked.slice(forked.lastIndexOf('/') + 1);
+    router.history.push('/addrecipe/' + forkedId);
+
+  }
+
   render () {
     let template = '';
     if (this.state) {
@@ -44,6 +54,8 @@ class ViewFork extends React.Component {
         <br/>
         <h3 className="title"> Directions: </h3>
         <p>{recipe.directions}</p>
+        <br />
+        <button onClick={this.forkMe}>Fork Me</button>
 
       </div>
     } else {
