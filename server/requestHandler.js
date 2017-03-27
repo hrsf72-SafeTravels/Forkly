@@ -39,5 +39,7 @@ exports.getUserRecipes = function(req, res) {
 }
 
 exports.addRecipe = function(req, res) {
+  console.log('recipe: ', req.body);
   db.Recipe.create(req.body);
+  res.end();
 };

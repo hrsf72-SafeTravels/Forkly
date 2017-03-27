@@ -16,7 +16,8 @@ var recipeSchema = mongoose.Schema({
   // dropDups will drop duplicates. will need to restart mongo router for these to kick in
   name: {type: String, unique: true, dropDups: true, required: true},
   ingredients: Array,
-  directions: String
+  directions: String,
+  _creator: {type: String, ref: 'User'}
 });
 
 var Recipe = mongoose.model('Recipe', recipeSchema);
@@ -39,10 +40,11 @@ var userSchema = mongoose.Schema({
   // hash: String,
   // salt: String,
   // username: String,
+  // _id: String,
   name: String,
   provider: String,
   facebook: Object,
-  forks: [{
+  recipes: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Recipe'
   }]
