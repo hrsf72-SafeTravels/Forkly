@@ -58,3 +58,10 @@ exports.addRecipe = function(req, res) {
     res.end();
   }
 };
+
+exports.getRecipeById = function(req, res) {
+  db.Recipe.findById(req.body.id)
+  .then((recipe) => {
+    res.json(recipe);
+  })
+};
