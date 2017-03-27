@@ -35,13 +35,15 @@ class ViewRecipes extends React.Component {
 
   handleClick(recipeId) {
     //redirect to /recipes/recipeId
+    const { router } = this.context
+    router.history.push('/recipe/' + recipeId);
   }
 
   render () {
     var recipesArray = [];
 
     this.state.recipes.forEach((recipe, index) => {
-      recipesArray.push(<li key={index} onClick={() => this.handleClick(recipe.id)} recipe={recipe}>{recipe.name}</li>)
+      recipesArray.push(<li key={index} onClick={() => this.handleClick(recipe._id)} recipe={recipe}>{recipe.name}</li>)
     })
     //need to render list of all recipes belonging to user
     return (
@@ -53,6 +55,10 @@ class ViewRecipes extends React.Component {
       </div>
     )
   }
+}
+
+ViewRecipes.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default ViewRecipes;
