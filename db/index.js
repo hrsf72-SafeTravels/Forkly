@@ -11,15 +11,20 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+
+var recipeSchema = mongoose.Schema({
+  // dropDups will drop duplicates. will need to restart mongo router for these to kick in
+  name: {type: String, unique: true, dropDups: true, required: true},
+  ingredients: String,
+  directions: String
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Recipe = mongoose.model('Recipe', recipeSchema);
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+module.exports.Recipe = Recipe;
+
+var selectAllRecipes = function(callback) {
+  Recipe.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -28,4 +33,23 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+// User schema
+var userSchema = mongoose.Schema({
+  // username: {type: String, unique: true},
+  // hash: String,
+  // salt: String,
+  name: String,
+  email: String,
+  username: String,
+  facebook: Object
+});
+
+var User = mongoose.model('User', userSchema);
+
+module.exports.User = User;
+
+// module.exports.verifyLogin = function() {
+
+// };
+
+module.exports.selectAllRecipes = selectAllRecipes;

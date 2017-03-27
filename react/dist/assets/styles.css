@@ -1,0 +1,193 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  ========================================
+  Site-wide design
+  ========================================
+*/
+
+body {
+  background: white;
+  font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/*
+  ========================================
+  Navigation
+  ========================================
+*/
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.logo {
+  font-size: 40px;
+  padding: 40px 0 20px 10px;
+  float: left;
+  color: orange;
+}
+
+.username {
+  margin: 85px 0 20px 10px;
+  font-size: 20px;
+  text-align: left;
+  color: orange;
+}
+
+.navButton {
+  height: 30px;
+  width: 30px;
+  float: right;
+}
+
+.icon {
+  padding-top: 60px;
+  width: 50px;
+  float: right;
+  text-align: center;
+}
+
+.icon span {
+  display: none;
+}
+
+.icon:hover span {
+  display: inline-block;
+  text-align: center;
+  float: right;
+}
+
+.icon:hover img {
+  display: none;
+}
+
+/*
+  ========================================
+  Home
+  ========================================
+*/
+.searchImage {
+  width: 800px;
+}
+
+.search {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  text-align: center;
+  width: 800px;
+}
+
+.searchText {
+  position: relative;
+  top: -190px;
+  text-align: center;
+  width: 100%;
+  color: white;
+  text-shadow: 0 2px 5px #000, 0 0 10px #000;
+  text-decoration-style: bold;
+  font-size: 16px;
+}
+
+.results {
+  position: absolute;
+  top: 444px;
+}
+
+/*
+  ========================================
+  Add Recipe
+  ========================================
+*/
+
+.createRecipe {
+  position: absolute;
+  padding: 20px;
+}
+
+.recipeImage {
+  position: relative;
+  max-width: 400px;
+}
+
+.recipeHeader {
+  color: orange;
+  font-size: 24px;
+}
+
+.recipeName {
+  color: orange;
+  font-size: 18px;
+}
+
+.createRecipe .title {
+  color: orange;
+  font-size: 18px;
+}
