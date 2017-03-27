@@ -67,7 +67,7 @@ class Login extends React.Component {
   render () {
     if (this.props.username === null) {
       return (
-        <a href="/auth/facebook">Login with Facebook</a>
+        <a className="loginFacebook" href="/auth/facebook">Login with Facebook</a>
       )      
     } else {
       return (

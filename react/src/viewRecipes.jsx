@@ -40,15 +40,28 @@ class ViewRecipes extends React.Component {
       recipesArray.push(<li key={index} value={recipe} onClick={() => this.handleClick(recipe._id)}>{recipe.name}</li>)
       });
 
-      template = <div>
-        <h1>Welcome, here are your recipes!</h1>
-        <ul>
+      template = 
+      <div className="myRecipes">
+        <img className="myRecipeImage" src="assets/images/salmon.jpg"/>
+        <h1 className="myRecipesTitle">My Recipes</h1>
+        <ul className="recipesArray">
           {recipesArray}
         </ul>
+        <br />
+        <br />
       </div>
     } else {
-      template = <div>
-        <h3>Loading Your Recipes!</h3>
+      template = 
+      <div >
+        <img className="myRecipeImage" src="assets/images/salmon.jpg"/>
+        <h1 className="myRecipesTitle">My Recipes</h1>
+        <div className="loadingText"> 
+          <h3>Loading...</h3>
+          <br/>
+          <h3>Please find or create your first recipe!</h3>
+          <br />
+          <br />
+        </div>
       </div>
     }
     //need to render list of all recipes belonging to user
