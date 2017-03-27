@@ -161,19 +161,6 @@ body {
   top: 444px;
 }
 
-.recipeName, .ingredients .title, .directions .title {
-  color: orange;
-}
-
-.recipeName {
-  font-size: 24px;
-  text-transform: uppercase;
-}
-
-.recipe {
-  margin: 20px;
-}
-
 /*
   ========================================
   Add Recipe
@@ -183,23 +170,24 @@ body {
 .createRecipe {
   position: absolute;
   padding: 20px;
-  left: 0px;
-  text-align: center;
-  vertical-align: middle;
 }
 
 .recipeImage {
+  position: relative;
   max-width: 400px;
 }
 
 .recipeHeader {
-  text-transform: uppercase;
-  text-align: center;
   color: orange;
   font-size: 24px;
 }
 
+.recipeName {
+  color: orange;
+  font-size: 18px;
+}
+
 .createRecipe .title {
   color: orange;
-  font-size: 16px;
+  font-size: 18px;
 }

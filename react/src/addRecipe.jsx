@@ -69,12 +69,16 @@ class AddRecipe extends React.Component {
         </header>
         <br />
         <img className="recipeImage" src="assets/images/sushi.jpg" alt="sushi"/>
+        <br />
         <form onSubmit={this.handleSubmit}>
-          <h3 className="title recipeName"> Recipe Name:</h3> 
+
+          <h3 className="recipeName">Recipe Name:</h3> 
           <input type="text" name="name" onChange={this.handleInputChange}/>
           <br />
-          <h3 className="title">Ingredients: </h3>
-          <table>
+          <br />
+        
+          <h3 className="title">Ingredients:</h3>
+          <table className="ingredients">
             <thead>
               <tr>
                 <td>Quantity</td>
@@ -87,8 +91,11 @@ class AddRecipe extends React.Component {
              }, this)}
           </table>
           <br />
+        
           <h3 className="title"> Directions: </h3>
           <textarea name="directions" onChange={this.handleInputChange}></textarea>
+          <br />
+
           <div>
             <input type="submit" name="addRecipeSave" value="Save" />
             <input type="button" name="addRecipeCancel" value="Cancel" />
