@@ -19,16 +19,7 @@ class Login extends React.Component {
     });
   }
 
-  //use componentdidmount to check with ajax call if request.user object exists
-  //server will receive get request from client and check if request.user object exists
-  //server can then send back user object to client
-  //client can then set state according to user object (state.username, state.fbid, etc)
-  //if response comes back with no user object, render log in with fb button
-  //else say you're already logged in
-
   handleSubmit(event) {
-    // server needs to check if username exists in db and if password is valid
-    // send username and password to server
     event.preventDefault();
 
     console.log('username: ', this.state.username);
