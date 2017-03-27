@@ -6,6 +6,7 @@ class ViewFork extends React.Component {
 
   constructor(props) {
     super(props);
+    this.forkMe = this.forkMe.bind(this);
   }
 
   componentDidMount(){
@@ -26,6 +27,20 @@ class ViewFork extends React.Component {
     });
   }
 
+  forkMe() {
+    $.ajax({
+      url:'/forkMe',
+      type: 'GET',
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('Fork Me on Forkly!')
+      },
+      error: function(err){
+        console.log('No forkMe on Forkly :(');
+      }
+    })
+  }
+
   render () {
     let template = '';
     if (this.state) {
@@ -44,6 +59,8 @@ class ViewFork extends React.Component {
         <br/>
         <h3 className="title"> Directions: </h3>
         <p>{recipe.directions}</p>
+        <br />
+        <button onClick={this.forkMe}>Fork Me</button>
 
       </div>
     } else {
