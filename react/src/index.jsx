@@ -44,15 +44,16 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Login />
-          <div className="nav"> 
-            <section className="group">
+          <div className="group"> 
+            <section className="floatLeft">
               <h1 className="title logo">FORKLY</h1>
               <h3 className="title username">Welcome, {this.state.username}</h3>
+            </section>
+            <section className="floatRight">
               <nav>
                 <div className="icon logout">
                   <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-                  <span>Logout</span>
+                  <span>Logout  </span>
                 </div>
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
@@ -70,7 +71,7 @@ class App extends React.Component {
             </section>
           </div>
 
-          <hr/>
+          <hr />
 
           <Route exact path="/" component={Home}/>
           <Route path="/addrecipe" component={AddRecipe}/>
