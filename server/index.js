@@ -50,6 +50,9 @@ app.get('/auth/facebook/callback',
 
 app.post('/searchRecipes', handler.searchRecipes);
 
+// to find all recipes for given user id
+// app.post('/getAllRecipes', )
+
 app.listen(port, function() {
   console.log('listening on port '+ port + '!');
 });
