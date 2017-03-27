@@ -47,7 +47,7 @@ class App extends React.Component {
         <div>
           <div className="group"> 
             <section className="floatLeft">
-              <img className="logo" src="assets/images/forklySmall.png" alt="FORKLY"/>
+              <img className="logo" src="assets/images/forkly.png" alt="FORKLY"/>
               <h3 className="title username">Welcome, {this.state.username}</h3>
             </section>
             <section className="floatRight">
