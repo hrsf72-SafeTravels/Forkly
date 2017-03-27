@@ -56,6 +56,12 @@ table {
 body {
   background: white;
   font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height:100%;
+}
+
+.group {
+   min-height:100%;
+   position:relative;
 }
 
 
@@ -218,3 +224,28 @@ body {
   ========================================
 */
 
+footer {
+   position:fixed;
+   bottom:0;
+   width:100%;
+   height:70px;   /* Height of the footer */
+   background:#ee6000;
+}
+
+small {
+  color: white;
+  padding: 20px;
+}
+
+.group {
+   height:100%;
+}
+
+small a {
+  text-decoration: none;
+  color: white;
+}
+
+small a:hover {
+  text-decoration: underline;
+}
