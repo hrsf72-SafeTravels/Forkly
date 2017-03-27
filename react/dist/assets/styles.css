@@ -122,13 +122,19 @@ body {
 }
 
 .icon:hover span {
+  text-decoration: none;
   display: inline-block;
   text-align: center;
   float: right;
+  color: #ee6000;
 }
 
 .icon:hover img {
   display: none;
+}
+
+.loginFacebook {
+  color: #ee6000;
 }
 
 /*
@@ -223,11 +229,41 @@ body {
   My Recipes
   ========================================
 */
+
 .myRecipeImage {
   position: relative;
   max-width: 850px;
   z-index: -1;
+  padding: 20px;
 }
+
+.myRecipesTitle {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 350px;
+  left: 240px;
+  z-index: 1;
+  text-shadow: 0 2px 5px #000, 0 0 10px #000;
+  text-decoration-style: bold;
+  font-size: 90px;
+}
+
+.loadingText{
+  color: black;
+  padding: 20px;
+}
+
+.recipesArray{
+  padding: 20px;
+  font-size: 20px;
+  color: orange;
+}
+
+.recipesArray:hover {
+  text-decoration: underline;
+}
+
 /*
   ========================================
   Footer
