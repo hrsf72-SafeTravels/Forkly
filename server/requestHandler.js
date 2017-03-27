@@ -27,7 +27,7 @@ exports.getUsername = function(req, res) {
   if (req.user) {
     res.json(req.user.name);  
   } else {
-    res.json('Forker Of Forks');
+    res.json(null);
   }
 };
 
