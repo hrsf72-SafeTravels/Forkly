@@ -48,7 +48,10 @@ class ViewRecipes extends React.Component {
       </div>
     } else {
       template = <div>
-        <h3>Loading Your Recipes!</h3>
+        <h3>Loading...</h3>
+                <img src="assets/images/salmon.jpg"/>
+        <br/>
+        <h3>Please find or create your first recipe!</h3>
       </div>
     }
     //need to render list of all recipes belonging to user
