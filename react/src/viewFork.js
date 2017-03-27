@@ -28,17 +28,12 @@ class ViewFork extends React.Component {
   }
 
   forkMe() {
-    $.ajax({
-      url:'/forkMe',
-      type: 'GET',
-      contentType: 'application/json',
-      success: function(data) {
-        console.log('Fork Me on Forkly!')
-      },
-      error: function(err){
-        console.log('No forkMe on Forkly :(');
-      }
-    })
+    const { router } = this.context;
+
+    var forked = router.route.location.pathname;
+    let forkedId = forked.slice(forked.lastIndexOf('/') + 1);
+    router.history.push('/addrecipe/' + forkedId);
+
   }
 
   render () {

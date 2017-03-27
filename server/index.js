@@ -48,10 +48,6 @@ app.get('/auth/facebook/callback',
   //   res.redirect('/');
   // });
 
-app.get('/forkMe', function(req, res) {
-
-});
-
 app.get('/logout', function(req, res){
   req.logout();
   // req.session.destroy();
