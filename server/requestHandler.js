@@ -1,7 +1,7 @@
 var express = require('express');
 var request = require('request');
 var mongoose = require('mongoose');
-var Promise = require("bluebird");
+mongoose.Promise = require('bluebird');
 
 var db = require("../db/index.js");
 
@@ -39,5 +39,18 @@ exports.getUserRecipes = function(req, res) {
 }
 
 exports.addRecipe = function(req, res) {
-  db.Recipe.create(req.body);
+  if (req.user) {
+    req.body._creator = req.user._id;
+
+    // create recipe in database
+    db.Recipe.create(req.body).then((recipe) => {
+      // push recipe into user's recipes array
+      db.User.findByIdAndUpdate(req.user._id, {$push: {recipes: recipe.id}})
+      .then(() => {
+        res.end();
+      })
+    });
+  } else {
+    res.end();
+  }
 };
