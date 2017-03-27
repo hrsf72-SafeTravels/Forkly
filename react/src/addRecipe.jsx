@@ -99,7 +99,7 @@ class AddRecipe extends React.Component {
         <form onSubmit={this.handleSubmit}>
 
           <h3 className="recipeName">Recipe Name:</h3> 
-          <input type="text" name="name" onChange={this.handleInputChange}/>
+          <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange}/>
           <br />
           <br />
         
@@ -119,7 +119,7 @@ class AddRecipe extends React.Component {
           <br />
         
           <h3 className="title"> Directions: </h3>
-          <textarea name="directions" onChange={this.handleInputChange}></textarea>
+          <textarea name="directions" value={this.state.directions} onChange={this.handleInputChange}></textarea>
 
           <br />
 
