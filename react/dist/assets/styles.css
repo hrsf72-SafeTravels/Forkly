@@ -127,6 +127,7 @@ body {
   text-align: center;
   float: right;
   color: #ee6000;
+  text-decoration: underline;
 }
 
 .icon:hover img {
