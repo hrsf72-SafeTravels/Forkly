@@ -43,14 +43,14 @@ class App extends React.Component {
   }
 
   logout() {
-    var context = this;
+    var Appcontext = this;
+
     $.ajax({
       url:'/logout',
       type: 'GET',
+      contentType: 'application/json',
       success: function(data) {
-        context.getUsername();
-        // context.forceUpdate();
-        // console.log('successful logout');
+        Appcontext.getUsername();
       },
       error: function(err) {
         // console.log('unsuccessful logout');
@@ -71,7 +71,7 @@ class App extends React.Component {
               <nav>
                 <div className="icon logout">
                   <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-                  <span onClick={this.logout}><br />Logout</span>
+                  <span><Link to="/" onClick={this.logout}><br />Logout</Link></span>
                 </div>
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
