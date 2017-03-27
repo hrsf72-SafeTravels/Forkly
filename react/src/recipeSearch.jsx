@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeSearchIngredient from './recipeSearchIngredient'
+import RecipeIngredients from './recipeIngredients'
 
 class RecipeSearch extends React.Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class RecipeSearch extends React.Component {
         </div>
         <div className='ingredients'>
           <h4 className='searchIngredients'>Ingredients</h4>
-          <p>{this.props.recipe.ingredients.map((ingredient, index)=> <RecipeSearchIngredient ingredient={ingredient} key={index}/>)}</p>
+          <p>{this.props.recipe.ingredients.map((ingredient, index)=> <RecipeIngredients ingredient={ingredient} key={index}/>)}</p>
         </div>
         <div>
           <h4 className='searchDirections'>Directions</h4>
