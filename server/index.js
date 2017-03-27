@@ -53,6 +53,8 @@ app.post('/searchRecipes', handler.searchRecipes);
 // to find all recipes for given user id
 app.get('/getAllRecipes', handler.getUserRecipes);
 
+app.post('/getRecipeById', handler.getRecipeById);
+
 app.listen(port, function() {
   console.log('listening on port '+ port + '!');
 });
