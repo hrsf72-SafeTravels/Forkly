@@ -66,6 +66,10 @@ app.get('/getAllRecipes', handler.getUserRecipes);
 
 app.post('/getRecipeById', handler.getRecipeById);
 
+app.get('/*', function(req, res) {
+  res.redirect('/');
+});
+
 app.listen(port, function() {
   console.log('listening on port '+ port + '!');
 });
