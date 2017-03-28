@@ -3,6 +3,7 @@ import AddRecipeIngredients from './addRecipeIngredients.jsx';
 import $ from 'jquery';
 
 class AddRecipe extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
