@@ -1,0 +1,28 @@
+import React from 'react';
+
+const topRatedExampleData = [
+  {
+    name: 'Chicken Cordon Bleu Casserole',
+    ingredients: [
+      '1 egg',
+      '1/2 cup milk',
+      '2 pounds skinless, boneless chicken breast halves - cut into chunks',
+      '1 cup plain dried bread crumbs',
+      '1 cup oil for frying',
+      '8 ounces Swiss cheese, cubed',
+      '8 ounces cubed ham',
+      '1 (10.75 ounce) can condensed cream of chicken soup',
+      '1 cup milk',
+    ]
+  }
+];
+
+const Profile = () => {
+  return (
+    <div>
+
+    </div>
+  );
+};
+
+export default Profile;
