@@ -1,6 +1,9 @@
+// If Heroku is NOT running, run on local computer and pull local info from setup.js
 if (!process.env.CLIENT_ID) {
+  // Note: index.js runs before setup.js (see server-dev script in package.json)
   var setup = require('./setup.js');
 };
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../db');
@@ -39,14 +42,16 @@ app.get('/verifylogin', (req, res) => {
 
 // facebook passport
 app.get('/auth/facebook',
-  passport.authenticate('facebook'));
+  passport.authenticate('facebook')
+);
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
+  passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' })
   // function(req, res) {
   //   // Successful authentication, redirect home.
   //   res.redirect('/');
   // });
+);
 
 app.get('/logout', function(req, res){
   req.logout();
