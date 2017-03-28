@@ -6,7 +6,7 @@ import AddRecipe from './addRecipe.jsx';
 import Login from './login.jsx';
 import ViewFork from './viewFork.js';
 import ViewRecipes from './viewRecipes.jsx';
-import Profile from './Profile.jsx';
+import TopRecipes from './TopRecipes.jsx';
 import {
   BrowserRouter as Router,
   Route,
@@ -87,8 +87,10 @@ class App extends React.Component {
                   <span><Link to="/"><br />Home</Link></span>
                 </div>
                 <div className="icon">
-                  <img className="navButton" src="https://s3.amazonaws.com/whisperinvest-images/default.png?1393885710473?1393885716588" alt="Home"/>
-                  <span><Link to="/profile"><br />Profile</Link></span>
+                  <img className="navButton"
+                    src="https://us.123rf.com/450wm/aquir/aquir1512/aquir151202267/49081585-top-rated-orange-round-gel-isolated-push-button.jpg?ver=68"
+                    alt="Home"/>
+                  <span><Link to="/toprecipes">Top Rated</Link></span>
                 </div>
               </nav>
             </section>
@@ -98,7 +100,7 @@ class App extends React.Component {
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/myrecipes" component={ViewRecipes}/>
           <Route path="/recipe" component={ViewFork}/>
-          <Route path="/profile" component={Profile} />
+          <Route path="/toprecipes" component={TopRated} />
 
           <br />
           <br />
