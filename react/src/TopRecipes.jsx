@@ -17,7 +17,7 @@ const topRatedExampleData = [
   }
 ];
 
-const Profile = () => {
+const TopRecipes = () => {
   return (
     <div>
 
@@ -25,4 +25,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default TopRecipes;
