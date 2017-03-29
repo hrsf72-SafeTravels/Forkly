@@ -25,7 +25,7 @@ class Home extends React.Component {
     this.setState({searchTerm: searchTerm});
   }
 
-  searchRecipes(searchTerm) {
+  searchRecipes() {
     // send ajax request to server, which then searches db for searchTerm
     var searchTerm = {searchTerm: this.state.searchTerm};
     var context = this;
@@ -46,6 +46,21 @@ class Home extends React.Component {
         console.log('ajax request to search recipes failed');
       }
     });
+  };
+
+  searchYoutube() {
+    var searchTerm = {searchTerm: this.state.searchTerm};
+    var context = this;
+
+    $.ajax({
+      url: '/searchYoutube',
+      type: 'POST',
+      data: JSON.stringify(searchTerm),
+      contentType: 'application/json',
+      success: function(data) {
+
+      }
+    })
   };
 
   render() {
