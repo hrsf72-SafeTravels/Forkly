@@ -66,6 +66,9 @@ app.get('/getAllRecipes', handler.getUserRecipes);
 
 app.post('/getRecipeById', handler.getRecipeById);
 
+// must be access only after signing in
+app.get('/getUserFriends', handler.getFriends);
+
 // to find friend's recipe after clicking on friend in friend's list
 app.post('/getFriendRecipes', handler.getFriendRecipes);
 
