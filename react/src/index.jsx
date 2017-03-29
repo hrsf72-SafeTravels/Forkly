@@ -25,6 +25,7 @@ class App extends React.Component {
       username: null,
       currentRecipe: [],
       searchedRecipes: [],
+      searchedVideos: [],
     };
     this.logout = this.logout.bind(this);
     this.handleSearchedRecipes = this.handleSearchedRecipes.bind(this);
