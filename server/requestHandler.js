@@ -45,12 +45,14 @@ exports.searchRecipes = function(req, res) {
 // for Home component - from searchYoutube function
 exports.searchYoutube = function(req, res) {
   let searchTerm = `${req.body.searchTerm} cooking recipes`;
+  console.log('hi');
+  console.log('here is the body', req.body)
   request({
     uri: 'https://www.googleapis.com/youtube/v3/search',
     method: 'GET',
     params: {
       key: ApiKeys.GOOGLE,
-      part: snippet,
+      part: 'snippet',
       q: searchTerm,
       maxResults: 5,
       videoEmbeddable: true,
