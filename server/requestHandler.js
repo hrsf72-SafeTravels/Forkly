@@ -90,6 +90,22 @@ exports.getRecipeById = function(req, res) {
   })
 };
 
+exports.getUserFriends = function(req, res) {
+  if (req.user) {
+    db.User.findById(req.user._id)
+      .exec(function(err, user) {
+        if (err) {
+          console.log(err);
+          req.status(404);
+        } else {
+          res.send(user.friends);
+        }
+      });
+  } else {
+    res.end();
+  }
+};
+
 exports.getFriendRecipes = function(req, res) {
   db.User.findOne({ 'name': req.body.name})
     .exec(function(err, user) {
