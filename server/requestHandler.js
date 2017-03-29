@@ -1,7 +1,7 @@
 var express = require('express');
 var request = require('request');
 var mongoose = require('mongoose');
-// const ApiKeys = require('../config/api_config');
+const ApiKeys = require('./setup.js');
 mongoose.Promise = require('bluebird');
 
 var db = require("../db/index.js");
@@ -40,6 +40,30 @@ exports.searchRecipes = function(req, res) {
   //     	res.json(recipe);
   //     }
 	// });
+};
+
+// for Home component - from searchYoutube function
+exports.searchYoutube = function(req, res) {
+  let searchTerm = `${req.body.searchTerm} cooking recipes`;
+  request({
+    uri: 'https://www.googleapis.com/youtube/v3/search',
+    method: 'GET',
+    params: {
+      key: ApiKeys.GOOGLE,
+      part: snippet,
+      q: searchTerm,
+      maxResults: 5,
+      videoEmbeddable: true,
+      type: 'video',
+    }, function(error, response, body) {
+      if (error) {
+        console.error('Youtube GET request error');
+      } else {
+        console.log('Youtube GET request successful');
+        res.status(200).send(body);
+      }
+    }
+  });
 };
 
 // for Nav Component - from getUsername function

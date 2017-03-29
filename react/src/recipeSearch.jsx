@@ -42,7 +42,6 @@ class RecipeSearch extends React.Component {
   }
 
   render() {
-    // console.log('Ingredients', this.props.recipe.ingredients);
   	return (
   	  <span className='results'>
         <div className='searchName'>
