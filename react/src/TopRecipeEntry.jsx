@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TopRecipe = (props) => {
+const TopRecipeEntry = (props) => {
   return (
     <div className="col-lg-3">
       <h1>{props.recipe.name}</h1>
@@ -13,4 +13,4 @@ const TopRecipe = (props) => {
   );
 };
 
-export default TopRecipe;
+export default TopRecipeEntry;

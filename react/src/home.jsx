@@ -34,7 +34,7 @@ class Home extends React.Component {
         console.log('ajax request to search recipes was successful!');
         console.log('response', JSON.parse(data).hits);
         context.props.handleSearchedRecipes(JSON.parse(data).hits);
-        //context.setState({recipes: JSON.parse(data).hits}); 
+        //context.setState({recipes: JSON.parse(data).hits});
       },
       error: function(err) {
         console.log('ajax request to search recipes failed');

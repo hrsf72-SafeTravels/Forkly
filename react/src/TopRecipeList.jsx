@@ -1,5 +1,5 @@
 import React from 'react';
-import TopRecipe from './TopRecipe.jsx';
+import TopRecipeEntry from './TopRecipeEntry.jsx';
 
 const topRatedExampleData = [
   {
@@ -94,14 +94,14 @@ const topRatedExampleData = [
   },
 ];
 
-const TopRecipes = () => {
+const TopRecipeList = () => {
   return (
     <div className="container">
       {topRatedExampleData.sort((a, b) => b.likes - a.likes).map((recipe) =>
-        <TopRecipe recipe={recipe}/>
+        <TopRecipeEntry recipe={recipe}/>
       )}
     </div>
   );
 };
 
-export default TopRecipes;
+export default TopRecipeList;

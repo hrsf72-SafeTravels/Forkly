@@ -6,7 +6,7 @@ import AddRecipe from './addRecipe.jsx';
 import Login from './login.jsx';
 import ViewFork from './viewFork.jsx';
 import ViewRecipes from './viewRecipes.jsx';
-import TopRecipes from './TopRecipes.jsx';
+import TopRecipeList from './TopRecipeList.jsx';
 import RecipeFromSearch from './RecipeFromSearch.jsx';
 import Recipes from './Recipes';
 import {
@@ -81,7 +81,7 @@ class App extends React.Component {
               <h3 className="title username"><Login username={this.state.username}/></h3>
             </section>
             <section className="floatRight">
-              <nav> 
+              <nav>
                 {this.state.username &&
                   <div className="icon logout">
                     <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
@@ -117,7 +117,7 @@ class App extends React.Component {
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/myrecipes" component={ViewRecipes}/>
           <Route path="/recipe" component={ViewFork}/>
-          <Route path="/toprecipes" component={TopRecipes} />
+          <Route path="/toprecipes" component={TopRecipeList} />
           <Route path="/recipeFromSearch" component={RecipeFromSearch} />
           <Route path="/recipes" component={() => (<Recipes recipes={this.state.searchedRecipes}/>)} />
 
