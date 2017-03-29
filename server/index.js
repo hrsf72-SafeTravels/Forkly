@@ -74,6 +74,8 @@ app.get('/getUserFriends', handler.getUserFriends);
 // to find friend's recipe after clicking on friend in friend's list
 app.post('/getFriendRecipes', handler.getFriendRecipes);
 
+app.post('/searchYoutube', handler.searchYoutube);
+
 app.get('/*', function(req, res) {
   res.redirect('/');
 });
