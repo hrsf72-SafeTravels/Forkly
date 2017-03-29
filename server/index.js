@@ -42,7 +42,7 @@ app.get('/verifylogin', (req, res) => {
 
 // facebook passport
 app.get('/auth/facebook',
-  passport.authenticate('facebook')
+  passport.authenticate('facebook', { authType: 'reauthenticate', scope:  ['user_friends', 'email'] })
 );
 
 app.get('/auth/facebook/callback',
