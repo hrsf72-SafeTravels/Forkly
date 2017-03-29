@@ -86,10 +86,12 @@ body {
 
 .floatLeft {
   float: left;
+  margin-left: 3%;
 }
 
 .floatRight {
   float: right;
+  margin-right: 3%;
 }
 
 .logo {
