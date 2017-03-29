@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import { Router, Redirect } from 'react-router';
-
+import Awesomplete from './awesomplete.js';
 import RecipeSearch from './recipeSearch.jsx';
 
 class Home extends React.Component {
@@ -13,6 +13,12 @@ class Home extends React.Component {
       recipes: [],
       hasSearched: false,
     };
+  }
+
+  componentDidMount() {
+    var input = document.getElementById("myinput");
+    var awesomplete = new Awesomplete(input, {minChars: 1, autoFirst: true});
+    awesomplete.list = ["egg", "cucumber", "eggplant", "chicken", "flour"];
   }
 
   setSearchTerm(searchTerm) {
@@ -28,8 +34,6 @@ class Home extends React.Component {
       url: '/searchRecipes',
       type:'POST',
       data: JSON.stringify(searchTerm),
-      // type: 'GET',
-      // data: searchTerm,
       contentType: 'application/json',
       // upon success, adds results to this.state.recipes
       success: function(data){
@@ -53,7 +57,7 @@ class Home extends React.Component {
           <div className="search">
             <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
             <span className="searchText">
-              <h3>Yummly</h3>
+              <h1 className="search-title">Yummly</h1>
               <form onSubmit={(event) => {
                   this.searchRecipes(this.state.searchTerm);
                   event.preventDefault();
@@ -61,7 +65,7 @@ class Home extends React.Component {
                     hasSearched: true,
                   });
                 }}>
-                <input className="form-control" type="text"
+                <input id="myinput" className="form-control awesomplete" type="text"
                         onKeyUp={ (event) => {
                                   this.setSearchTerm(event.target.value)
                                 }}
@@ -71,6 +75,21 @@ class Home extends React.Component {
             </span>
           </div>
         }
+        {/*<div className="search">
+          <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
+          <span className="searchText">
+            <h1 className="search-title">Yummly</h1>
+            <input id="myinput" className="form-control awesomplete" type="text"
+                   onKeyUp={ (event) => {
+                              this.setSearchTerm(event.target.value)
+                            }}
+            />
+            <Link to='/recipes'><button className="btn btn-default search-btn" onClick={(event) => {
+                              this.searchRecipes(this.state.searchTerm)
+                            }}
+            >Search Recipes</button></Link>
+          </span>
+        </div>*/}
 
         {/*<div className="results">
           <ul>
