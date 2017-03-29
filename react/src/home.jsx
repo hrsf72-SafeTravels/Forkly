@@ -33,7 +33,7 @@ class Home extends React.Component {
         console.log('ajax request to search recipes was successful!');
         console.log('response', data);
         context.setState({recipes: data});
-        
+
       },
       error: function(err) {
         console.log('ajax request to search recipes failed');
@@ -46,20 +46,20 @@ class Home extends React.Component {
   	  <div>
         <div className="search">
           <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
-          <span className="searchText">  
+          <span className="searchText">
             <h3>Yummly</h3>
-            <input type="text" 
+            <input className="form-control" type="text"
                    onKeyUp={ (event) => {
                               this.setSearchTerm(event.target.value)
                             }}
             />
-            <button onClick={(event) => {
+            <button className="btn btn-default" onClick={(event) => {
                               this.searchRecipes(this.state.searchTerm)
                             }}
             >Search Recipes</button>
           </span>
         </div>
-        
+
         <div className="results">
           <ul>
             {this.state.recipes.map((recipe, index) => <RecipeSearch recipe={recipe} key={index}/>)}
@@ -70,5 +70,5 @@ class Home extends React.Component {
   }
 }
 
-export default Home; 
+export default Home;
 
