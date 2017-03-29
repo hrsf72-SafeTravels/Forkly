@@ -66,6 +66,7 @@ app.get('/getAllRecipes', handler.getUserRecipes);
 
 app.post('/getRecipeById', handler.getRecipeById);
 
+// to find friend's recipe after clicking on friend in friend's list
 app.post('/getFriendRecipes', handler.getFriendRecipes);
 
 app.get('/*', function(req, res) {
