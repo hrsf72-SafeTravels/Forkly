@@ -69,3 +69,10 @@ exports.getRecipeById = function(req, res) {
     res.json(recipe);
   })
 };
+
+exports.getFriendRecipe = function(req, res) {
+  db.User.findOne({ 'name': req.body.name})
+    .exec(function(err, user) {
+      res.send(user.recipes);
+    });
+}
