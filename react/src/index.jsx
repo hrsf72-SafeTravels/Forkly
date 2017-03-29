@@ -10,6 +10,7 @@ import TopRecipeList from './TopRecipeList';
 import RecipeFromSearch from './RecipeFromSearch';
 import MyRecipes from './myRecipes';
 import Recipes from './Recipes';
+import SavedRecipes from './savedRecipes';
 import {
   BrowserRouter as Router,
   Route,
@@ -119,6 +120,7 @@ class App extends React.Component {
           <Route path="/recipeFromSearch" component={RecipeFromSearch} />
           <Route path="/recipes" component={() => (<Recipes recipes={this.state.searchedRecipes}/>)} />
           <Route path="/myRecipes" component={MyRecipes} />
+          <Route path="/savedRecipes" component={SavedRecipes} />
           <br />
           <br />
           <br />

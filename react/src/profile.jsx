@@ -9,32 +9,13 @@ class Profile extends React.Component {
     super(props);
   }
 
-  //before initial render, use ajax call to retrieve all recipes belonging to user
-  // componentDidMount() {
-  //   var boundThis = this;
-  //   $.ajax({
-  //     url: '/getAllRecipes',
-  //     type:'GET',
-  //     success: function(data){
-  //       boundThis.setState({recipes: data});
-  //     },
-  //     error: function(err) {
-  //       console.log('could not retrieve any recipes for user');
-  //     }
-  //   });
-  // }
-
-  // handleClick(recipeId) {
-  //   //redirect to /recipes/recipeId
-  //   const { router } = this.context
-  //   router.history.push('/recipe/' + recipeId);
-  // }
-
   render () {
     return (
       <div>
-        <ViewRecipesNavBar />
-
+        { this.props.user === null ? 
+          <p> Please Login first </p> :
+          <ViewRecipesNavBar />
+        }
       </div>
     );
   }

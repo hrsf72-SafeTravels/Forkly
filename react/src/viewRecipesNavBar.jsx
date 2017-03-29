@@ -8,7 +8,7 @@ const ViewRecipesNavBar = () => (
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
             <Link to='/profile'><li className="profile-nav">About Me</li></Link>
-            <Link to='/savedRecipes'><li>Favored Recipes</li></Link>
+            <Link to='/savedRecipes'><li>Saved Recipes</li></Link>
             <Link to='/myRecipes'><li>My Recipes</li></Link>
             <Link to='/friend'><li>Friends</li></Link>
           </ul>
