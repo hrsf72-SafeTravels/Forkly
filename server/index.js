@@ -66,6 +66,8 @@ app.get('/getAllRecipes', handler.getUserRecipes);
 
 app.post('/getRecipeById', handler.getRecipeById);
 
+app.post('/getFriendRecipes', handler.getFriendRecipes);
+
 app.get('/*', function(req, res) {
   res.redirect('/');
 });
