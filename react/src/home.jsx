@@ -31,9 +31,8 @@ class Home extends React.Component {
       // upon success, adds results to this.state.recipes
       success: function(data){
         console.log('ajax request to search recipes was successful!');
-        console.log('response', data);
-        context.setState({recipes: data});
-
+        console.log('response', JSON.parse(data).hits);
+        context.setState({recipes: JSON.parse(data).hits}); 
       },
       error: function(err) {
         console.log('ajax request to search recipes failed');
@@ -62,7 +61,7 @@ class Home extends React.Component {
 
         <div className="results">
           <ul>
-            {this.state.recipes.map((recipe, index) => <RecipeSearch recipe={recipe} key={index}/>)}
+            {this.state.recipes.map((element, index) => <RecipeSearch recipe={element.recipe} key={index}/>)}
           </ul>
         </div>
   	  </div>
