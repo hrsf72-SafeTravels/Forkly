@@ -4,7 +4,7 @@ import $ from 'jquery';
 import Home from './home.jsx'
 import AddRecipe from './addRecipe.jsx';
 import Login from './login.jsx';
-import ViewFork from './viewFork.js';
+import ViewFork from './viewFork.jsx';
 import ViewRecipes from './viewRecipes.jsx';
 import TopRecipes from './TopRecipes.jsx';
 import RecipeFromSearch from './RecipeFromSearch.jsx';
