@@ -23,10 +23,14 @@ props.recipe = {
   },
 };
 
-const RecipeFromSearch = (props) => {
+const RecipeFromSearch = () => {
   return (
     <div className="container">
-
+      <RecipeFromSearchHeader photo={props.recipe.photo} name={props.recipe.name}/>
+      <div className="row">
+        <IngredientsOfRecipe ingredients={props.recipe.ingredients} />
+        <NutritionOfRecipe nutritionalFacts={props.recipe.nutritionalFacts} />
+      </div>
     </div>
   );
 };
