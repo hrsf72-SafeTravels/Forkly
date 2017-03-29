@@ -27,7 +27,8 @@ const RecipeFromSearch = () => {
   return (
     <div className="container">
       <RecipeFromSearchHeader photo={props.recipe.photo} name={props.recipe.name}/>
-      <div className="row">
+      <div className="row-from-search row">
+        <div className="col-lg-3" />
         <IngredientsOfRecipe ingredients={props.recipe.ingredients} />
         <NutritionOfRecipe nutritionalFacts={props.recipe.nutritionalFacts} />
       </div>

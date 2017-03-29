@@ -6,11 +6,8 @@ import AddRecipe from './addRecipe.jsx';
 import Login from './login.jsx';
 import ViewFork from './viewFork.js';
 import ViewRecipes from './viewRecipes.jsx';
-<<<<<<< HEAD
 import TopRecipes from './TopRecipes.jsx';
-=======
 import RecipeFromSearch from './RecipeFromSearch.jsx';
->>>>>>> (feat) create recipe page from search
 import {
   BrowserRouter as Router,
   Route,
@@ -95,6 +92,7 @@ class App extends React.Component {
                     src="https://us.123rf.com/450wm/aquir/aquir1512/aquir151202267/49081585-top-rated-orange-round-gel-isolated-push-button.jpg?ver=68"
                     alt="Home"/>
                   <span><Link to="/toprecipes">Top Recipes</Link></span>
+                </div>
                 <div>
                   <Link to="/recipeFromSearch">TEST</Link>
                 </div>
