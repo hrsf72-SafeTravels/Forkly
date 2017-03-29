@@ -8,6 +8,7 @@ import ViewFork from './viewFork.js';
 import ViewRecipes from './viewRecipes.jsx';
 import TopRecipes from './TopRecipes.jsx';
 import RecipeFromSearch from './RecipeFromSearch.jsx';
+import Recipes from './Recipes';
 import {
   BrowserRouter as Router,
   Route,
@@ -19,9 +20,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       username: null,
-      currentRecipe: []
+      currentRecipe: [],
+      searchedRecipes: [],
     };
     this.logout = this.logout.bind(this);
+    this.handleSearchedRecipes = this.handleSearchedRecipes.bind(this);
   }
 
   componentDidMount(){
@@ -42,6 +45,12 @@ class App extends React.Component {
         console.log('ajax request to search username failed');
       }
     });
+  }
+
+  handleSearchedRecipes(recipes) {
+    console.log('entering here==========');
+    console.log(recipes);
+    this.setState({ searchedRecipes: recipes });
   }
 
   logout() {
@@ -104,12 +113,13 @@ class App extends React.Component {
             </section>
           </div>
 
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={ () => (<Home handleSearchedRecipes={this.handleSearchedRecipes}/>)} />
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/myrecipes" component={ViewRecipes}/>
           <Route path="/recipe" component={ViewFork}/>
           <Route path="/toprecipes" component={TopRecipes} />
           <Route path="/recipeFromSearch" component={RecipeFromSearch} />
+          <Route path="/recipes" component={() => (<Recipes recipes={this.state.searchedRecipes}/>)} />
 
           <br />
           <br />

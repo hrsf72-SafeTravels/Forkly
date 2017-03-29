@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 import RecipeSearch from './recipeSearch.jsx';
 
@@ -32,7 +33,8 @@ class Home extends React.Component {
       success: function(data){
         console.log('ajax request to search recipes was successful!');
         console.log('response', JSON.parse(data).hits);
-        context.setState({recipes: JSON.parse(data).hits}); 
+        context.props.handleSearchedRecipes(JSON.parse(data).hits);
+        //context.setState({recipes: JSON.parse(data).hits}); 
       },
       error: function(err) {
         console.log('ajax request to search recipes failed');
@@ -52,18 +54,18 @@ class Home extends React.Component {
                               this.setSearchTerm(event.target.value)
                             }}
             />
-            <button className="btn btn-default" onClick={(event) => {
+            <Link to='/recipes'><button className="btn btn-default" onClick={(event) => {
                               this.searchRecipes(this.state.searchTerm)
                             }}
-            >Search Recipes</button>
+            >Search Recipes</button></Link>
           </span>
         </div>
 
-        <div className="results">
+        {/*<div className="results">
           <ul>
             {this.state.recipes.map((element, index) => <RecipeSearch recipe={element.recipe} key={index}/>)}
           </ul>
-        </div>
+        </div>*/}
   	  </div>
   	)
   }
