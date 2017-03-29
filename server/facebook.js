@@ -1,7 +1,7 @@
 var express = require('express');
 var db = require('../db/index.js');
 var User = db.User;
-var configAuth = require('../react/env/config.js');
+var configAuth = require('../config/api_config');
 
 const passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
