@@ -9,7 +9,7 @@ var db = require("../db/index.js");
 // for Home Component - from searchRecipes function
 exports.searchRecipes = function(req, res) {
   var searchTerm = req.body.searchTerm;
-  const url = `https://api.edamam.com/search?q=${searchTerm}&app_id=${ApiKeys.edamamApiKey.appID}&app_key=${ApiKeys.edamamApiKey.appKey}&from=0&to=3&calories=gte%20591,%20lte%20722`;
+  const url = `https://api.edamam.com/search?q=${searchTerm}&app_id=${ApiKeys.edamamApiKey.appID}&app_key=${ApiKeys.edamamApiKey.appKey}&from=0&to=5&calories=gte%20591,%20lte%20722`;
 
   request({
     uri: url,
