@@ -1,7 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
+import ViewRecipesNavBar from './viewRecipesNavBar';
 
-class ViewRecipes extends React.Component {
+class MyRecipes extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -30,7 +31,6 @@ class ViewRecipes extends React.Component {
   render () {
     var recipesArray = [];
     var template = '';
-
     if (this.state) {
       this.state.recipes.forEach((recipe, index) => {
       recipesArray.push(
@@ -41,10 +41,9 @@ class ViewRecipes extends React.Component {
           {recipe.name}
         </li>)
       });
-
       template = 
       <div className="myRecipes">
-        <img className="myRecipeImage" src="assets/images/salmon.jpg"/>
+        <ViewRecipesNavBar />
         <h1 className="myRecipesTitle">My Recipes</h1>
         <ul className="recipesArray">
           {recipesArray}
@@ -54,13 +53,11 @@ class ViewRecipes extends React.Component {
       </div>
     } else {
       template = 
-      <div >
-        <img className="myRecipeImage" src="assets/images/salmon.jpg"/>
-        <h1 className="myRecipesTitle">My Recipes</h1>
+      <div className="myRecipes">
+        <ViewRecipesNavBar />
         <div className="loadingText"> 
-          <h3>Loading...</h3>
           <br/>
-          <h3>Please login or create your first recipe!</h3>
+          <h3>create your first recipe!</h3>
           <br />
           <br />
         </div>
@@ -68,12 +65,12 @@ class ViewRecipes extends React.Component {
     }
     return (
       template
-    )
+    );
   }
 }
 
-ViewRecipes.contextTypes = {
+MyRecipes.contextTypes = {
   router: React.PropTypes.object
 }
 
-export default ViewRecipes;
+export default MyRecipes;

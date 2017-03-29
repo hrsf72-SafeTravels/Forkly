@@ -36,11 +36,6 @@ var selectAllRecipes = function(callback) {
 
 // User schema
 var userSchema = mongoose.Schema({
-  // username: {type: String, unique: true},
-  // hash: String,
-  // salt: String,
-  // username: String,
-  // _id: String,
   name: String,
   provider: String,
   facebook: Object,
@@ -48,7 +43,8 @@ var userSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Recipe'
   }],
-  friends: []
+  friends: [],
+  favoredRecipes: []
 });
 
 var User = mongoose.model('User', userSchema);
