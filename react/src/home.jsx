@@ -28,7 +28,6 @@ class Home extends React.Component {
   searchRecipes() {
     // send ajax request to server, which then searches db for searchTerm
     var searchTerm = {searchTerm: this.state.searchTerm};
-    var context = this;
 
     $.ajax({
       url: '/searchRecipes',
@@ -39,9 +38,8 @@ class Home extends React.Component {
       success: function(data){
         console.log('ajax request to search recipes was successful!');
         console.log('response', JSON.parse(data).hits);
-        context.props.handleSearchedRecipes(JSON.parse(data).hits);
-        //context.setState({recipes: JSON.parse(data).hits});
-      },
+        this.props.handleSearchedRecipes(JSON.parse(data).hits);
+      }.bind(this),
       error: function(err) {
         console.log('ajax request to search recipes failed');
       }
@@ -58,7 +56,12 @@ class Home extends React.Component {
       data: JSON.stringify(searchTerm),
       contentType: 'application/json',
       success: function(data) {
-
+        console.log('ajax request to search youtube was successful');
+        console.log('response from youtube search', JSON.parse(data).hits);
+        this.props.handleSearchedVideos(JSON.parse(data));
+      }.bind(this),
+      error: function(err) {
+        console.log('ajax request to search youtube failed');
       }
     })
   };
