@@ -48,7 +48,7 @@ class Home extends React.Component {
         <div className="search">
           <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
           <span className="searchText">
-            <h3>Yummly</h3>
+            <h1>Yummly</h1>
             <input className="form-control" type="text"
                    onKeyUp={ (event) => {
                               this.setSearchTerm(event.target.value)

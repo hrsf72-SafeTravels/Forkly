@@ -86,10 +86,12 @@ body {
 
 .floatLeft {
   float: left;
+  margin-left: 3%;
 }
 
 .floatRight {
   float: right;
+  margin-right: 3%;
 }
 
 .logo {
@@ -165,7 +167,6 @@ body {
   color: white;
   text-shadow: 0 2px 5px #000, 0 0 10px #000;
   text-decoration-style: bold;
-  font-size: 90px;
 }
 
 .results {
@@ -187,6 +188,15 @@ body {
 
 .searchIngredient {
   font-size: 16px;
+}
+
+input[type="text"].form-control {
+  width: 40%;
+  margin: 2% auto;
+}
+
+.searchText button {
+  margin-top: 0;
 }
 
 /*
