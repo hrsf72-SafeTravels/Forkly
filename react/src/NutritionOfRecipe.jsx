@@ -6,7 +6,7 @@ const propTypes = {
 
 const NutritionOfRecipe = (props) => {
   return (
-    <div className="col-lg-6">
+    <div className="col-lg-3">
       <ul>
         {Object.keys(props.nutritionalFacts).map((fact) =>
           <ol>{fact}:{props.nutritionalFacts[fact]}</ol>
