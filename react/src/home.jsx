@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
+import { Router, Redirect } from 'react-router';
 
 import RecipeSearch from './recipeSearch.jsx';
 
@@ -9,7 +10,8 @@ class Home extends React.Component {
   	super(props);
     this.state = {
       searchTerm: null,
-      recipes: []
+      recipes: [],
+      hasSearched: false,
     };
   }
 
@@ -34,7 +36,7 @@ class Home extends React.Component {
         console.log('ajax request to search recipes was successful!');
         console.log('response', JSON.parse(data).hits);
         context.props.handleSearchedRecipes(JSON.parse(data).hits);
-        //context.setState({recipes: JSON.parse(data).hits}); 
+        //context.setState({recipes: JSON.parse(data).hits});
       },
       error: function(err) {
         console.log('ajax request to search recipes failed');
@@ -45,21 +47,30 @@ class Home extends React.Component {
   render() {
   	return (
   	  <div>
-        <div className="search">
-          <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
-          <span className="searchText">
-            <h1>Yummly</h1>
-            <input className="form-control" type="text"
-                   onKeyUp={ (event) => {
-                              this.setSearchTerm(event.target.value)
-                            }}
-            />
-            <Link to='/recipes'><button className="btn btn-default" onClick={(event) => {
-                              this.searchRecipes(this.state.searchTerm)
-                            }}
-            >Search Recipes</button></Link>
-          </span>
-        </div>
+        { this.state.hasSearched ?
+          <Redirect to="/recipes" />
+          :
+          <div className="search">
+            <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
+            <span className="searchText">
+              <h3>Yummly</h3>
+              <form onSubmit={(event) => {
+                  this.searchRecipes(this.state.searchTerm);
+                  event.preventDefault();
+                  this.setState({
+                    hasSearched: true,
+                  });
+                }}>
+                <input className="form-control" type="text"
+                        onKeyUp={ (event) => {
+                                  this.setSearchTerm(event.target.value)
+                                }}
+                />
+                <button className="btn btn-default">Search Recipes</button>
+              </form>
+            </span>
+          </div>
+        }
 
         {/*<div className="results">
           <ul>
