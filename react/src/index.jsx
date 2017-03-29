@@ -70,11 +70,12 @@ class App extends React.Component {
               <h3 className="title username"><Login username={this.state.username}/></h3>
             </section>
             <section className="floatRight">
-              <nav>
+              <nav> {this.state.username &&
                 <div className="icon logout">
                   <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
                   <span><Link to="/" onClick={this.logout}><br />Logout</Link></span>
                 </div>
+                }
                 <div className="icon addRecipe">
                   <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
                   <span><Link to="/addrecipe">Create Recipe</Link></span>
