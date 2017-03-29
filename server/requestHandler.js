@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
 var mongoose = require('mongoose');
+const ApiKeys = require('../config/api_config');
 mongoose.Promise = require('bluebird');
 
 var db = require("../db/index.js");
@@ -8,18 +9,37 @@ var db = require("../db/index.js");
 // for Home Component - from searchRecipes function
 exports.searchRecipes = function(req, res) {
   var searchTerm = req.body.searchTerm;
+  const url = `https://api.edamam.com/search?q=${searchTerm}&app_id=${ApiKeys.edamamApiKey.appID}&app_key=${ApiKeys.edamamApiKey.appKey}&from=0&to=3&calories=gte%20591,%20lte%20722`;
+
+  request({
+    uri: url,
+    method: 'GET',
+    params: {
+      q: searchTerm,
+      health: 'alcohol-free',
+    }
+  }, (error, response, body) => {
+    if (error) {
+      console.error('edamam GET request error');
+    } else {
+      console.log('edamam request successful');
+      res.status(200).send(body);
+    }
+  });
+
+
  
   // regex -> allows the search to contain string instead of === string
   // options i -> allows search to be case insensitive
-  db.Recipe.find({name:{'$regex' : searchTerm, '$options' : 'i'}})
-    .exec(function (err, recipe) {
-      if (err) 
-      	{
-      	  return err;
-      	} else {
-      	res.json(recipe);
-      }
-	});
+  // db.Recipe.find({name:{'$regex' : searchTerm, '$options' : 'i'}})
+  //   .exec(function (err, recipe) {
+  //     if (err) 
+  //     	{
+  //     	  return err;
+  //     	} else {
+  //     	res.json(recipe);
+  //     }
+	// });
 };
 
 // for Nav Component - from getUsername function
