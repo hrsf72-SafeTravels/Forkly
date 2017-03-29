@@ -17,8 +17,8 @@ class Home extends React.Component {
 
   componentDidMount() {
     var input = document.getElementById("myinput");
-    var awesomplete = new Awesomplete(input, {minChars: 1, autoFirst: true});
-    awesomplete.list = ["egg", "cucumber", "eggplant", "chicken", "flour"];
+    var awesomplete = new Awesomplete(input, {minChars: 1, autoFirst: true, maxItems: 6});
+    awesomplete.list = [ 'apple', 'beef', 'chicken', 'cucumber', 'egg', 'eggplant', 'flour', 'lamb','leak', 'peas', 'pork', 'rice' ];
   }
 
   setSearchTerm(searchTerm) {
