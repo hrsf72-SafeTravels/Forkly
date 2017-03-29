@@ -1,5 +1,7 @@
 ### node etc ###
 
+.vscode/
+
 # Logs
 logs
 *.log
