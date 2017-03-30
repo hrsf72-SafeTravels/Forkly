@@ -46,12 +46,12 @@ exports.searchRecipes = function(req, res) {
 exports.searchYoutube = function(req, res) {
   let searchTerm = `${req.body.searchTerm} cooking recipes`;
   console.log('hi we are in the server requesting youtube');
-  
+
   request({
     uri: 'https://www.googleapis.com/youtube/v3/search',
     method: 'GET',
     qs: {
-      key: ApiKeys.google,
+      key: ApiKeys.google.key,
       part: 'snippet',
       q: searchTerm,
       maxResults: 5,
