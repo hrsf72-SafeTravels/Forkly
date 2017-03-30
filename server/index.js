@@ -64,6 +64,8 @@ app.post('/searchRecipes', handler.searchRecipes);
 // to find all recipes for given user id
 app.get('/getAllRecipes', handler.getUserRecipes);
 
+app.get('/getFriends', handler.getFriends);
+
 app.post('/getRecipeById', handler.getRecipeById);
 
 // must be access only after signing in

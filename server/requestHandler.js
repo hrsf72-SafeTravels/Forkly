@@ -64,6 +64,18 @@ exports.getUserRecipes = function(req, res) {
   }
 }
 
+exports.getFriends = (req, res) => {
+  if (req.user) {
+    db.User.findById(req.user._id)
+    .exec((err, user) => {
+      console.log(user.friends);
+      res.send(user.friends);
+    });
+  } else {
+    res.end();
+  }
+}
+
 exports.addRecipe = function(req, res) {
   if (req.user) {
     req.body._creator = req.user._id;
