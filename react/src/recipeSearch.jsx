@@ -3,6 +3,7 @@ import $ from 'jquery';
 import RecipeIngredients from './recipeIngredients';
 import RecipeSaveButton from './RecipeSaveButton';
 import diaglog from 'jquery-ui/ui/widgets/dialog';
+import CategorySelection from './CategorySelection';
 
 class RecipeSearch extends React.Component {
   constructor(props) {
@@ -16,8 +17,33 @@ class RecipeSearch extends React.Component {
   }
 
   saveRecipeClick() {
-    console.log('h');
-    var popUpList = $('<div class="mypopup"><input type="radio">A<br><input type="radio">B<br><input type="radio">C</div>');
+    var saladSelected = false;
+    var soupSelected = false;
+    $(document).on("change", "#salad", function () {
+        console.log('salad is checked');
+        saladSelected = !saladSelected;
+    });
+
+    $(document).on("change", "#soup", function () {
+        console.log('soup is checked');
+        soupSelected = !soupSelected;
+    });
+
+
+    var popUpList = $(`<div class="category-card"> 
+      <div class="container">
+        <h4>Select Category</h4>
+          <p>
+            <input type="checkbox" id="salad" value="first_checkbox">
+            <label for="cbox1">Salad</label>
+          </p>
+          <p>
+            <input type="checkbox" id="soup" value="second_checkbox" checked="checked">
+            <label for="cbox2">Soup</label>
+          </p>
+        </div>
+      </div>`);
+        
     popUpList.dialog();
     let { label, ingredients, image } = this.props.recipe;
     let name = label;
