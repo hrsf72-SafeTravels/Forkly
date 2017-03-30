@@ -18,7 +18,7 @@ class AddRecipeIngredients extends React.Component {
 
     quantityComplete.list = ['1', '2', '3', '4', '5', '1/2', '1/4', '3/4'];
     unitsComplete.list = ['Spoonful', 'Cupful', 'Oz', 'Lbs', 'Tons', 'mL', 'Qt', 'Gal', 'Fluid Oz'];
-    ingredientComplete.list = ['Chicken', 'Pork', 'Steak', 'Sugar', 'Chocolate', 'Flour', 'Asbestos', 'Ground Beef'];
+    ingredientComplete.list = ['Chicken', 'Pork', 'Steak', 'Sugar', 'Chocolate', 'Flour', 'Asbestos', 'Ground Beef', 'Egg'];
   }
 
   // handleChange(event) {
