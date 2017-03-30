@@ -7,7 +7,6 @@ import Login from './login';
 import ViewFork from './viewFork';
 import Profile from './profile';
 import TopRecipeList from './TopRecipeList';
-import RecipeFromSearch from './RecipeFromSearch';
 import MyRecipes from './myRecipes';
 import Recipes from './Recipes';
 import SavedRecipes from './savedRecipes';
@@ -113,9 +112,6 @@ class App extends React.Component {
                     alt="Home"/>
                   <span><Link to="/toprecipes">Top Recipes</Link></span>
                 </div>
-                <div>
-                  <Link to="/recipeFromSearch">TEST</Link>
-                </div>
               </nav>
             </section>
           </div>
@@ -127,7 +123,6 @@ class App extends React.Component {
           <Route path="/profile" component={() => <Profile user={this.state.username}/>}/>
           <Route path="/recipe" component={ViewFork}/>
           <Route path="/toprecipes" component={TopRecipeList} />
-          <Route path="/recipeFromSearch" component={RecipeFromSearch} />
           <Route path="/myRecipes" component={MyRecipes} />
           <Route path="/savedRecipes" component={SavedRecipes} />
           <Route path="/friends" component={Friends} />
