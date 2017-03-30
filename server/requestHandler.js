@@ -1,7 +1,7 @@
 var express = require('express');
 var request = require('request');
 var mongoose = require('mongoose');
-const ApiKeys = require('./setup.js');
+var ApiKeys = require('./../react/env/config.js');
 mongoose.Promise = require('bluebird');
 
 var db = require("../db/index.js");
@@ -45,25 +45,26 @@ exports.searchRecipes = function(req, res) {
 // for Home component - from searchYoutube function
 exports.searchYoutube = function(req, res) {
   let searchTerm = `${req.body.searchTerm} cooking recipes`;
-  console.log('hi');
-  console.log('here is the body', req.body)
+  console.log('hi we are in the server requesting youtube');
+  
   request({
     uri: 'https://www.googleapis.com/youtube/v3/search',
     method: 'GET',
-    params: {
-      key: ApiKeys.GOOGLE,
+    qs: {
+      key: ApiKeys.google,
       part: 'snippet',
       q: searchTerm,
       maxResults: 5,
       videoEmbeddable: true,
       type: 'video',
-    }, function(error, response, body) {
-      if (error) {
-        console.error('Youtube GET request error');
-      } else {
-        console.log('Youtube GET request successful');
-        res.status(200).send(body);
-      }
+    }
+  }, function(error, response, body) {
+    console.log('getting a response')
+    if (error) {
+      console.log('Youtube GET request error');
+    } else {
+      console.log('Youtube GET request successful');
+      res.status(200).send(body);
     }
   });
 };

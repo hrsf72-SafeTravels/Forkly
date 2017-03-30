@@ -57,13 +57,13 @@ class Home extends React.Component {
       contentType: 'application/json',
       success: function(data) {
         console.log('ajax request to search youtube was successful');
-        console.log('response from youtube search', JSON.parse(data).hits);
+        console.log('response from youtube search', JSON.parse(data));
         this.props.handleSearchedVideos(JSON.parse(data));
       }.bind(this),
       error: function(err) {
         console.log('ajax request to search youtube failed');
-      }
-    })
+      },
+    });
   };
 
   render() {
@@ -77,7 +77,8 @@ class Home extends React.Component {
             <span className="searchText">
               <h1 className="search-title">Yummly</h1>
               <form onSubmit={(event) => {
-                  this.searchRecipes(this.state.searchTerm);
+                  this.searchRecipes();
+                  this.searchYoutube()
                   event.preventDefault();
                   this.setState({
                     hasSearched: true,
