@@ -13,6 +13,8 @@ class Home extends React.Component {
       recipes: [],
       hasSearched: false,
     };
+    this.searchRecipes = this.searchRecipes.bind(this);
+    this.searchYoutube = this.searchYoutube.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +40,7 @@ class Home extends React.Component {
       success: function(data){
         console.log('ajax request to search recipes was successful!');
         console.log('response', JSON.parse(data).hits);
-        this.props.handleSearchedRecipes(JSON.parse(data).hits);
+        this.searchYoutube(JSON.parse(data).hits);
       }.bind(this),
       error: function(err) {
         console.log('ajax request to search recipes failed');
@@ -46,10 +48,11 @@ class Home extends React.Component {
     });
   };
 
-  searchYoutube() {
+  searchYoutube(recipes) {
     var searchTerm = {searchTerm: this.state.searchTerm};
     var context = this;
 
+    console.log('in searchyoutube', recipes)
     $.ajax({
       url: '/searchYoutube',
       type: 'POST',
@@ -58,7 +61,9 @@ class Home extends React.Component {
       success: function(data) {
         console.log('ajax request to search youtube was successful');
         console.log('response from youtube search', JSON.parse(data));
-        this.props.handleSearchedVideos(JSON.parse(data));
+
+        this.props.handleSearched(recipes, JSON.parse(data).items);
+
       }.bind(this),
       error: function(err) {
         console.log('ajax request to search youtube failed');
@@ -78,7 +83,6 @@ class Home extends React.Component {
               <h1 className="search-title">Yummly</h1>
               <form onSubmit={(event) => {
                   this.searchRecipes();
-                  this.searchYoutube()
                   event.preventDefault();
                   this.setState({
                     hasSearched: true,

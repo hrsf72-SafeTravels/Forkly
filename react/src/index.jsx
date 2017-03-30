@@ -28,8 +28,7 @@ class App extends React.Component {
       searchedVideos: [],
     };
     this.logout = this.logout.bind(this);
-    this.handleSearchedRecipes = this.handleSearchedRecipes.bind(this);
-    this.handleSearchedVideos = this.handleSearchedVideos.bind(this);
+    this.handleSearched = this.handleSearched.bind(this);
   }
 
   componentDidMount(){
@@ -51,16 +50,12 @@ class App extends React.Component {
     });
   }
 
-  handleSearchedRecipes(recipes) {
-    console.log('entering here==========');
-    console.log(recipes);
-    this.setState({ searchedRecipes: recipes });
-  }
-
-  handleSearchedVideos(videos) {
-    console.log('entering video handler in index.jsx');
-    console.log(videos);
-    this.setState({ searchedVideos: videos });
+  handleSearched(recipes, videos) {
+    console.log('entering handle search in index.jsx');
+    this.setState({
+      searchedRecipes: recipes,
+      searchedVideos: videos,
+    });
   }
 
   logout() {
@@ -122,8 +117,7 @@ class App extends React.Component {
           </div>
           <Route exact path="/" component={ () => (<Home handleSearchedRecipes={this.handleSearchedRecipes}/>)} />
           <Route exact path="/" component={ () => (<Home 
-              handleSearchedRecipes={this.handleSearchedRecipes}
-              handleSearchedVideos={this.handleSearchedVideos}
+              handleSearched={this.handleSearched}
             />)} 
           />
           <Route path="/addrecipe" component={AddRecipe}/>
