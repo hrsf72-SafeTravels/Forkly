@@ -4,8 +4,6 @@ import Awesomplete from './awesomplete.js'
 class AddRecipeIngredients extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    // this.handleChange = this.handleChange.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
@@ -20,7 +18,7 @@ class AddRecipeIngredients extends React.Component {
 
     quantityComplete.list = ['1', '2', '3', '4', '5', '1/2', '1/4', '3/4'];
     unitsComplete.list = ['Spoonful', 'Cupful', 'Oz', 'Lbs', 'Tons', 'mL', 'Qt', 'Gal', 'Fluid Oz'];
-    ingredientComplete.list = ['Chicken', 'Pork', 'Steak', 'Sugar', 'Chocolate', 'Flour', 'Asbestos'];
+    ingredientComplete.list = ['Chicken', 'Pork', 'Steak', 'Sugar', 'Chocolate', 'Flour', 'Asbestos', 'Ground Beef'];
   }
 
   // handleChange(event) {
@@ -32,12 +30,13 @@ class AddRecipeIngredients extends React.Component {
       quantity: document.getElementById('quantity-input').value,
       units: document.getElementById('units-input').value,
       ingredient: document.getElementById('ingredient-input').value,
+      showButton: false,
     };
-    this.props.addRow(ingredients);
+    this.props.addRow(ingredients, this.props.index);
   }
 
   render () {
-    if (this.props.showButton) {
+    if (this.props.showButton === true) {
       return (
         <tbody>
           <tr>
@@ -54,9 +53,9 @@ class AddRecipeIngredients extends React.Component {
       return (
         <tbody>
           <tr>
-            <td><input type="number" name="quantity" value={this.props.quantity} /></td>
-            <td><input type="text" name="units" value={this.props.units} /></td>
-            <td><input type="text" name="ingredient" value={this.props.ingredient}/></td>
+            <td><input type="number" name="quantity" default={this.props.quantity} /></td>
+            <td><input type="text" name="units" default={this.props.units} /></td>
+            <td><input type="text" name="ingredient" default={this.props.ingredient}/></td>
             <td><input type="button" name="updateRecipeRow" value="Update Recipe" onClick={this.onClick}/></td>
           </tr>
         </tbody>

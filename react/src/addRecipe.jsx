@@ -9,10 +9,10 @@ class AddRecipe extends React.Component {
     this.state = {
       name: '',
       directions: '',
-      ingredients: [{quantity: 1, units: '', ingredient: '', showButton: true}]
+      ingredients: [{quantity: '1', units: '', ingredient: '', showButton: true}]
     }
     this.addRow = this.addRow.bind(this);
-    this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
+    // this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,7 +24,6 @@ class AddRecipe extends React.Component {
     let boundThis = this;
     // if history has url at end
     if (forkedId.length > 0) {
-      console.log('hi');
       $.ajax({
         url: '/getRecipeById',
         type:'POST',
@@ -58,32 +57,41 @@ class AddRecipe extends React.Component {
     event.preventDefault();
   }
 
-  addRow(ingredients) {
+  addRow(ingredients, index) {
     // ingredients are passed from the values of the input field -- accomodates the autocomplete
-    console.log(ingredients)
-    let stateIngredients = this.setState({
-    })
-    let myIngredients = this.state.ingredients;
-    myIngredients[myIngredients.length - 1].showButton = false;
-    
-    // should not 'push' into state
-    myIngredients.push({quantity: 0, units: '', ingredient: '', showButton: true});
-    this.setState({ingredients: myIngredients});
-  }
+    console.log(ingredients);
+    let copy = this.state.ingredients.slice();
 
-  handleIngredientsChange (event, index) {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
-
-    let ing = this.state.ingredients;
-    ing[index][name] = value;
-    console.log(value);
+    for (var key in ingredients) {
+      copy[index][key] = ingredients[key];
+    }
+    console.log(copy)
 
     this.setState({
-      ingredients: ing
+      ingredients: copy,
     });
+    
+    // add new row only when we have clicked 'addRow'
+    if (index === copy.length - 1) {
+      this.setState({
+        ingredients: this.state.ingredients.concat({quantity: 0, units: '', ingredient: '', showButton: true})
+      });
+    }
   }
+
+  // handleIngredientsChange (event, index) {
+  //   const target = event.target;
+  //   const name = target.name;
+  //   const value = target.value;
+
+  //   let ing = this.state.ingredients;
+  //   ing[index][name] = value;
+  //   console.log(value);
+
+  //   this.setState({
+  //     ingredients: ing
+  //   });
+  // }
 
   handleInputChange (event) {
     const target = event.target;
@@ -120,15 +128,18 @@ class AddRecipe extends React.Component {
                 <td>Ingredient</td>
               </tr>
             </thead>
+            {console.log(this.state.ingredients)}
             {this.state.ingredients.map(function(val, index) {
-                return (<AddRecipeIngredients 
+                console.log(val)
+                return (<AddRecipeIngredients
                   key={index}
-                  index={index} 
-                  quantity={val.quantity} 
-                  units={val.units} 
-                  ingredient={val.ingredient} 
-                  showButton={val.showButton} 
-                  addRow={this.addRow} 
+                  index={index}
+                  quantity={val.quantity}
+                  units={val.units}
+                  ingredient={val.ingredient}
+                  showButton={val.showButton}
+
+                  addRow={this.addRow}
                   handleIngredientsChange={this.handleIngredientsChange}
                 />);
              }, this)}
