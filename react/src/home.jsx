@@ -39,7 +39,7 @@ class Home extends React.Component {
       // upon success, adds results to this.state.recipes
       success: function(data){
         console.log('ajax request to search recipes was successful!');
-        console.log('response', JSON.parse(data).hits);
+        console.log('recipes', JSON.parse(data).hits);
         this.searchYoutube(JSON.parse(data).hits);
       }.bind(this),
       error: function(err) {
