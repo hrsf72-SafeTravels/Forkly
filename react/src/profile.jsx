@@ -12,7 +12,7 @@ class Profile extends React.Component {
   render () {
     return (
       <div>
-        { this.props.user === null ? 
+        { this.props.user === null ?
           <p> Please Login first </p> :
           <ViewRecipesNavBar />
         }

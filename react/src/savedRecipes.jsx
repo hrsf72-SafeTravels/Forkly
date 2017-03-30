@@ -34,14 +34,14 @@ class SavedRecipes extends React.Component {
     if (this.state) {
       this.state.recipes.forEach((recipe, index) => {
       recipesArray.push(
-        <li className="recipeSingle" 
-          key={index} 
-          value={recipe} 
+        <li className="recipeSingle"
+          key={index}
+          value={recipe}
           onClick={() => this.handleClick(recipe._id)}>
           {recipe.name}
         </li>)
       });
-      template = 
+      template =
       <div className="myRecipes">
         <ViewRecipesNavBar />
         <h1 className="myRecipesTitle">Saved Recipes</h1>
@@ -52,7 +52,7 @@ class SavedRecipes extends React.Component {
         <br />
       </div>
     } else {
-      template = 
+      template =
       <div className="myRecipes">
         <ViewRecipesNavBar />
         <div className="loadingText"> 

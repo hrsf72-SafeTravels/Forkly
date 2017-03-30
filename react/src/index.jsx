@@ -11,6 +11,7 @@ import RecipeFromSearch from './RecipeFromSearch';
 import MyRecipes from './myRecipes';
 import Recipes from './Recipes';
 import SavedRecipes from './savedRecipes';
+import Friends from './friends';
 import {
   BrowserRouter as Router,
   Route,
@@ -35,7 +36,6 @@ class App extends React.Component {
 
   getUsername () {
     var context = this;
-
     $.ajax({
       url: '/username',
       type: 'GET',
@@ -121,6 +121,7 @@ class App extends React.Component {
           <Route path="/recipes" component={() => (<Recipes recipes={this.state.searchedRecipes}/>)} />
           <Route path="/myRecipes" component={MyRecipes} />
           <Route path="/savedRecipes" component={SavedRecipes} />
+          <Route path="/friends" component={Friends} />
           <br />
           <br />
           <br />

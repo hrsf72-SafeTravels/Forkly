@@ -11,10 +11,10 @@ class Friends extends React.Component {
   componentDidMount() {
     var boundThis = this;
     $.ajax({
-      url: '/getAllRecipes',
-      type:'GET',
+      url: '/getFriends',
+      type: 'GET',
       success: function(data){
-        boundThis.setState({recipes: data});
+        boundThis.setState({friends: data});
       },
       error: function(err) {
         console.log('could not retrieve any recipes for user');
@@ -22,31 +22,32 @@ class Friends extends React.Component {
     });
   }
 
-  handleClick(recipeId) {
-    //redirect to /recipes/recipeId
-    const { router } = this.context
-    router.history.push('/recipe/' + recipeId);
-  }
+  // handleClick(friendId) {
+  //   //
+  //   // how does it work??
+  //   //
+  //   const { router } = this.context
+  //   router.history.push('/friends/' + recipeId);
+  // }
 
   render () {
-    var recipesArray = [];
+    var friendsList = [];
     var template = '';
     if (this.state) {
-      this.state.recipes.forEach((recipe, index) => {
-      recipesArray.push(
-        <li className="recipeSingle" 
+      this.state.friends.forEach((friend, index) => {
+      friendsList.push(
+        <li className="recipeSingle"
           key={index} 
-          value={recipe} 
-          onClick={() => this.handleClick(recipe._id)}>
-          {recipe.name}
+          value={friend} 
+          onClick={() => this.handleClick(friend._id)}>
+          {friend.name}
         </li>)
       });
       template = 
       <div className="myRecipes">
         <ViewRecipesNavBar />
-        <h1 className="myRecipesTitle">Saved Recipes</h1>
         <ul className="recipesArray">
-          {recipesArray}
+          {friendsList}
         </ul>
         <br />
         <br />
@@ -57,7 +58,7 @@ class Friends extends React.Component {
         <ViewRecipesNavBar />
         <div className="loadingText"> 
           <br/>
-          <h3>fork other people's recipe first recipe!</h3>
+          <h3>You don't have any friend, sorry</h3>
           <br />
           <br />
         </div>

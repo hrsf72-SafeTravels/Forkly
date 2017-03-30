@@ -10,7 +10,7 @@ const ViewRecipesNavBar = () => (
             <Link to='/profile'><li className="profile-nav">About Me</li></Link>
             <Link to='/savedRecipes'><li>Saved Recipes</li></Link>
             <Link to='/myRecipes'><li>My Recipes</li></Link>
-            <Link to='/friend'><li>Friends</li></Link>
+            <Link to='/friends'><li>Friends</li></Link>
           </ul>
         </div>
       </div>
