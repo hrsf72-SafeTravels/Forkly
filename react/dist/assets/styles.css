@@ -282,17 +282,23 @@ input[type="text"].form-control {
   color: white;
   font-size: 24px;
   position: absolute;
-  top: 365px;
-  left: 240px;
+  top: 275px;
+  left: 60px;
   z-index: 1;
   text-shadow: 0 2px 5px #000, 0 0 10px #000;
   text-decoration-style: bold;
-  font-size: 90px;
+  font-size: 50px;
 }
 
 .loadingText{
   color: black;
   padding: 20px;
+}
+
+.recipesArrays{
+  position: absolute;
+  top: 310px;
+  left: 50px;
 }
 
 .recipesArray{
@@ -368,4 +374,9 @@ small a:hover {
 .recipe-img {
   width: 200px;
   height: 200px;
+}
+
+.navbar-text-color {
+  color: #ee6000;
+  font-weight: 475;
 }

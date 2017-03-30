@@ -46,9 +46,12 @@ class Friends extends React.Component {
       template = 
       <div className="myRecipes">
         <ViewRecipesNavBar />
-        <ul className="recipesArray">
-          {friendsList}
-        </ul>
+        <div className="myRecipesTitle">Friends</div>
+        <div className="recipesArrays">
+          <ul className="recipesArray">
+            {friendsList}
+          </ul>
+        </div>
         <br />
         <br />
       </div>
