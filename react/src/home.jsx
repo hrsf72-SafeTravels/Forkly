@@ -98,27 +98,6 @@ class Home extends React.Component {
             </span>
           </div>
         }
-        {/*<div className="search">
-          <img className="searchImage" src="assets/images/steak.jpg" alt="steak"/>
-          <span className="searchText">
-            <h1 className="search-title">Yummly</h1>
-            <input id="myinput" className="form-control awesomplete" type="text"
-                   onKeyUp={ (event) => {
-                              this.setSearchTerm(event.target.value)
-                            }}
-            />
-            <Link to='/recipes'><button className="btn btn-default search-btn" onClick={(event) => {
-                              this.searchRecipes(this.state.searchTerm)
-                            }}
-            >Search Recipes</button></Link>
-          </span>
-        </div>*/}
-
-        {/*<div className="results">
-          <ul>
-            {this.state.recipes.map((element, index) => <RecipeSearch recipe={element.recipe} key={index}/>)}
-          </ul>
-        </div>*/}
   	  </div>
   	)
   }
