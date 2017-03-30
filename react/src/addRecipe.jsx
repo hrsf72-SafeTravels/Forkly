@@ -60,6 +60,7 @@ class AddRecipe extends React.Component {
 
   addRow(ingredients) {
     // ingredients are passed from the values of the input field -- accomodates the autocomplete
+    console.log(ingredients)
     let myIngredients = this.state.ingredients;
     myIngredients[myIngredients.length - 1].showButton = false;
     
