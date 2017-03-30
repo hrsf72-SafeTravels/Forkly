@@ -6,6 +6,7 @@ class RecipeSearch extends React.Component {
   constructor(props) {
   	super(props);
     this.saveRecipeClick = this.saveRecipeClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   
   setSearchTerm(searchTerm) {
@@ -59,29 +60,21 @@ class RecipeSearch extends React.Component {
   }
 
   render() {
+    console.log(this.props)
   	return (
   	  <div className='results col-md-3'>
         <div>
           <img className="recipe-img" src={this.props.recipe.image} />
         </div>
         <div className='searchName'>
-          <h4 onClick={() => this.handleClick(this.props.recipe._id)}><em>{this.props.recipe.label}</em></h4>
+          <h4 onClick={() => this.handleClick(this.props.id)}><em>{this.props.recipe.label}</em></h4>
         </div>
-        {/*<div className='ingredients'>
-          <h4 className='searchIngredients'>Ingredients</h4>
-          <p>{this.props.recipe.ingredients.map((ingredient, index)=> <RecipeIngredients ingredient={ingredient} key={index}/>)}</p>
-        </div>*/}
-        {/*<div>
-          <h4 className='searchDirections'>Directions</h4>
-          <p>{this.props.recipe.directions}</p>
-        </div>*/}
         <div>
           <button class="btn btn-submit" onClick={this.saveRecipeClick}>Save</button>
         </div>
   	  </div>
   	)
   }
-
 }
 
 RecipeSearch.contextTypes = {
