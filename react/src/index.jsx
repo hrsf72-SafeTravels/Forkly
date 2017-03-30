@@ -29,6 +29,7 @@ class App extends React.Component {
     };
     this.logout = this.logout.bind(this);
     this.handleSearchedRecipes = this.handleSearchedRecipes.bind(this);
+    this.handleSearchedVideos = this.handleSearchedVideos.bind(this);
   }
 
   componentDidMount(){
@@ -54,6 +55,12 @@ class App extends React.Component {
     console.log('entering here==========');
     console.log(recipes);
     this.setState({ searchedRecipes: recipes });
+  }
+
+  handleSearchedVideos(videos) {
+    console.log('entering video handler in index.jsx');
+    console.log(videos);
+    this.setState({ searchedVideos: videos });
   }
 
   logout() {
@@ -114,6 +121,11 @@ class App extends React.Component {
             </section>
           </div>
           <Route exact path="/" component={ () => (<Home handleSearchedRecipes={this.handleSearchedRecipes}/>)} />
+          <Route exact path="/" component={ () => (<Home 
+              handleSearchedRecipes={this.handleSearchedRecipes}
+              handleSearchedVideos={this.handleSearchedVideos}
+            />)} 
+          />
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/profile" component={() => <Profile user={this.state.username}/>}/>
           <Route path="/recipe" component={ViewFork}/>
