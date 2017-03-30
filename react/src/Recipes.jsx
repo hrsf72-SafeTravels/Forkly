@@ -8,7 +8,7 @@ const Recipes = (props) => {
     <div className="container">
       <div className="results row">
         <ul>
-          {props.recipes.map((element, index) => <RecipeSearch recipe={element.recipe} key={index}/>)}
+          {props.recipes.map((element, index) => <RecipeSearch recipe={element.recipe} id={index} key={index}/>)}
         </ul>
       </div>
       <div className="row">
@@ -16,7 +16,7 @@ const Recipes = (props) => {
             <h2>Recommended Videos</h2>
           }
         <ul>
-          {props.videos.map((element, index) => <VideoSearch video={element} key={index} />)}
+          {props.videos.map((element, index) => <VideoSearch video={element} id={index} key={index} />)}
         </ul>  
       </div>
     </div>
