@@ -5,12 +5,14 @@ const ViewRecipesNavBar = () => (
   <div>
     <nav className="navbar navbar-default navbar-static-top">
       <div className="container">
+        <div className="navbar-header">
+          <Link to ='/profile' className="navbar-brand">About Me</Link>
+        </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
-            <Link to='/profile'><li className="profile-nav">About Me</li></Link>
-            <Link to='/savedRecipes'><li>Saved Recipes</li></Link>
-            <Link to='/myRecipes'><li>My Recipes</li></Link>
-            <Link to='/friends'><li>Friends</li></Link>
+            <li><Link to='/savedRecipes'>Saved Recipes</Link></li>
+            <li><Link to='/myRecipes'>My Recipes</Link></li>
+            <li><Link to='/friends'>Friends</Link></li>
           </ul>
         </div>
       </div>
