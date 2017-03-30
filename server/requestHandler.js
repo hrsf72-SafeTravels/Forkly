@@ -34,7 +34,6 @@ exports.searchRecipes = function(req, res) {
 // for Home component - from searchYoutube function
 exports.searchYoutube = function(req, res) {
   let searchTerm = `${req.body.searchTerm} cooking recipes`;
-  console.log('hi we are in the server requesting youtube');
 
   request({
     uri: 'https://www.googleapis.com/youtube/v3/search',

@@ -23,33 +23,29 @@ class Home extends React.Component {
     awesomplete.list = [ 'apple', 'beef', 'chicken', 'cucumber', 'egg', 'eggplant', 'flour', 'lamb','leak', 'peas', 'pork', 'rice' ];
   }
 
-  setSearchTerm(searchTerm) {
-    this.setState({searchTerm: searchTerm});
-  }
-
-  searchRecipes() {
+  searchRecipes(term) {
     // send ajax request to server, which then searches db for searchTerm
-    var searchTerm = {searchTerm: this.state.searchTerm};
-
+    console.log('we are searching recipes', term)
+    let searchTerm = {searchTerm: term};
     $.ajax({
       url: '/searchRecipes',
       type:'POST',
       data: JSON.stringify(searchTerm),
       contentType: 'application/json',
-      // upon success, adds results to this.state.recipes
+
       success: function(data){
         console.log('ajax request to search recipes was successful!');
         console.log('recipes', JSON.parse(data).hits);
-        this.searchYoutube(JSON.parse(data).hits);
+        this.searchYoutube(JSON.parse(data).hits, searchTerm);
       }.bind(this),
       error: function(err) {
         console.log('ajax request to search recipes failed');
+        console.log(err);
       }
     });
   };
 
-  searchYoutube(recipes) {
-    var searchTerm = {searchTerm: this.state.searchTerm};
+  searchYoutube(recipes, searchTerm) {
     var context = this;
 
     console.log('in searchyoutube', recipes)
@@ -82,16 +78,15 @@ class Home extends React.Component {
             <span className="searchText">
               <h1 className="search-title">Yummly</h1>
               <form onSubmit={(event) => {
-                  this.searchRecipes();
+                  const input = document.getElementById('myinput').value;
+                  this.searchRecipes(input);
                   event.preventDefault();
                   this.setState({
                     hasSearched: true,
+                    searchTerm: input,
                   });
                 }}>
                 <input id="myinput" className="form-control awesomplete" type="text"
-                        onKeyUp={ (event) => {
-                                  this.setSearchTerm(event.target.value)
-                                }}
                 />
                 <button className="btn btn-default">Search Recipes</button>
               </form>
