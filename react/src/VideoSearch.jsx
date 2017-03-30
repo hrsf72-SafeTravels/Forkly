@@ -4,7 +4,7 @@ const VideoSearch = (props) => {
   return (
     <div className="video">
       <h3>{props.video.snippet.title}</h3>
-      <span>{props.video.snippet.description}</span>
+      <p>{props.video.snippet.description}</p>
       <iframe src={`https://www.youtube.com/embed/${props.video.id.videoId}`} allowFullScreen />
     </div>
   );

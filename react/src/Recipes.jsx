@@ -8,7 +8,7 @@ const Recipes = (props) => {
     <div className="results">
       <ul>
         {props.recipes.map((element, index) => <RecipeSearch recipe={element.recipe} key={index}/>)}
-        {props.videos.length &&
+        {props.videos.length > 0 &&
           <h2>Recommended Videos</h2>
         }
         {props.videos.map((element, index) => <VideoSearch video={element} key={index} />)}
