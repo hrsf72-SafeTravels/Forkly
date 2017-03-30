@@ -9,7 +9,7 @@ class AddRecipe extends React.Component {
     this.state = {
       name: '',
       directions: '',
-      ingredients: [{quantity: 1, units: 'spoonful', ingredient: 'sugar', showButton: true}]
+      ingredients: [{quantity: 1, units: '', ingredient: '', showButton: true}]
     }
     this.addRow = this.addRow.bind(this);
     this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
@@ -58,9 +58,12 @@ class AddRecipe extends React.Component {
     event.preventDefault();
   }
 
-  addRow() {
+  addRow(ingredients) {
+    // ingredients are passed from the values of the input field -- accomodates the autocomplete
     let myIngredients = this.state.ingredients;
     myIngredients[myIngredients.length - 1].showButton = false;
+    
+    // should not 'push' into state
     myIngredients.push({quantity: 0, units: '', ingredient: '', showButton: true});
     this.setState({ingredients: myIngredients});
   }
@@ -72,6 +75,7 @@ class AddRecipe extends React.Component {
 
     let ing = this.state.ingredients;
     ing[index][name] = value;
+    console.log(value);
 
     this.setState({
       ingredients: ing
