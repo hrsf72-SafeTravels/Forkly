@@ -91,18 +91,6 @@ exports.getUserRecipes = function(req, res) {
   }
 }
 
-exports.getFriends = (req, res) => {
-  if (req.user) {
-    db.User.findById(req.user._id)
-    .exec((err, user) => {
-      console.log(user.friends);
-      res.send(user.friends);
-    });
-  } else {
-    res.end();
-  }
-}
-
 exports.addRecipe = function(req, res) {
   if (req.user) {
     req.body._creator = req.user._id;
@@ -146,7 +134,7 @@ exports.getUserFriends = function(req, res) {
 };
 
 exports.getFriendRecipes = function(req, res) {
-  db.User.findOne({ 'name': req.body.name})
+  db.User.findOne({ 'name': req.body.name })
     .exec(function(err, user) {
       if (err) { 
         res.status(404);

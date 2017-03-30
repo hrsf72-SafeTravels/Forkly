@@ -11,7 +11,7 @@ class Friends extends React.Component {
   componentDidMount() {
     var boundThis = this;
     $.ajax({
-      url: '/getFriends',
+      url: '/getUserFriends',
       type: 'GET',
       success: function(data){
         boundThis.setState({friends: data});
