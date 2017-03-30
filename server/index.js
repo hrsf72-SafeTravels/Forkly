@@ -36,7 +36,7 @@ app.post('/api/addRecipe', handler.addRecipe);
 app.get('/username', handler.getUsername);
 
 // to verify login
-app.get('/verifylogin', (req, res) => {
+app.get('/verifylogin', function(req, res) {
   res.send(req.user);
 });
 
@@ -63,8 +63,6 @@ app.post('/searchRecipes', handler.searchRecipes);
 
 // to find all recipes for given user id
 app.get('/getAllRecipes', handler.getUserRecipes);
-
-app.get('/getFriends', handler.getFriends);
 
 app.post('/getRecipeById', handler.getRecipeById);
 
