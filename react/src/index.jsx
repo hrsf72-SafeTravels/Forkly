@@ -117,7 +117,6 @@ class App extends React.Component {
               </nav>
             </section>
           </div>
-          <Route exact path="/" component={ () => (<Home handleSearchedRecipes={this.handleSearchedRecipes}/>)} />
           <Route exact path="/" component={ () => (<Home 
               handleSearched={this.handleSearched}
             />)} 
