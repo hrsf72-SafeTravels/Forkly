@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import RecipeIngredients from './recipeIngredients';
 import RecipeSaveButton from './RecipeSaveButton';
+import diaglog from 'jquery-ui/ui/widgets/dialog';
 
 class RecipeSearch extends React.Component {
   constructor(props) {
@@ -16,6 +17,8 @@ class RecipeSearch extends React.Component {
 
   saveRecipeClick() {
     console.log('h');
+    var popUpList = $('<div class="mypopup"><input type="radio">A<br><input type="radio">B<br><input type="radio">C</div>');
+    popUpList.dialog();
     let { label, ingredients, image } = this.props.recipe;
     let name = label;
     let recipe = { name: name, ingredients: ingredients, image: image};
