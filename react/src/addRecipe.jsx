@@ -61,6 +61,8 @@ class AddRecipe extends React.Component {
   addRow(ingredients) {
     // ingredients are passed from the values of the input field -- accomodates the autocomplete
     console.log(ingredients)
+    let stateIngredients = this.setState({
+    })
     let myIngredients = this.state.ingredients;
     myIngredients[myIngredients.length - 1].showButton = false;
     
@@ -119,7 +121,16 @@ class AddRecipe extends React.Component {
               </tr>
             </thead>
             {this.state.ingredients.map(function(val, index) {
-               return <AddRecipeIngredients key={index} index={index} quantity={val.quantity} units={val.units} ingredient={val.ingredient} showButton={val.showButton} addRow={this.addRow} handleIngredientsChange={this.handleIngredientsChange}/>;
+                return (<AddRecipeIngredients 
+                  key={index}
+                  index={index} 
+                  quantity={val.quantity} 
+                  units={val.units} 
+                  ingredient={val.ingredient} 
+                  showButton={val.showButton} 
+                  addRow={this.addRow} 
+                  handleIngredientsChange={this.handleIngredientsChange}
+                />);
              }, this)}
           </table>
           <br />
