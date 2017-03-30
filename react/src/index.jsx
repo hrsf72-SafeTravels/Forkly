@@ -131,10 +131,14 @@ class App extends React.Component {
           <Route path="/recipe" component={ViewFork}/>
           <Route path="/toprecipes" component={TopRecipeList} />
           <Route path="/recipeFromSearch" component={RecipeFromSearch} />
-          <Route path="/recipes" component={() => (<Recipes recipes={this.state.searchedRecipes}/>)} />
           <Route path="/myRecipes" component={MyRecipes} />
           <Route path="/savedRecipes" component={SavedRecipes} />
           <Route path="/friends" component={Friends} />
+          <Route path="/recipes" component={() => (<Recipes 
+              recipes={this.state.searchedRecipes}
+              videos={this.state.searchedVideos}
+            />)} 
+          />
           <br />
           <br />
           <br />
