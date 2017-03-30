@@ -62,8 +62,8 @@ class RecipeSearch extends React.Component {
   render() {
     console.log(this.props)
   	return (
-  	  <div className='results col-md-3'>
-        <div>
+  	  <div className='recipes results col-md-3'>
+        <div className="recipe-img-container">
           <img className="recipe-img" src={this.props.recipe.image} />
         </div>
         <div className='searchName'>
