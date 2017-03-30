@@ -36,7 +36,7 @@ app.post('/api/addRecipe', handler.addRecipe);
 app.get('/username', handler.getUsername);
 
 // to verify login
-app.get('/verifylogin', (req, res) => {
+app.get('/verifylogin', function(req, res) {
   res.send(req.user);
 });
 
@@ -64,9 +64,9 @@ app.post('/searchRecipes', handler.searchRecipes);
 // to find all recipes for given user id
 app.get('/getAllRecipes', handler.getUserRecipes);
 
-app.get('/getFriends', handler.getFriends);
-
 app.post('/getRecipeById', handler.getRecipeById);
+
+app.get('/getSavedRecipes', handler.getSavedRecipes);
 
 // must be access only after signing in
 app.get('/getUserFriends', handler.getUserFriends);
@@ -75,6 +75,8 @@ app.get('/getUserFriends', handler.getUserFriends);
 app.post('/getFriendRecipes', handler.getFriendRecipes);
 
 app.post('/searchYoutube', handler.searchYoutube);
+
+app.post('/saveRecipe', handler.saveRecipe);
 
 app.get('/*', function(req, res) {
   res.redirect('/');

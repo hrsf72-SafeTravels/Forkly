@@ -28,18 +28,7 @@ exports.searchRecipes = function(req, res) {
   });
 
 
- 
-  // regex -> allows the search to contain string instead of === string
-  // options i -> allows search to be case insensitive
-  // db.Recipe.find({name:{'$regex' : searchTerm, '$options' : 'i'}})
-  //   .exec(function (err, recipe) {
-  //     if (err) 
-  //     	{
-  //     	  return err;
-  //     	} else {
-  //     	res.json(recipe);
-  //     }
-	// });
+
 };
 
 // for Home component - from searchYoutube function
@@ -91,22 +80,9 @@ exports.getUserRecipes = function(req, res) {
   }
 }
 
-exports.getFriends = (req, res) => {
-  if (req.user) {
-    db.User.findById(req.user._id)
-    .exec((err, user) => {
-      console.log(user.friends);
-      res.send(user.friends);
-    });
-  } else {
-    res.end();
-  }
-}
-
 exports.addRecipe = function(req, res) {
   if (req.user) {
     req.body._creator = req.user._id;
-
     // create recipe in database
     let recipeId;
     db.Recipe.create(req.body).then((recipe) => {
@@ -146,7 +122,7 @@ exports.getUserFriends = function(req, res) {
 };
 
 exports.getFriendRecipes = function(req, res) {
-  db.User.findOne({ 'name': req.body.name})
+  db.User.findOne({ 'name': req.body.name })
     .exec(function(err, user) {
       if (err) { 
         res.status(404);
@@ -155,4 +131,30 @@ exports.getFriendRecipes = function(req, res) {
         res.send(user.recipes);
       }
     });
+}
+
+exports.saveRecipe = function(req, res) {
+  if(req.user){
+    req.body._creator = req.user._id;
+    db.Recipe.create(req.body).then((recipe) => {
+      db.User.findByIdAndUpdate(req.user._id, {$push: {savedRecipes: recipe.id}})
+      .then(() => {
+        res.end();
+      })
+    });
+  } else {
+    res.end();
+  }
+}
+
+exports.getSavedRecipes = function(req, res) {
+  if (req.user) {
+    db.User.findById(req.user._id)
+    .populate('savedRecipes')
+    .exec(function(err, user) {
+      res.send(user.savedRecipes);
+    });
+  } else {
+    res.end();
+  }
 }

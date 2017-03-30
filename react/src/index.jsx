@@ -93,10 +93,12 @@ class App extends React.Component {
                     <span><Link to="/" onClick={this.logout}><br />Logout</Link></span>
                   </div>
                 }
-                <div className="icon addRecipe">
-                  <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
-                  <span><Link to="/addrecipe">Create Recipe</Link></span>
-                </div>
+                {this.state.username &&
+                  <div className="icon addRecipe">
+                    <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
+                    <span><Link to="/addrecipe">Create Recipe</Link></span>
+                  </div>
+                }
                 <div className="icon myForks">
                   <img className="navButton" src="assets/images/fork.png" alt="My Recipes"/>
                   <span><Link to="/profile">Profile</Link></span>
