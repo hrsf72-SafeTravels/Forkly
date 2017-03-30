@@ -11,7 +11,6 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-
 var recipeSchema = mongoose.Schema({
   // dropDups will drop duplicates. will need to restart mongo router for these to kick in
   name: {type: String, unique: true, dropDups: true, required: true},
@@ -44,7 +43,10 @@ var userSchema = mongoose.Schema({
     ref: 'Recipe'
   }],
   friends: [],
-  favoredRecipes: []
+  savedRecipes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Recipe'
+  }]
 });
 
 var User = mongoose.model('User', userSchema);

@@ -66,6 +66,8 @@ app.get('/getAllRecipes', handler.getUserRecipes);
 
 app.post('/getRecipeById', handler.getRecipeById);
 
+app.get('/getSavedRecipes', handler.getSavedRecipes);
+
 // must be access only after signing in
 app.get('/getUserFriends', handler.getUserFriends);
 
@@ -73,6 +75,8 @@ app.get('/getUserFriends', handler.getUserFriends);
 app.post('/getFriendRecipes', handler.getFriendRecipes);
 
 app.post('/searchYoutube', handler.searchYoutube);
+
+app.post('/saveRecipe', handler.saveRecipe);
 
 app.get('/*', function(req, res) {
   res.redirect('/');
