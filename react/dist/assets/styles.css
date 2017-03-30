@@ -173,7 +173,6 @@ body {
 
 .results {
   padding: 20px;
-  top: -50px;
 }
 
 .searchName, .searchIngredients, .searchDirections {
@@ -373,8 +372,19 @@ small a:hover {
 }
 
 .recipe-img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
+}
+
+.recipes {
+  border: solid 1px #e6e6e6;
+  box-shadow: 0 0 2px 1px #f2f2f2;
+  /*margin: 1px;*/
+  position: relative;
+}
+
+.recipe-img-container {
+  text-align: center;
 }
 
 .navbar-text-color {
