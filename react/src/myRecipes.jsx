@@ -14,6 +14,7 @@ class MyRecipes extends React.Component {
       url: '/getAllRecipes',
       type:'GET',
       success: function(data){
+        console.log(data);
         boundThis.setState({recipes: data});
       },
       error: function(err) {

@@ -11,10 +11,11 @@ class SavedRecipes extends React.Component {
   componentDidMount() {
     var boundThis = this;
     $.ajax({
-      url: '/getAllRecipes',
-      type:'GET',
+      url: '/getSavedRecipes',
+      type: 'GET',
       success: function(data){
-        boundThis.setState({recipes: data});
+        console.log("======>", data);
+        boundThis.setState({ savedRecipes: data });
       },
       error: function(err) {
         console.log('could not retrieve any recipes for user');
@@ -32,7 +33,7 @@ class SavedRecipes extends React.Component {
     var recipesArray = [];
     var template = '';
     if (this.state) {
-      this.state.recipes.forEach((recipe, index) => {
+      this.state.savedRecipes.forEach((recipe, index) => {
       recipesArray.push(
         <li className="recipeSingle"
           key={index}
