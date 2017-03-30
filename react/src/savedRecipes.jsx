@@ -45,10 +45,12 @@ class SavedRecipes extends React.Component {
       template =
       <div className="myRecipes">
         <ViewRecipesNavBar />
-        <h1 className="myRecipesTitle">Saved Recipes</h1>
-        <ul className="recipesArray">
-          {recipesArray}
-        </ul>
+        <div className="myRecipesTitle">Saved Recipes</div>
+        <div className="recipesArrays">
+          <ul className="recipesArray">
+            {recipesArray}
+          </ul>
+        </div>
         <br />
         <br />
       </div>
