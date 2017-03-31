@@ -7,15 +7,6 @@ const Recipes = (props) => {
   console.log('looking at the props', props)
   return (
     <div className="container">
-      {/*{props.videos.length > 0 && 
-        <VideoCarousel 
-          videos={props.videos}
-          defaultSelectedIndex={0}
-          showThumbnails={true}
-          slideshowActive={true}
-          slideshowDelay={4000}
-        />
-      }*/}
       <div className="row" className="video-list-container">
           {props.videos.length > 0 &&
             <h2>Recommended Videos</h2>
