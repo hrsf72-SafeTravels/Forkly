@@ -11,11 +11,16 @@ import MyRecipes from './myRecipes';
 import Recipes from './Recipes';
 import SavedRecipes from './savedRecipes';
 import Friends from './friends';
+import '../dist/assets/styles';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
+
+// TODO: remove hot module replacement for production
+
+
 
 class App extends React.Component {
   constructor(props){
@@ -115,9 +120,9 @@ class App extends React.Component {
               </nav>
             </section>
           </div>
-          <Route exact path="/" component={ () => (<Home 
+          <Route exact path="/" component={ () => (<Home
               handleSearched={this.handleSearched}
-            />)} 
+            />)}
           />
           <Route path="/addrecipe" component={AddRecipe}/>
           <Route path="/profile" component={() => <Profile user={this.state.username}/>}/>
@@ -126,10 +131,10 @@ class App extends React.Component {
           <Route path="/myRecipes" component={MyRecipes} />
           <Route path="/savedRecipes" component={SavedRecipes} />
           <Route path="/friends" component={Friends} />
-          <Route path="/recipes" component={() => (<Recipes 
+          <Route path="/recipes" component={() => (<Recipes
               recipes={this.state.searchedRecipes}
               videos={this.state.searchedVideos}
-            />)} 
+            />)}
           />
           <br />
           <br />
@@ -145,6 +150,11 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+// hot module replacement
+if (module.hot) {
+  module.hot.accept('.', () => render(App));
+}
 
 // To start, run from terminal the following...
 // npm run react-dev

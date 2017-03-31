@@ -8,7 +8,7 @@ class RecipeSearch extends React.Component {
     this.saveRecipeClick = this.saveRecipeClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  
+
   setSearchTerm(searchTerm) {
     this.setState({searchTerm: searchTerm});
   }

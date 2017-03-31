@@ -4,8 +4,14 @@ if (!process.env.CLIENT_ID) {
   var setup = require('./setup.js');
 };
 
+// TODO: remove hot module replacement for production
+
 var express = require('express');
 var bodyParser = require('body-parser');
+const webpack = require('webpack');
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpackHotMiddleware = require("webpack-hot-middleware");
+const webpackConfig = require('../webpack.config');
 var items = require('../db');
 var handler = require('./requestHandler.js');
 var facebook = require('./facebook.js');
@@ -14,6 +20,22 @@ var passport = require('passport');
 var port = process.env.PORT || 8000;
 
 var app = express();
+
+const compiler = webpack(webpackConfig);
+
+// webpack hot module replacement
+app.use(webpackDevMiddleware(compiler, {
+  hot: true,
+  filename: 'bundle.js',
+  publicPath: webpackConfig.output.publicPath,
+  stats: {
+    colors: true,
+  },
+  historyApiFallback: true,
+}));
+
+// webpack hot module replacement
+app.use(webpackHotMiddleware(compiler));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
