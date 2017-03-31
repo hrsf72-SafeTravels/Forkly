@@ -69,7 +69,7 @@ class RecipeSearch extends React.Component {
           <img className="recipe-img" src={this.props.recipe.image} />
         </div>
         <div className='searchName'>
-          <h4 onClick={() => this.handleClick(this.props.id)}>{this.props.recipe.label}</h4>
+          <h4 className="searchName-header" onClick={() => this.handleClick(this.props.id)}>{this.props.recipe.label}</h4>
           <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
         </div>
         <div>
