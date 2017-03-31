@@ -31,17 +31,16 @@ class RecipeSearch extends React.Component {
 
 
     var popUpList = $(`<div class="category-card"> 
-      <div class="container">
         <h4>Select Category</h4>
+          <img class="popup-img" src=${this.props.recipe.image}>
           <p>
             <input type="checkbox" id="salad" value="first_checkbox">
             <label for="cbox1">Salad</label>
           </p>
           <p>
-            <input type="checkbox" id="soup" value="second_checkbox" checked="checked">
+            <input type="checkbox" id="soup" value="second_checkbox">
             <label for="cbox2">Soup</label>
           </p>
-        </div>
       </div>`);
         
     popUpList.dialog();
