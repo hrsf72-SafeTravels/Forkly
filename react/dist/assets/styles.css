@@ -474,3 +474,8 @@ footer {
   display: inline-block;
 }
 
+.video-frame {
+  width: 400px;
+  height: 250px;
+  padding: 2%;
+}
