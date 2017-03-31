@@ -70,7 +70,8 @@ class RecipeSearch extends React.Component {
           <h4 onClick={() => this.handleClick(this.props.id)}><em>{this.props.recipe.label}</em></h4>
         </div>
         <div>
-          <button class="btn btn-submit" onClick={this.saveRecipeClick}>Save</button>
+          <div className="heart" onClick={this.saveRecipeClick}></div>
+          <p className="diet-info">{this.props.recipe.dietLabels[0]}</p>
         </div>
   	  </div>
   	)
