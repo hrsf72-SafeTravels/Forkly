@@ -75,35 +75,6 @@ class RecipeSearch extends React.Component {
         dessertsSelected = !dessertsSelected;
     });
 
-<<<<<<< 4c3ac5d09e5b62e098e373022c8476958755741d
-    var popUpList = $(`<div class="category-card"> 
-        <h4>Select Category</h4>
-          <img class="popup-img" src=${this.props.recipe.image}>
-          <p>
-            <input type="checkbox" id="salad" value="first_checkbox">
-            <label for="cbox1">Salad</label>
-          </p>
-          <p>
-            <input type="checkbox" id="soup" value="second_checkbox">
-            <label for="cbox2">Soup</label>
-          </p>
-      </div>`);
-        
-    popUpList.dialog();
-    let { label, ingredients, image } = this.props.recipe;
-    let name = label;
-    let recipe = { name: name, ingredients: ingredients, image: image};
-    $.ajax({
-      url: '/saveRecipe',
-      type: 'POST',
-      data: JSON.stringify(recipe),
-      contentType: 'application/json',
-      success: function(data){
-        console.log('Gabe is troller!');
-      },
-      error: function(err) {
-        console.log('ajax request failed');
-=======
     $(document).on('change', '#mainDishes', () => {
         console.log('mainDishes is checked');
         mainDishesSelected = !mainDishesSelected;
@@ -120,7 +91,6 @@ class RecipeSearch extends React.Component {
       }
       if (soupSelected) {
         categories.push('soup');
->>>>>>> (feat) build popup window when clicking on save button on Recipes page.
       }
       if (dessertsSelected) {
         categories.push('desserts');
