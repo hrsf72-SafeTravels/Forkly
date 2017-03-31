@@ -458,4 +458,18 @@ footer {
   color: white;
   margin-top: 10px;
 }
+/*
+  ===========================
+  Video List
+  ===========================
+*/
+
+.video-list {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.video-list li {
+  display: inline-block;
+}
 
