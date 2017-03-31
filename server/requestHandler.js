@@ -136,6 +136,7 @@ exports.saveRecipe = function(req, res) {
   if(req.user){
     req.body._creator = req.user._id;
     db.Recipe.create(req.body).then((recipe) => {
+      console.log(recipe);
       db.User.findByIdAndUpdate(req.user._id, {$push: {savedRecipes: recipe.id}})
       .then(() => {
         res.end();

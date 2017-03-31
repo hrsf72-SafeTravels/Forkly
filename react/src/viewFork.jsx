@@ -45,6 +45,7 @@ class ViewFork extends React.Component {
           <h1 className="recipeName">{recipe.name}</h1>
           <br />
         </header>
+        <img src={recipe.image} />
         <h3 className="title">Ingredients: </h3>
         <p>{recipe.ingredients.map( (ingredient, index) => 
           <RecipeIngredients ingredient={ingredient} key={index}/>

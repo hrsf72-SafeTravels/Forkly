@@ -14,12 +14,12 @@ class RecipeSearch extends React.Component {
   }
 
   saveRecipeClick() {
-    let { label, ingredients } = this.props.recipe;
+    let { label, ingredients, image } = this.props.recipe;
     let name = label;
-    let recipe = { name: name, ingredients: ingredients };
+    let recipe = { name: name, ingredients: ingredients, image: image};
     $.ajax({
       url: '/saveRecipe',
-      type:'POST',
+      type: 'POST',
       data: JSON.stringify(recipe),
       contentType: 'application/json',
       success: function(data){
