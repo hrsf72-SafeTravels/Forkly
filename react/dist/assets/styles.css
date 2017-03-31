@@ -172,11 +172,12 @@ body {
 }
 
 .results {
-  padding: 20px;
+  padding: 10px;
 }
 
 .searchName, .searchIngredients, .searchDirections {
-  color: orange;
+  color: #4d4d4d;
+  text-decoration: none;
 }
 
 .searchName {
@@ -184,7 +185,8 @@ body {
 }
 
 .searchName:hover {
-  text-decoration: underline;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .searchIngredient {
@@ -372,8 +374,8 @@ small a:hover {
 }
 
 .recipe-img {
-  width: 250px;
-  height: 250px;
+  width: 270px;
+  height: 270px;
 }
 
 .recipes {
