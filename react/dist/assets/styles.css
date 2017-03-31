@@ -400,52 +400,21 @@ small a:hover {
   margin-top: 9px;
 }
 
-.heart {
-  float: left;
-  margin-top: 5px;
-  position: relative;
-}
-
-.heart:before,
-.heart:after {
-  position: absolute;
-  content: "";
-  left: 15px;
-  width: 15px;
-  height: 25px;
-  background: #fc2e5a;
-  -moz-border-radius: 50px 50px 0 0;
-  border-radius: 50px 50px 0 0;
-  -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  -webkit-transform-origin: 0 100%;
-      -moz-transform-origin: 0 100%;
-      -ms-transform-origin: 0 100%;
-        -o-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-}
-
-.heart:after {
-  left: 0;
-  -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-transform-origin: 100% 100%;
-      -moz-transform-origin: 100% 100%;
-      -ms-transform-origin: 100% 100%;
-        -o-transform-origin: 100% 100%;
-          transform-origin :100% 100%;
-}
-
-.heart:hover {
-  cursor: pointer;
-}
-
 footer {
   height: 50px;
+}
+
+.not-clicked.fa-heart {
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+}
+
+.clicked.fa-heart {
+  color: red;
+  -webkit-text-stroke-width: 0;
+}
+
+.fa-heart:hover {
+  cursor: pointer;
 }

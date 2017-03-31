@@ -1,6 +1,7 @@
 import React from 'react';
-import RecipeIngredients from './recipeIngredients';
 import $ from 'jquery';
+import RecipeIngredients from './recipeIngredients';
+import RecipeSaveButton from './RecipeSaveButton';
 
 class RecipeSearch extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class RecipeSearch extends React.Component {
   }
 
   saveRecipeClick() {
+    console.log('h');
     let { label, ingredients, image } = this.props.recipe;
     let name = label;
     let recipe = { name: name, ingredients: ingredients, image: image};
@@ -70,7 +72,7 @@ class RecipeSearch extends React.Component {
           <h4 onClick={() => this.handleClick(this.props.id)}>{this.props.recipe.label}</h4>
         </div>
         <div>
-          <div className="heart" onClick={this.saveRecipeClick}></div>
+          <RecipeSaveButton saveRecipeClick={this.saveRecipeClick} />
           <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
         </div>
   	  </div>
