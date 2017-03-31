@@ -374,13 +374,14 @@ small a:hover {
 }
 
 .recipe-img {
-  width: 270px;
+  width: 265.5px;
   height: 270px;
 }
 
 .recipes {
   border: solid 1px #e6e6e6;
   box-shadow: 0 0 2px 1px #f2f2f2;
+  height: 400px;
   /*margin: 1px;*/
   position: relative;
 }
@@ -396,14 +397,13 @@ small a:hover {
 
 .diet-info {
   float: right;
+  margin-top: 9px;
 }
 
 .heart {
   float: left;
   margin-top: 5px;
   position: relative;
-  /*width: 15px;
-  height: 25px;*/
 }
 
 .heart:before,

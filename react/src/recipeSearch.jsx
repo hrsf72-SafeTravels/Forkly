@@ -67,11 +67,11 @@ class RecipeSearch extends React.Component {
           <img className="recipe-img" src={this.props.recipe.image} />
         </div>
         <div className='searchName'>
-          <h4 onClick={() => this.handleClick(this.props.id)}><em>{this.props.recipe.label}</em></h4>
+          <h4 onClick={() => this.handleClick(this.props.id)}>{this.props.recipe.label}</h4>
         </div>
         <div>
           <div className="heart" onClick={this.saveRecipeClick}></div>
-          <p className="diet-info">{this.props.recipe.dietLabels[0]}</p>
+          <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
         </div>
   	  </div>
   	)
