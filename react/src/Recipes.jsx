@@ -27,7 +27,7 @@ const Recipes = (props) => {
           }
         <ul>
           {props.videos.map((element, index) => <VideoSearch video={element} id={index} key={index} />)}
-        </ul>  
+        </ul>
       </div>
     </div>
   );
