@@ -1,5 +1,4 @@
 import React from 'react';
-import VideoDescription from './videoDescription'
 
 class VideoSearch extends React.Component {
   constructor(props) {

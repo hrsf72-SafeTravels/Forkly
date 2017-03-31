@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeSearch from './recipeSearch.jsx';
+import VideoSearch from './VideoSearch.jsx';
 
 const Recipes = (props) => {
   console.log('looking at the props', props)
