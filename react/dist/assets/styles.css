@@ -390,6 +390,7 @@ small a:hover {
   text-align: center;
 }
 
+
 .navbar-text-color {
   color: #ee6000;
   font-weight: 475;
@@ -422,3 +423,39 @@ footer {
 .fa-heart {
   margin-top: 12px;
 }
+
+.category-card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 400px;
+  height: 400x;
+  background-color: white;
+}
+
+.popup-img {
+  width: 150px;
+  height: 150px;
+  float: right;
+}
+
+.popup-title {
+  padding: 20px;
+  font-size: 18px;
+}
+
+.popup-container {
+  margin: 20px;
+  height: 300px;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+.popup-btn {
+  background-color: orange;
+  color: white;
+  margin-top: 10px;
+}
+

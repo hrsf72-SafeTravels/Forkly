@@ -133,6 +133,7 @@ exports.getFriendRecipes = function(req, res) {
 }
 
 exports.saveRecipe = function(req, res) {
+  console.log('hi here');
   if(req.user){
     req.body._creator = req.user._id;
     db.Recipe.create(req.body).then((recipe) => {
