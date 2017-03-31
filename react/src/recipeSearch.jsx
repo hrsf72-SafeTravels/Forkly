@@ -17,19 +17,65 @@ class RecipeSearch extends React.Component {
   }
 
   saveRecipeClick() {
+     var popUpList = $(`<div class="category-card"> 
+      <div class="popup-container">
+        <h2 class="popup-title">Saved ${this.props.recipe.label} to favorites</h2>
+        <hr />
+          <div>
+            <img class="popup-img" src=${this.props.recipe.image}>
+            <p>
+              <input type="checkbox" id="salad" value="first_checkbox">
+              <label for="cbox1">Salad</label>
+            </p>
+            <p>
+              <input type="checkbox" id="soup" value="second_checkbox">
+              <label for="cbox2">Soup</label>
+            </p>
+            <p>
+              <input type="checkbox" id="mainDishes" value="third_checkbox">
+              <label for="cbox3">Main Dishes</label>
+            </p>
+            <p>
+              <input type="checkbox" id="desserts" value="fourth_checkbox">
+              <label for="cbox4">Desserts</label>
+            </p>
+            <button class="popup-btn btn">All Done</button>
+          </div>
+      </div>
+      </div>`);
+     
+   
+    popUpList.dialog({
+      open: function(event, ui) {
+          popUpList.removeAttr('style');
+          $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+      },
+      modal: true,
+      minHeight: 450,
+      height: 400,
+      width: 450
+    });
+
     var saladSelected = false;
     var soupSelected = false;
-    $(document).on("change", "#salad", function () {
+    var dessertsSelected = false;
+    var mainDishesSelected = false;
+    $(document).on('change', '#salad', () => {
         console.log('salad is checked');
         saladSelected = !saladSelected;
     });
 
-    $(document).on("change", "#soup", function () {
+    $(document).on('change', '#soup', () => {
         console.log('soup is checked');
         soupSelected = !soupSelected;
     });
 
+    $(document).on('change', '#desserts', () => {
+        console.log('desserts is checked');
+        dessertsSelected = !dessertsSelected;
+    });
 
+<<<<<<< 4c3ac5d09e5b62e098e373022c8476958755741d
     var popUpList = $(`<div class="category-card"> 
         <h4>Select Category</h4>
           <img class="popup-img" src=${this.props.recipe.image}>
@@ -57,8 +103,65 @@ class RecipeSearch extends React.Component {
       },
       error: function(err) {
         console.log('ajax request failed');
-      }
+=======
+    $(document).on('change', '#mainDishes', () => {
+        console.log('mainDishes is checked');
+        mainDishesSelected = !mainDishesSelected;
     });
+
+    $(document).on('click', '.popup-btn', () => {
+      console.log('popup-btn is clicked');
+      //console.log('=======>', saladSelected);
+      let { label, ingredients, image } = this.props.recipe;
+      let name = label;
+      let categories = [];
+      if (saladSelected) {
+        categories.push('salad');
+      }
+      if (soupSelected) {
+        categories.push('soup');
+>>>>>>> (feat) build popup window when clicking on save button on Recipes page.
+      }
+      if (dessertsSelected) {
+        categories.push('desserts');
+      }
+      if (mainDishesSelected) {
+        categories.push('mainDishes');
+      }
+      let recipe = { name, ingredients, categories, image };
+      popUpList.dialog('close');
+      $.ajax({
+        url: '/saveRecipe',
+        type:'POST',
+        data: JSON.stringify(recipe),
+        contentType: 'application/json',
+        success: function(data){
+          console.log('Gabe is troller!');
+        },
+        error: function(err) {
+          console.log('ajax request failed');
+        }
+      });
+    });
+   
+
+    // console.log('hihi', popUpList.classList);
+
+    // let { label, ingredients } = this.props.recipe;
+    // let name = label;
+    // let recipe = { name: name, ingredients: ingredients };
+    // $.ajax({
+    //   url: '/saveRecipe',
+    //   type:'POST',
+    //   data: JSON.stringify(recipe),
+    //   contentType: 'application/json',
+    //   success: function(data){
+    //     console.log('Gabe is troller!');
+    //   },
+    //   error: function(err) {
+    //     console.log('ajax request failed');
+    //   }
+    // });
   }
 
   searchRecipes(searchTerm) {
