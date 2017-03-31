@@ -9,7 +9,6 @@ class VideoCarousel extends React.Component {
       selectedIndex: this.props.defaultSelectedIndex || 0,
     }
     this.renderCurrentImage = this.renderCurrentImage.bind(this);
-    this.renderArrow = this.renderArrow.bind(this);
     this.renderThumbs = this.renderThumbs.bind(this);
     this.renderThumb = this.renderThumb.bind(this);
     this.getProps = this.getProps.bind(this);
@@ -38,17 +37,6 @@ class VideoCarousel extends React.Component {
 
     return (
       <iframe {...currentImageProps} />
-    );
-  }
-
-  renderArrow(direction) {
-    let arrowProps = {
-      className:'carousel--arrow-' + direction,
-      onClick: this.goInDirection.bind(null, direction),
-    }
-
-    return (
-      <div {...arrowProps} />
     );
   }
 
@@ -157,14 +145,12 @@ class VideoCarousel extends React.Component {
     return (
       <div {...this.getProps()}>
         <div className="carousel--image">
-          {this.renderArrow('previous')}
           <Animation transitionName={'animation--' + this.state.animationDirection}
             transitionName="example"
             transitionEnterTimeout={this.props.slideshowDelay}
             transitionLeaveTimeout={this.props.slideshowDelay}>
             {this.renderCurrentImage()}
           </ Animation>
-          {this.renderArrow('next')}
         </div>
         {this.renderThumbs()}
       </div>
