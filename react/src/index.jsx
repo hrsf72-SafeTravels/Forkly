@@ -140,8 +140,8 @@ class App extends React.Component {
           <br />
           <br />
           <footer>
-            <br />
-            <small>&copy; <a href="https://github.com/TeamForkly/Forkly">TeamForkly</a></small>
+            <span id="copyright-image">&copy;</span>
+            <a id="github-link" target="_blank" href="https://github.com/hrsf72-SafeTravels/Forkly">TeamForkly</a>
           </footer>
         </div>
       </Router>
