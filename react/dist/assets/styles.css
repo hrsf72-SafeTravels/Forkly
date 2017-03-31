@@ -465,6 +465,7 @@ footer {
 */
 
 .video-list {
+  margin: 0 0 5%;
   overflow-x: auto;
   white-space: nowrap;
 }
