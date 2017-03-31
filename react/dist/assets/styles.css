@@ -418,3 +418,7 @@ footer {
 .fa-heart:hover {
   cursor: pointer;
 }
+
+.fa-heart {
+  margin-top: 12px;
+}

@@ -70,10 +70,10 @@ class RecipeSearch extends React.Component {
         </div>
         <div className='searchName'>
           <h4 onClick={() => this.handleClick(this.props.id)}>{this.props.recipe.label}</h4>
+          <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
         </div>
         <div>
           <RecipeSaveButton saveRecipeClick={this.saveRecipeClick} />
-          <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
         </div>
   	  </div>
   	)
