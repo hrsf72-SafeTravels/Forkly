@@ -532,18 +532,19 @@ footer {
   border: none;
   margin-left: 12px;
   margin-top: 60px;
-  margin-left: 12px;
+  margin-right: 15px;
 }
 
 .fork-btn {
   background-color: white;
   border: none;
+  margin-right: 10px;
 }
 
 .logout-btn {
   background-color: white;
   border: none;
-  margin-left: 15px;
+  margin-left: 20px;
   margin-top: 0px;
 }
 
