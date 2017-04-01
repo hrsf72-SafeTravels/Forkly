@@ -554,3 +554,5 @@ footer {
 .ui-front {
     z-index: 100;
 }
+
+button:focus {outline:0;}
