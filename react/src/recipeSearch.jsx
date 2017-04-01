@@ -173,13 +173,24 @@ class RecipeSearch extends React.Component {
     console.log('recipe search item', this.props);
     return (
       <div>
-        {!this.state.showSelectedRecipe &&
           <div className="recipes results col-md-3">
             <div className="recipe-search-item" 
-              onClick={() => this.handleClick(this.props.id)}>
+              onClick={() => this.handleClick(this.props.id)}
+            >
+              
+              {!this.state.showSelectedRecipe &&
               <div className="recipe-img-container">
                 <img className="recipe-img" src={this.props.recipe.image} />
               </div>
+              }
+
+              {this.state.showSelectedRecipe &&
+                <RecipeFromSearch 
+                  handleClick={this.handleClick}
+                  recipe={this.props.recipe}
+                />
+              }
+
               <div className='searchName'>
                 <h4 className="searchName-header">{this.props.recipe.label}</h4>
                 <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
@@ -189,13 +200,6 @@ class RecipeSearch extends React.Component {
               <RecipeSaveButton recipe={this.props.recipe} saveRecipeClick={this.saveRecipeClick} />
             </div>
           </div>
-        }
-        {this.state.showSelectedRecipe &&
-          <RecipeFromSearch 
-            handleClick={this.handleClick}
-            recipe={this.props.recipe}
-          />
-        }
       </div>
     );
   }
