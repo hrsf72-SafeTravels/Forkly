@@ -46,7 +46,7 @@ class AddRecipe extends React.Component {
   handleSubmit (event) {
     const { router } = this.context;
     $.ajax({
-      url: "/api/addRecipe",
+      url: '/api/addRecipe',
       data: JSON.stringify(this.state),
       method: 'POST',
       contentType: 'application/JSON',
@@ -161,12 +161,12 @@ class AddRecipe extends React.Component {
         <br/>
         <br/>
       </div>
-    )
+    );
   }
 }
 
 AddRecipe.contextTypes = {
   router: React.PropTypes.object
-}
+};
 
 export default AddRecipe;
