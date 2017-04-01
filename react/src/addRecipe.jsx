@@ -9,7 +9,8 @@ class AddRecipe extends React.Component {
     this.state = {
       name: '',
       directions: '',
-      ingredients: [{quantity: '', units: '', ingredient: '', showButton: true}]
+      ingredients: [{quantity: '', units: '', ingredient: '', showButton: true}],
+      categories: []
     };
 
     // this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
@@ -105,6 +106,7 @@ class AddRecipe extends React.Component {
   render () {
     return (
       <div className="createRecipe">
+        
         <header>
           <h1 className="recipeHeader">Create a Recipe</h1>
         </header>
@@ -144,9 +146,22 @@ class AddRecipe extends React.Component {
 
           <h3 className="title"> Directions: </h3>
           <textarea name="directions" placeholder={this.state.directions} onChange={this.handleInputChange}></textarea>
-
+          <div>
+            <span>Select categories</span>
+            <nav className="navbar navbar-static-top">
+              <div className="container">
+                <div id="navbar" className="navbar-collapse collapse">
+                  <ul className="nav navbar-nav">
+                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('salad')}>Salad</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('soup')}>Soup</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('mainDishes')}>Main Dishes</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('desserts')}>Desserts</span></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
           <br />
-
           <div>
             <input type="submit" name="addRecipeSave" value="Save" />
             <input type="button" name="addRecipeCancel" value="Cancel" />
