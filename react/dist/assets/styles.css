@@ -512,3 +512,32 @@ footer {
     z-index: 100;
 }
 
+.home-btn {
+  background-color: white;
+  border: none;
+  margin-left: 5px;
+}
+
+.profile-btn {
+  background-color: white;
+  border: none;
+  margin-left: 12px;
+}
+
+.fork-btn {
+  background-color: white;
+  border: none;
+}
+
+.logout-btn {
+  background-color: white;
+  border: none;
+  margin-left: 15px;
+  margin-top: 0px;
+}
+
+.addrecipe-btn {
+  background-color: white;
+  border: none;
+  margin-left: 15px;
+}
