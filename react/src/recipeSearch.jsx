@@ -44,7 +44,6 @@ class RecipeSearch extends React.Component {
       </div>
       </div>`);
      
-   
     popUpList.dialog({
       modal: true,
       open: function(event, ui) {
