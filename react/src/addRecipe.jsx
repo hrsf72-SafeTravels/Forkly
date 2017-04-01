@@ -45,6 +45,13 @@ class AddRecipe extends React.Component {
     }
   }
 
+  handleCategoryClick (category) {
+    console.log('==========selected recipe is ', category);
+    let categories = this.state.categories;
+    categories.push(category);
+    this.setState({categories: categories});
+  }
+
   handleSubmit (event) {
     const { router } = this.context;
     $.ajax({
@@ -152,10 +159,10 @@ class AddRecipe extends React.Component {
               <div className="container">
                 <div id="navbar" className="navbar-collapse collapse">
                   <ul className="nav navbar-nav">
-                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('salad')}>Salad</span></li>
-                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('soup')}>Soup</span></li>
-                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('mainDishes')}>Main Dishes</span></li>
-                    <li><span className="btn radioButton" onClick={() => this.props.handleCategoryClick('desserts')}>Desserts</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('salad')}>Salad</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('soup')}>Soup</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('mainDishes')}>Main Dishes</span></li>
+                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('desserts')}>Desserts</span></li>
                   </ul>
                 </div>
               </div>
