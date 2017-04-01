@@ -193,9 +193,20 @@ exports.getFriendProfile = function(req, res) {
   }
 }
 exports.deleteRecipe = (req, res) => {
-  if (req.user) {
+  const user = req.user;
+  const recipe = req.body.recipe;
+  if (user) {
+    const userId = user._id;
+    db.User.findById({ _id: userId })
+    .populate('savedRecipes')
+    .exec((error, user) => {
+      const deleteIndex = user.savedRecipes.findIndex(obj => obj.name === recipe.label);
+      if (deleteIndex > -1) {
+        user.savedRecipes.splice(deleteIndex, 1);
+        user.save();
+      }
+    });
   } else {
-
+    res.status(405).send();
   }
-  res.status(200).send();
 };
