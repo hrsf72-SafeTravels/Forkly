@@ -106,9 +106,11 @@ class App extends React.Component {
                 {!this.state.username ? 
                   <div className="icon myForks">
                     <a href="/auth/facebook"><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></a>
-                    {/*<Link to='/auth/facebook'><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></Link>*/}
+                    {/*<Link to='/profile'><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></Link>*/}
                   </div>
-                : null }
+                : 
+                  <Link to='/profile'><button className="profile-btn-loggedin"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></Link>
+                }
                 <div className="icon home">
                   <Link to="/"><button className="home-btn"><img className="navButton" src="assets/images/home.png" alt="Home"/></button></Link>
                 </div>

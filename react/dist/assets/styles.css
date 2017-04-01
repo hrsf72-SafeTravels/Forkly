@@ -523,6 +523,16 @@ footer {
   background-color: white;
   border: none;
   margin-left: 12px;
+  /*margin-top: 60px;
+  margin-left: 12px;*/
+}
+
+.profile-btn-loggedin {
+  background-color: white;
+  border: none;
+  margin-left: 12px;
+  margin-top: 60px;
+  margin-left: 12px;
 }
 
 .fork-btn {
