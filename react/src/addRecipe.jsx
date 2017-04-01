@@ -104,6 +104,7 @@ class AddRecipe extends React.Component {
   }
 
   render () {
+    console.log(this.props)
     return (
       <div className="createRecipe">
         <header>
@@ -128,9 +129,8 @@ class AddRecipe extends React.Component {
                 <td>Ingredient</td>
               </tr>
             </thead>
-            {console.log(this.state.ingredients)}
             {this.state.ingredients.map(function(val, index) {
-              console.log(val);
+              console.log(' we are about to populate the ingredients', val);
               return (<AddRecipeIngredients
                 key={index}
                 index={index}
