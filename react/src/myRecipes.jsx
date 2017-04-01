@@ -6,6 +6,7 @@ import RadioButtonBar from './radioButtons';
 class MyRecipes extends React.Component {
   constructor(props) {
     super(props);
+    this.handleCategoryClick = this.handleCategoryClick.bind(this);
   }
 
   //before initial render, use ajax call to retrieve all recipes belonging to user
@@ -30,6 +31,27 @@ class MyRecipes extends React.Component {
     router.history.push('/recipe/' + recipeId);
   }
 
+  handleCategoryClick(category) {
+    let boundThis = this;
+    $.ajax({
+      url: '/getSavedRecipes',
+      type: 'GET',
+      success: function(data){
+        let filteredData = data.filter(function(value) {
+          if(value.categories.includes(category)) {
+            return value;
+          }
+        });
+        console.log(filteredData);
+        console.log(boundThis);
+        boundThis.setState({ savedRecipes: filteredData });
+      },
+      error: function(err) {
+        console.log('could not retrieve any recipes for user');
+      }
+    });
+  }
+
   render () {
     var recipesArray = [];
     var template = '';
@@ -46,7 +68,7 @@ class MyRecipes extends React.Component {
       template = 
       <div className="myRecipes">
         <ViewRecipesNavBar />
-        <RadioButtonBar />
+        <RadioButtonBar handleCategoryClick={this.handleCategoryClick}/>
         <div className="myRecipesTitle">My Recipes</div>
         <div className="recipesArrays">
           <ul className="recipesArray">
