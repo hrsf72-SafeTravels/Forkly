@@ -17,9 +17,10 @@ class RecipeSearch extends React.Component {
   }
 
   saveRecipeClick() {
+    $('body').addClass('stop-scrolling');
      var popUpList = $(`<div class="category-card"> 
       <div class="popup-container">
-        <h2 class="popup-title">Saved ${this.props.recipe.label} to favorites</h2>
+        <h2 class="popup-title">Saved ${this.props.recipe.label} to favorites. Pick categories.</h2>
         <hr />
           <div>
             <img class="popup-img" src=${this.props.recipe.image}>
@@ -46,11 +47,12 @@ class RecipeSearch extends React.Component {
      
    
     popUpList.dialog({
+      modal: true,
       open: function(event, ui) {
           popUpList.removeAttr('style');
           $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
       },
-      modal: true,
+     // buttons: { "OK": function() { $(this).dialog("close"); } },       
       minHeight: 450,
       height: 400,
       width: 450
@@ -81,6 +83,7 @@ class RecipeSearch extends React.Component {
     });
 
     $(document).on('click', '.popup-btn', () => {
+      $('body').removeClass('stop-scrolling');
       console.log('popup-btn is clicked');
       //console.log('=======>', saladSelected);
       let { label, ingredients, image } = this.props.recipe;
