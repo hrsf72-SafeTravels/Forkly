@@ -175,3 +175,20 @@ exports.topRecipes = function(req, res) {
       })
   } 
 }
+
+exports.getFriendProfile = function(req, res) {
+  if(req.params.id) {
+    var friendId = req.params.id;
+    db.User.findOne({ 'facebook.id': friendId })
+    .populate('savedRecipes')
+    .populate('recipes')
+    .exec(function(err, user) {
+      user.list = {};
+      user.list.savedRecipes = user.savedRecipes;
+      user.list.createdRecipes = user.recipes;
+      res.send(user.list);
+    });
+  } else {
+    res.end();
+  }
+}
