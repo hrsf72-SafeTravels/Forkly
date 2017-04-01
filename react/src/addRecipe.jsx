@@ -112,7 +112,7 @@ class AddRecipe extends React.Component {
 
   render () {
     return (
-      <div className="createRecipe">
+      <div className="container">
         
         <header>
           <h1 className="recipeHeader">Create a Recipe</h1>
@@ -121,9 +121,8 @@ class AddRecipe extends React.Component {
         <img className="recipeImage" src="assets/images/sushi.jpg" alt="sushi"/>
         <br />
         <form onSubmit={this.handleSubmit}>
-
           <h3 className="recipeName">Recipe Name:</h3>
-          <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange}/>
+          <input className="recipe-name-input form-control" type="text" value={this.state.name} name="name" onChange={this.handleInputChange}/>
           <br />
           <br />
 
