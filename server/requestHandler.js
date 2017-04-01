@@ -60,7 +60,7 @@ exports.searchYoutube = function(req, res) {
 // for Nav Component - from getUsername function
 exports.getUsername = function(req, res) {
   if (req.user) {
-    res.json(req.user.name);  
+    res.json(req.user.name);
   } else {
     res.json(null);
   }
@@ -123,9 +123,9 @@ exports.getUserFriends = function(req, res) {
 exports.getFriendRecipes = function(req, res) {
   db.User.findOne({ 'name': req.body.name })
     .exec(function(err, user) {
-      if (err) { 
+      if (err) {
         res.status(404);
-      } 
+      }
       else {
         res.send(user.recipes);
       }
@@ -173,7 +173,7 @@ exports.topRecipes = function(req, res) {
           res.send(recipes);
         }
       })
-  } 
+  }
 }
 
 exports.getFriendProfile = function(req, res) {
@@ -192,3 +192,10 @@ exports.getFriendProfile = function(req, res) {
     res.end();
   }
 }
+exports.deleteRecipe = (req, res) => {
+  if (req.user) {
+  } else {
+
+  }
+  res.status(200).send();
+};
