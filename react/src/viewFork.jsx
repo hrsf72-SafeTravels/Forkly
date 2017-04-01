@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-import RecipeIngredients from './recipeIngredients'
+import RecipeIngredients from './recipeIngredients';
 
 class ViewFork extends React.Component {
 
@@ -46,13 +46,13 @@ class ViewFork extends React.Component {
           <br />
         </header>
         <img src={recipe.image} />
-        <h3 className="title">Ingredients: </h3>
-        <p>{recipe.ingredients.map( (ingredient, index) => 
+        <h3 className="saved-recipe-fork">Ingredients: </h3>
+        <ol>{recipe.ingredients.map( (ingredient, index) => 
           <RecipeIngredients ingredient={ingredient} key={index}/>
           )}
-        </p>
+        </ol>
         <br/>
-        <h3 className="title"> Directions: </h3>
+        <h3 className="saved-recipe-fork"> Directions: </h3>
         <p>{recipe.directions}</p>
         <br />
         <button onClick={this.forkMe}>Fork Me</button>
@@ -66,7 +66,7 @@ class ViewFork extends React.Component {
     }
     return (
       template
-    )
+    );
   }
 }
 
