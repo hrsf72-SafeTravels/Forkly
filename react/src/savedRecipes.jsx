@@ -6,6 +6,9 @@ import RadioButtonBar from './radioButtons';
 class SavedRecipes extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      clicked: false
+    }
     this.handleCategoryClick = this.handleCategoryClick.bind(this);
   }
 
@@ -36,14 +39,16 @@ class SavedRecipes extends React.Component {
       url: '/getSavedRecipes',
       type: 'GET',
       success: function(data){
-        let filteredData = data.filter(function(value) {
-          if(value.categories.includes(category)) {
-            return value;
-          }
-        });
-        console.log(filteredData);
-        console.log(boundThis);
-        boundThis.setState({ savedRecipes: filteredData });
+        if(boundThis.state.clicked === false) {
+          let filteredData = data.filter(function(value) {
+            if(value.categories.includes(category)) {
+              return value;
+            }
+          });
+          boundThis.setState({ savedRecipes: filteredData, clicked: true });
+        } else {
+          boundThis.setState({ savedRecipes: data, clicked: false })
+        }
       },
       error: function(err) {
         console.log('could not retrieve any recipes for user');
@@ -55,7 +60,7 @@ class SavedRecipes extends React.Component {
   render () {
     var recipesArray = [];
     var template = '';
-    if (this.state) {
+    if (this.state.savedRecipes) {
       this.state.savedRecipes.forEach((recipe, index) => {
       recipesArray.push(
         <li className="recipeSingle"
