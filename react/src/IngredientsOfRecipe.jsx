@@ -5,11 +5,12 @@ const propTypes = {
 };
 
 const IngredientsOfRecipe = (props) => {
+  console.log('ingredients', props.ingredients);
   return (
     <div className="col-lg-3">
-      <ul>
-        {props.ingredients.map((ingredient) =>
-          <ol>{ingredient}</ol>
+      <ul className="ingredients-list">
+        {props.ingredients.map((ingredient, index) =>
+          <li key={index}>{ingredient.text}</li>
         )}
       </ul>
     </div>
