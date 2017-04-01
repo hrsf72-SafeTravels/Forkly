@@ -163,6 +163,7 @@ class RecipeSearch extends React.Component {
   handleClick() {
     // const { router } = this.context
     // router.history.push('/recipe/' + recipeId);
+    console.log('this was selected')
     this.setState({
       showSelectedRecipe: !this.state.showSelectedRecipe,
     });
@@ -171,20 +172,30 @@ class RecipeSearch extends React.Component {
   render() {
     console.log('recipe search item', this.props);
     return (
-      <div className="recipes results col-md-3">
-        <div className="recipe-search-item" 
-          onClick={() => this.handleClick(this.props.id)}>
-          <div className="recipe-img-container">
-            <img className="recipe-img" src={this.props.recipe.image} />
+      <div>
+        {!this.state.showSelectedRecipe &&
+          <div className="recipes results col-md-3">
+            <div className="recipe-search-item" 
+              onClick={() => this.handleClick(this.props.id)}>
+              <div className="recipe-img-container">
+                <img className="recipe-img" src={this.props.recipe.image} />
+              </div>
+              <div className='searchName'>
+                <h4 className="searchName-header">{this.props.recipe.label}</h4>
+                <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
+              </div>  
+            </div>
+            <div>
+              <RecipeSaveButton recipe={this.props.recipe} saveRecipeClick={this.saveRecipeClick} />
+            </div>
           </div>
-          <div className='searchName'>
-            <h4 className="searchName-header">{this.props.recipe.label}</h4>
-            <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
-          </div>  
-        </div>
-        <div>
-          <RecipeSaveButton recipe={this.props.recipe} saveRecipeClick={this.saveRecipeClick} />
-        </div>
+        }
+        {this.state.showSelectedRecipe &&
+          <RecipeFromSearch 
+            handleClick={this.handleClick}
+            recipe={this.props.recipe}
+          />
+        }
       </div>
     );
   }
