@@ -1,13 +1,14 @@
-# Project Name
+# Goodbye
 
-> Pithy project description
+> Say goodbye to having to call a friend for his/her cooking recipes.
+> Save and add ingredients to friends' recipes to satisfy intricacies.
 
 ## Team
 
-  - teamMember
-  - teamMember
-  - teamMember
-  - teamMember
+  - Jason An
+  - Gabriel Certeza
+  - Huan Chen
+  - Billy Won
 
 ## Table of Contents
 
@@ -21,15 +22,12 @@
 
 ## Usage
 
-> Some usage instructions
+> Sign in to your Facebook account, create recipes, save recipes, and view others'
+> recipes.
 
 ## Requirements
 
-- Node 6.4.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node >= 7.6.0
 
 ## Development
 
@@ -38,15 +36,8 @@
 From within the root directory:
 
 ```sh
-npm install -g bower
 npm install
-bower install
 ```
-
-### Roadmap
-
-View the project roadmap [here](LINK_TO_DOC)
-
 
 ## Contributing
 
