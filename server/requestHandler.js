@@ -133,23 +133,41 @@ exports.getFriendRecipes = function(req, res) {
 }
 
 exports.saveRecipe = function(req, res) {
-  console.log('hi here');
   if (req.user) {
     const recipe = req.body;
     req.body._creator = req.user._id;
     db.Recipe.update(
       { name: recipe.name },
-      recipe,
+      {
+        name: recipe.name,
+        ingredients: recipe.ingredients,
+        categories: recipe.categories,
+        image: recipe.image,
+      },
       { upsert: true, setDefaultsOnInsert: true },
-      (err, recipe) => {
+      (err, result) => {
         if (err) {
           res.status(400).send();
         } else {
-          res.status(201).send();
-          console.log('result from save', recipe);
+          db.Recipe.findOne({
+            name: recipe.name,
+          })
+          .exec((error, recipe) => {
+            recipe.likes += 1;
+            recipe.save();
+            db.User.findByIdAndUpdate(
+              req.user._id,
+              {$push: {
+                savedRecipes: recipe._id
+              }}
+            )
+            .then(() => {
+              res.status(201).send();
+            });
+          });
         }
       }
-    );
+    )
   } else {
     res.status(405).send();
   }
@@ -208,12 +226,19 @@ exports.deleteRecipe = (req, res) => {
     .populate('savedRecipes')
     .exec((error, user) => {
       const deleteIndex = user.savedRecipes.findIndex(obj => obj.name === recipe.label);
-      console.log('user', user);
       if (deleteIndex > -1) {
         user.savedRecipes.splice(deleteIndex, 1);
         user.save();
       }
     });
+    db.Recipe.findOne({
+      name: recipe.label,
+    })
+    .exec((error, recipe) => {
+      recipe.likes -= 1;
+      recipe.save();
+    });
+    res.status(204).send();
   } else {
     res.status(405).send();
   }
