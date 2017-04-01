@@ -523,17 +523,28 @@ footer {
   background-color: white;
   border: none;
   margin-left: 12px;
+  /*margin-top: 60px;
+  margin-left: 12px;*/
+}
+
+.profile-btn-loggedin {
+  background-color: white;
+  border: none;
+  margin-left: 12px;
+  margin-top: 60px;
+  margin-right: 15px;
 }
 
 .fork-btn {
   background-color: white;
   border: none;
+  margin-right: 10px;
 }
 
 .logout-btn {
   background-color: white;
   border: none;
-  margin-left: 15px;
+  margin-left: 20px;
   margin-top: 0px;
 }
 
@@ -544,16 +555,27 @@ footer {
 }
 
 .ui-widget-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #aaaaaa;
-    opacity: 0.7;
-}
-.ui-front {
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #aaaaaa;
+  opacity: 0.7;
 }
 
-button:focus {outline:0;}
+.ui-front {
+  z-index: 100;
+}
+
+button:focus {
+  outline:0;
+}
+
+input:focus {
+  outline:none;
+}
+
+.ui-widget:focus {
+  outline: none;
+}
