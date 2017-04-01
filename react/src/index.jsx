@@ -100,7 +100,6 @@ class App extends React.Component {
                 {this.state.username &&
                   <div className="icon addRecipe">
                     <Link to="/addrecipe"><button className="addrecipe-btn"><img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/></button></Link>
-                    {/*<span><Link to="/addrecipe">Create Recipe</Link></span>*/}
                   </div>
                 }
                 {!this.state.username ? 
