@@ -4,10 +4,14 @@ import RecipeIngredients from './recipeIngredients';
 import RecipeSaveButton from './RecipeSaveButton';
 import diaglog from 'jquery-ui/ui/widgets/dialog';
 import CategorySelection from './CategorySelection';
+import RecipeFromSearch from './RecipeFromSearch';
 
 class RecipeSearch extends React.Component {
   constructor(props) {
   	super(props);
+    this.state = {
+      showSelectedRecipe: false,
+    }
     this.saveRecipeClick = this.saveRecipeClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -156,9 +160,12 @@ class RecipeSearch extends React.Component {
     });
   };
 
-  handleClick(recipeId) {
-    const { router } = this.context
-    router.history.push('/recipe/' + recipeId);
+  handleClick() {
+    // const { router } = this.context
+    // router.history.push('/recipe/' + recipeId);
+    this.setState({
+      showSelectedRecipe: !this.state.showSelectedRecipe,
+    });
   }
 
   render() {
