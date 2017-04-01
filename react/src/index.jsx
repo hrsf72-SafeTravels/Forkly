@@ -93,29 +93,28 @@ class App extends React.Component {
               <nav>
                 {this.state.username &&
                   <div className="icon logout">
-                    <img className="navButton" src="assets/images/logout.png" alt="Logout"/>
-                    <span><Link to="/" onClick={this.logout}><br />Logout</Link></span>
+                    <Link to="/" onClick={this.logout}><button className="logout-btn"><img className="navButton" src="assets/images/logout.png" alt="Logout"/></button></Link>
+                    {/*<span><Link to="/" onClick={this.logout}><br />Logout</Link></span>*/}
                   </div>
                 }
                 {this.state.username &&
                   <div className="icon addRecipe">
-                    <img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/>
-                    <span><Link to="/addrecipe">Create Recipe</Link></span>
+                    <Link to="/addrecipe"><button className="addrecipe-btn"><img className="navButton" src="assets/images/addRecipe.png" alt="Add Recipe"/></button></Link>
+                    {/*<span><Link to="/addrecipe">Create Recipe</Link></span>*/}
                   </div>
                 }
                 <div className="icon myForks">
-                  <img className="navButton" src="assets/images/fork.png" alt="My Recipes"/>
-                  <span><Link to="/profile">Profile</Link></span>
+                  <Link to='/profile'><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></Link>
                 </div>
                 <div className="icon home">
-                  <Link to="/"><button><img className="navButton" src="assets/images/home.png" alt="Home"/></button></Link>
-                  {/*<span><Link to="/"><br />Home</Link></span>*/}
+                  <Link to="/"><button className="home-btn"><img className="navButton" src="assets/images/home.png" alt="Home"/></button></Link>
                 </div>
                 <div className="icon">
-                  <img className="navButton"
+                  <Link to="/toprecipes"><button className="fork-btn"><img className="navButton" src="assets/images/fork.png" alt="top rated"/></button></Link>
+                  {/*<img className="navButton"
                     src="https://us.123rf.com/450wm/aquir/aquir1512/aquir151202267/49081585-top-rated-orange-round-gel-isolated-push-button.jpg?ver=68"
-                    alt="Home"/>
-                  <span><Link to="/toprecipes">Top Recipes</Link></span>
+                    alt="Home"/>*/}
+                  {/*<span><Link to="/toprecipes">Top Recipes</Link></span>*/}
                 </div>
               </nav>
             </section>
