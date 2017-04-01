@@ -100,6 +100,8 @@ app.post('/searchYoutube', handler.searchYoutube);
 
 app.post('/saveRecipe', handler.saveRecipe);
 
+app.get('/topRecipes', handler.topRecipes);
+
 app.get('/*', function(req, res) {
   res.redirect('/');
 });
