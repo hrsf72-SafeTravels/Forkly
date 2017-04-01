@@ -159,3 +159,19 @@ exports.getSavedRecipes = function(req, res) {
     res.end();
   }
 }
+
+exports.topRecipes = function(req, res) {
+  if (req.user) {
+    db.Recipe.find({})
+      .sort({ 'likes': -1 })
+      .limit(10)
+      .exec(function(err, recipes) {
+        if (err) {
+          console.log('error in querying DB for top recipes');
+          res.status(501);
+        } else {
+          res.send(recipes);
+        }
+      })
+  } 
+}
