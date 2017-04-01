@@ -496,3 +496,10 @@ footer {
 #copyright-image, #github-link {
   line-height: 50px;
 }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+
