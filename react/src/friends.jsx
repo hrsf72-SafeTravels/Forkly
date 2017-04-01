@@ -22,7 +22,7 @@ class Friends extends React.Component {
     });
   }
 
-  handleClick(friend) {
+  handleFriendClick(friend) {
     var boundThis = this;
     $.ajax({
       url: `/friends/${friend.id}`,
@@ -38,6 +38,12 @@ class Friends extends React.Component {
       }
     });
   }
+
+  handleClick(recipeId) {
+    //redirect to /recipes/recipeId
+    const { router } = this.context
+    router.history.push('/recipe/' + recipeId);
+  }
  
   render () {
     var friendsList = [];
@@ -50,7 +56,7 @@ class Friends extends React.Component {
         <li className="recipeSingle"
           key={index} 
           value={friend} 
-          onClick={() => this.handleClick(friend)}>
+          onClick={() => this.handleFriendClick(friend)}>
           {friend.name}
         </li>)
       });
