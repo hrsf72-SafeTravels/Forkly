@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import ViewRecipesNavBar from './viewRecipesNavBar';
+import RadioButtonBar from './radioButtons';
 
 class Friends extends React.Component {
   constructor(props) {
@@ -86,6 +87,7 @@ class Friends extends React.Component {
       template = 
       <div className="myRecipes">
         <ViewRecipesNavBar />
+        <RadioButtonBar />
         <div className="col-xs-6 col-md-4">
           <div className="myRecipesTitle row">Friends</div>
           <div className="row">

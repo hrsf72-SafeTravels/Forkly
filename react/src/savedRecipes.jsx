@@ -1,20 +1,21 @@
 import React from 'react';
 import $ from 'jquery';
 import ViewRecipesNavBar from './viewRecipesNavBar';
+import RadioButtonBar from './radioButtons';
 
 class SavedRecipes extends React.Component {
   constructor(props) {
     super(props);
+    this.handleCategoryClick = this.handleCategoryClick.bind(this);
   }
 
   //before initial render, use ajax call to retrieve all recipes belonging to user
   componentDidMount() {
-    var boundThis = this;
+    let boundThis = this;
     $.ajax({
       url: '/getSavedRecipes',
       type: 'GET',
       success: function(data){
-        console.log("======>", data);
         boundThis.setState({ savedRecipes: data });
       },
       error: function(err) {
@@ -25,8 +26,30 @@ class SavedRecipes extends React.Component {
 
   handleClick(recipeId) {
     //redirect to /recipes/recipeId
-    const { router } = this.context
+    const { router } = this.context;
     router.history.push('/recipe/' + recipeId);
+  }
+
+  handleCategoryClick(category) {
+    let boundThis = this;
+    $.ajax({
+      url: '/getSavedRecipes',
+      type: 'GET',
+      success: function(data){
+        let filteredData = data.filter(function(value) {
+          if(value.categories.includes(category)) {
+            return value;
+          }
+        });
+        console.log(filteredData);
+        console.log(boundThis);
+        boundThis.setState({ savedRecipes: filteredData });
+      },
+      error: function(err) {
+        console.log('could not retrieve any recipes for user');
+      }
+    });
+
   }
 
   render () {
@@ -45,6 +68,7 @@ class SavedRecipes extends React.Component {
       template =
       <div className="myRecipes">
         <ViewRecipesNavBar />
+        <RadioButtonBar handleCategoryClick={this.handleCategoryClick} />
         <div className="myRecipesTitle">Saved Recipes</div>
         <div className="recipesArrays">
           <ul className="recipesArray">
