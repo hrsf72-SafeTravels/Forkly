@@ -9,11 +9,7 @@ import RecipeFromSearch from './RecipeFromSearch';
 class RecipeSearch extends React.Component {
   constructor(props) {
   	super(props);
-    this.state = {
-      showSelectedRecipe: false,
-    }
     this.saveRecipeClick = this.saveRecipeClick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   setSearchTerm(searchTerm) {
@@ -158,48 +154,25 @@ class RecipeSearch extends React.Component {
         console.log('ajax request failed');
       }
     });
-  };
-
-  handleClick() {
-    // const { router } = this.context
-    // router.history.push('/recipe/' + recipeId);
-    console.log('this was selected')
-    this.setState({
-      showSelectedRecipe: !this.state.showSelectedRecipe,
-    });
   }
 
   render() {
     console.log('recipe search item', this.props);
     return (
-      <div>
-          <div className="recipes results col-md-3">
-            <div className="recipe-search-item" 
-              onClick={() => this.handleClick(this.props.id)}
-            >
-              
-              {!this.state.showSelectedRecipe &&
-              <div className="recipe-img-container">
-                <img className="recipe-img" src={this.props.recipe.image} />
-              </div>
-              }
-
-              {this.state.showSelectedRecipe &&
-                <RecipeFromSearch 
-                  handleClick={this.handleClick}
-                  recipe={this.props.recipe}
-                />
-              }
-
-              <div className='searchName'>
-                <h4 className="searchName-header">{this.props.recipe.label}</h4>
-                <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
-              </div>  
-            </div>
-            <div>
-              <RecipeSaveButton recipe={this.props.recipe} saveRecipeClick={this.saveRecipeClick} />
-            </div>
+      <div className="recipes results col-md-3">
+        <div className="recipe-search-item" 
+          onClick={() => this.props.showIndividualRecipe(this.props.recipe)}>
+          <div className="recipe-img-container">
+            <img className="recipe-img" src={this.props.recipe.image} />
           </div>
+          <div className='searchName'>
+            <h4 className="searchName-header">{this.props.recipe.label}</h4>
+            <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
+          </div>  
+        </div>
+        <div>
+          <RecipeSaveButton recipe={this.props.recipe} saveRecipeClick={this.saveRecipeClick} />
+        </div>
       </div>
     );
   }
