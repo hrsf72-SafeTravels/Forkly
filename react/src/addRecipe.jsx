@@ -9,7 +9,7 @@ class AddRecipe extends React.Component {
     this.state = {
       name: '',
       directions: '',
-      ingredients: [{quantity: '1', units: '', ingredient: '', showButton: true}]
+      ingredients: [{quantity: '', units: '', ingredient: '', showButton: true}]
     };
     this.addRow = this.addRow.bind(this);
     // this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
@@ -23,7 +23,7 @@ class AddRecipe extends React.Component {
     let forkedId = forked.slice(forked.lastIndexOf('/') + 1);
     let boundThis = this;
     // if history has url at end
-    if (forkedId.length > 0) {
+    if (forkedId !== 'addrecipe' && forkedId.length > 0) {
       $.ajax({
         url: '/getRecipeById',
         type: 'POST',
@@ -44,6 +44,7 @@ class AddRecipe extends React.Component {
   }
 
   handleSubmit (event) {
+    console.log('we are handling the submit')
     const { router } = this.context;
     $.ajax({
       url: '/api/addRecipe',
