@@ -1,6 +1,6 @@
 import React from 'react';
 import TopRecipeEntry from './TopRecipeEntry.jsx';
-import $ from 'jQuery';
+import $ from 'jquery';
 
 // const topRatedExampleData = [
 //   {
@@ -117,7 +117,7 @@ class TopRecipeList extends React.Component {
       error: function(err) {
         console.log('AJAX request to get top recipes failed')
       }
-    })();
+    });
   }
 
   render() {
