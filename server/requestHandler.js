@@ -134,17 +134,24 @@ exports.getFriendRecipes = function(req, res) {
 
 exports.saveRecipe = function(req, res) {
   console.log('hi here');
-  if(req.user){
+  if (req.user) {
+    const recipe = req.body;
     req.body._creator = req.user._id;
-    db.Recipe.create(req.body).then((recipe) => {
-      console.log(recipe);
-      db.User.findByIdAndUpdate(req.user._id, {$push: {savedRecipes: recipe.id}})
-      .then(() => {
-        res.end();
-      })
-    });
+    db.Recipe.update(
+      { name: recipe.name },
+      recipe,
+      { upsert: true, setDefaultsOnInsert: true },
+      (err, recipe) => {
+        if (err) {
+          res.status(400).send();
+        } else {
+          res.status(201).send();
+          console.log('result from save', recipe);
+        }
+      }
+    );
   } else {
-    res.end();
+    res.status(405).send();
   }
 }
 
@@ -201,6 +208,7 @@ exports.deleteRecipe = (req, res) => {
     .populate('savedRecipes')
     .exec((error, user) => {
       const deleteIndex = user.savedRecipes.findIndex(obj => obj.name === recipe.label);
+      console.log('user', user);
       if (deleteIndex > -1) {
         user.savedRecipes.splice(deleteIndex, 1);
         user.save();
