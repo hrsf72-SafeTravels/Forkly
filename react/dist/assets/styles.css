@@ -393,9 +393,10 @@ small a:hover {
 }
 
 
-.navbar-text-color {
+span.navbar-text-color {
   color: #ee6000;
-  font-weight: 475;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .diet-info {
