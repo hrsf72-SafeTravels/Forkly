@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import ViewRecipesNavBar from './viewRecipesNavBar';
+import RadioButtonBar from './radioButtons';
 
 class MyRecipes extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class MyRecipes extends React.Component {
       template = 
       <div className="myRecipes">
         <ViewRecipesNavBar />
+        <RadioButtonBar />
         <div className="myRecipesTitle">My Recipes</div>
         <div className="recipesArrays">
           <ul className="recipesArray">
