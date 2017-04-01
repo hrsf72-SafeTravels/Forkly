@@ -44,7 +44,6 @@ class AddRecipe extends React.Component {
   }
 
   handleSubmit (event) {
-    console.log('we are handling the submit')
     const { router } = this.context;
     $.ajax({
       url: '/api/addRecipe',
