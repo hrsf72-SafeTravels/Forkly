@@ -8,6 +8,7 @@ class AddRecipeIngredients extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     let quantityInput = document.getElementById('quantity-input');
     let unitsInput = document.getElementById('units-input');
     let ingredientInput = document.getElementById('ingredient-input');
@@ -36,6 +37,7 @@ class AddRecipeIngredients extends React.Component {
   }
 
   render () {
+    console.log('props for ingredients', this.props);
     if (this.props.showButton === true) {
       return (
         <tbody>
@@ -48,18 +50,18 @@ class AddRecipeIngredients extends React.Component {
             /></td>
           </tr>
         </tbody>
-      )
+      );
     } else {
       return (
         <tbody>
           <tr>
-            <td><input type="number" name="quantity" default={this.props.quantity} /></td>
-            <td><input type="text" name="units" default={this.props.units} /></td>
-            <td><input type="text" name="ingredient" default={this.props.ingredient}/></td>
+            <td><input type="number" name="quantity" id="quantity-input" placeholder={this.props.quantity} /></td>
+            <td><input type="text" name="units" id="units-input" placeholder={this.props.units} /></td>
+            <td><input type="text" name="ingredient" id="ingredient-input" placeholder={this.props.ingredient} /></td>
             <td><input type="button" name="updateRecipeRow" value="Update Recipe" onClick={this.onClick}/></td>
           </tr>
         </tbody>
-      )
+      );
     }
   }
 }
