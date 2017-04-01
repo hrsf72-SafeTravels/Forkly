@@ -11,17 +11,18 @@ class AddRecipe extends React.Component {
       directions: '',
       ingredients: [{quantity: '', units: '', ingredient: '', showButton: true}]
     };
-    this.addRow = this.addRow.bind(this);
+
     // this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addRow = this.addRow.bind(this);
   }
 
   componentDidMount () {
 
     var forked = this.context.router.history.location.pathname;
     let forkedId = forked.slice(forked.lastIndexOf('/') + 1);
-    let boundThis = this;
+    let context = this;
     // if history has url at end
     if (forkedId !== 'addrecipe' && forkedId.length > 0) {
       $.ajax({
@@ -30,7 +31,7 @@ class AddRecipe extends React.Component {
         data: JSON.stringify({id: forkedId}),
         contentType: 'application/json',
         success: function(data){
-          boundThis.setState({
+          context.setState({
             name: data.name,
             directions: data.directions,
             ingredients: data.ingredients
@@ -59,13 +60,11 @@ class AddRecipe extends React.Component {
 
   addRow(ingredients, index) {
     // ingredients are passed from the values of the input field -- accomodates the autocomplete
-    console.log(ingredients);
     let copy = this.state.ingredients.slice();
 
     for (var key in ingredients) {
       copy[index][key] = ingredients[key];
     }
-    console.log(copy);
 
     this.setState({
       ingredients: copy,
@@ -104,7 +103,6 @@ class AddRecipe extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div className="createRecipe">
         <header>
@@ -130,7 +128,6 @@ class AddRecipe extends React.Component {
               </tr>
             </thead>
             {this.state.ingredients.map(function(val, index) {
-              console.log(' we are about to populate the ingredients', val);
               return (<AddRecipeIngredients
                 key={index}
                 index={index}
@@ -140,14 +137,13 @@ class AddRecipe extends React.Component {
                 showButton={val.showButton}
 
                 addRow={this.addRow}
-                handleIngredientsChange={this.handleIngredientsChange}
               />);
             }, this)}
           </table>
           <br />
 
           <h3 className="title"> Directions: </h3>
-          <textarea name="directions" value={this.state.directions} onChange={this.handleInputChange}></textarea>
+          <textarea name="directions" placeholder={this.state.directions} onChange={this.handleInputChange}></textarea>
 
           <br />
 

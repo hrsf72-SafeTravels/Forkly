@@ -6,7 +6,6 @@ class RecipeIngredient extends React.Component {
   }
 
   render() {
-    console.log('rendering recipe ingredients', this.props);
     return (
       <li className="saved-recipe-fork-ingredient">
         {this.props.ingredient.quantity !== '0' && (
