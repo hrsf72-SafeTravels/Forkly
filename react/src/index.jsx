@@ -103,9 +103,12 @@ class App extends React.Component {
                     {/*<span><Link to="/addrecipe">Create Recipe</Link></span>*/}
                   </div>
                 }
-                <div className="icon myForks">
-                  <Link to='/profile'><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></Link>
-                </div>
+                {!this.state.username ? 
+                  <div className="icon myForks">
+                    <a href="/auth/facebook"><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></a>
+                    {/*<Link to='/auth/facebook'><button className="profile-btn"><img className="navButton" src="assets/images/profile.png" alt="My Profile"/></button></Link>*/}
+                  </div>
+                : null }
                 <div className="icon home">
                   <Link to="/"><button className="home-btn"><img className="navButton" src="assets/images/home.png" alt="Home"/></button></Link>
                 </div>
