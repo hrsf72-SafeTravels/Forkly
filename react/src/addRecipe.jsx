@@ -10,7 +10,7 @@ class AddRecipe extends React.Component {
       name: '',
       directions: '',
       ingredients: [{quantity: '1', units: '', ingredient: '', showButton: true}]
-    }
+    };
     this.addRow = this.addRow.bind(this);
     // this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,7 +26,7 @@ class AddRecipe extends React.Component {
     if (forkedId.length > 0) {
       $.ajax({
         url: '/getRecipeById',
-        type:'POST',
+        type: 'POST',
         data: JSON.stringify({id: forkedId}),
         contentType: 'application/json',
         success: function(data){
@@ -44,7 +44,7 @@ class AddRecipe extends React.Component {
   }
 
   handleSubmit (event) {
-    const { router } = this.context
+    const { router } = this.context;
     $.ajax({
       url: "/api/addRecipe",
       data: JSON.stringify(this.state),
@@ -65,7 +65,7 @@ class AddRecipe extends React.Component {
     for (var key in ingredients) {
       copy[index][key] = ingredients[key];
     }
-    console.log(copy)
+    console.log(copy);
 
     this.setState({
       ingredients: copy,
@@ -130,19 +130,19 @@ class AddRecipe extends React.Component {
             </thead>
             {console.log(this.state.ingredients)}
             {this.state.ingredients.map(function(val, index) {
-                console.log(val)
-                return (<AddRecipeIngredients
-                  key={index}
-                  index={index}
-                  quantity={val.quantity}
-                  units={val.units}
-                  ingredient={val.ingredient}
-                  showButton={val.showButton}
+              console.log(val);
+              return (<AddRecipeIngredients
+                key={index}
+                index={index}
+                quantity={val.quantity}
+                units={val.units}
+                ingredient={val.ingredient}
+                showButton={val.showButton}
 
-                  addRow={this.addRow}
-                  handleIngredientsChange={this.handleIngredientsChange}
-                />);
-             }, this)}
+                addRow={this.addRow}
+                handleIngredientsChange={this.handleIngredientsChange}
+              />);
+            }, this)}
           </table>
           <br />
 
