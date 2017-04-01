@@ -17,7 +17,7 @@ class RecipeSearch extends React.Component {
   }
 
   saveRecipeClick() {
-     var popUpList = $(`<div class="category-card"> 
+     var popUpList = $(`<div class="category-card">
       <div class="popup-container">
         <h2 class="popup-title">Saved ${this.props.recipe.label} to favorites. Pick categories.</h2>
         <hr />
@@ -43,13 +43,13 @@ class RecipeSearch extends React.Component {
           </div>
       </div>
       </div>`);
-     
+
     popUpList.dialog({
       modal: true,
       open: function(event, ui) {
           popUpList.removeAttr('style');
           $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-      },  
+      },
       minHeight: 450,
       height: 400,
       width: 450
@@ -112,7 +112,7 @@ class RecipeSearch extends React.Component {
         }
       });
     });
-   
+
 
     // console.log('hihi', popUpList.classList);
 
@@ -173,7 +173,7 @@ class RecipeSearch extends React.Component {
           <p className="diet-info">{this.props.recipe.dietLabels[0] || 'None'}</p>
         </div>
         <div>
-          <RecipeSaveButton saveRecipeClick={this.saveRecipeClick} />
+          <RecipeSaveButton recipe={this.props.recipe} saveRecipeClick={this.saveRecipeClick} />
         </div>
   	  </div>
   	)

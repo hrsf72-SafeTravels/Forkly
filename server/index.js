@@ -54,6 +54,9 @@ app.post('/searchRecipes', handler.searchRecipes);
 // for AddRecipe Component - from handleSubmit function
 app.post('/api/addRecipe', handler.addRecipe);
 
+// remove recipe when user clicks unheart button
+app.delete('/api/deleteRecipe', handler.deleteRecipe);
+
 // for Nav Component - from getUsername function
 app.get('/username', handler.getUsername);
 

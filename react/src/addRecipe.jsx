@@ -3,7 +3,7 @@ import AddRecipeIngredients from './addRecipeIngredients.jsx';
 import $ from 'jquery';
 
 class AddRecipe extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -33,14 +33,14 @@ class AddRecipe extends React.Component {
           boundThis.setState({
             name: data.name,
             directions: data.directions,
-            ingredients: data.ingredients 
+            ingredients: data.ingredients
           });
         },
         error: function(err) {
           console.error('could not retrieve any recipes for user');
         }
       });
-    } 
+    }
   }
 
   handleSubmit (event) {
@@ -70,7 +70,7 @@ class AddRecipe extends React.Component {
     this.setState({
       ingredients: copy,
     });
-    
+
     // add new row only when we have clicked 'addRow'
     if (index === copy.length - 1) {
       this.setState({
@@ -114,11 +114,11 @@ class AddRecipe extends React.Component {
         <br />
         <form onSubmit={this.handleSubmit}>
 
-          <h3 className="recipeName">Recipe Name:</h3> 
+          <h3 className="recipeName">Recipe Name:</h3>
           <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange}/>
           <br />
           <br />
-        
+
           <h3 className="title">Ingredients:</h3>
           <table className="ingredients">
             <thead>
@@ -145,7 +145,7 @@ class AddRecipe extends React.Component {
              }, this)}
           </table>
           <br />
-        
+
           <h3 className="title"> Directions: </h3>
           <textarea name="directions" value={this.state.directions} onChange={this.handleInputChange}></textarea>
 
