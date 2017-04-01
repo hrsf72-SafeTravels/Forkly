@@ -123,18 +123,18 @@ body {
   display: none;
 }
 
-.icon:hover span {
+/*.icon:hover span {
   text-decoration: none;
   display: inline-block;
   text-align: center;
   float: right;
   color: #ee6000;
   text-decoration: underline;
-}
+}*/
 
-.icon:hover img {
+/*.icon:hover img {
   display: none;
-}
+}*/
 
 .loginFacebook {
   color: #ee6000;

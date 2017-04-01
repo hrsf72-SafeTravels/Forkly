@@ -108,8 +108,8 @@ class App extends React.Component {
                   <span><Link to="/profile">Profile</Link></span>
                 </div>
                 <div className="icon home">
-                  <img className="navButton" src="assets/images/home.png" alt="Home"/>
-                  <span><Link to="/"><br />Home</Link></span>
+                  <Link to="/"><button><img className="navButton" src="assets/images/home.png" alt="Home"/></button></Link>
+                  {/*<span><Link to="/"><br />Home</Link></span>*/}
                 </div>
                 <div className="icon">
                   <img className="navButton"
