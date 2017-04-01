@@ -52,6 +52,9 @@ class RecipeSearch extends React.Component {
           popUpList.removeAttr('style');
           $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
       },
+      close: function (event, ui) {
+            $(this).dialog('destroy');             
+        },   
      // buttons: { "OK": function() { $(this).dialog("close"); } },       
       minHeight: 450,
       height: 400,
