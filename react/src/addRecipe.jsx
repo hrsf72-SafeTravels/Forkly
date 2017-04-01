@@ -74,7 +74,7 @@ class AddRecipe extends React.Component {
     // add new row only when we have clicked 'addRow'
     if (index === copy.length - 1) {
       this.setState({
-        ingredients: this.state.ingredients.concat({quantity: 0, units: '', ingredient: '', showButton: true})
+        ingredients: this.state.ingredients.concat({quantity: '0', units: '', ingredient: '', showButton: true})
       });
     }
   }

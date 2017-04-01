@@ -162,7 +162,7 @@ class RecipeSearch extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log('recipe search item', this.props);
     return (
       <div className="recipes results col-md-3">
         <div className="recipe-search-item" 
