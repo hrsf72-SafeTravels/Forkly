@@ -87,7 +87,7 @@ exports.addRecipe = function(req, res) {
     let recipeId;
     db.Recipe.update({name: req.body.name}, req.body, {upsert: true})
     .then((recipe) => {
-      recipeId = recipe.id;
+      recipeId = recipe.upserted[0]._id;
       db.User.findByIdAndUpdate(req.user._id, {$push: {recipes: recipe.id}})
     })
     .then(() => {
