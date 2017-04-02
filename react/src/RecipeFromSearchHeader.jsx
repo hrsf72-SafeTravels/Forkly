@@ -10,11 +10,10 @@ const RecipeFromSearchHeader = (props) => {
     <div className="row">
       <div className="col-lg-3" />
       <div className="col-lg-3">
+        <h2>{props.name}</h2>
         <img id="recipe-from-search-img" src={props.photo} alt=""/>
       </div>
       <div className="col-lg-3">
-        <h2>{props.name}</h2>
-        <button className="btn btn-submit">Save</button>
       </div>
     </div>
   );

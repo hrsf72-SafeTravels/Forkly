@@ -594,3 +594,17 @@ input:focus {
 .ui-widget:focus {
   outline: none;
 }
+
+/*
+  ===========================
+  Ingredient List
+  ===========================
+*/
+
+.recipe-container h2, h3, h4 {
+  font-weight: bold;
+}
+
+.ingredients-list {
+  list-style-type: circle;
+}

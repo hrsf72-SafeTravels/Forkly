@@ -1,15 +1,17 @@
 import React, { PropTypes } from 'react';
 
 const propTypes = {
-  nutritionalFacts: PropTypes.object.isRequired,
+  healthLabels: PropTypes.array.isRequired,
 };
 
 const NutritionOfRecipe = (props) => {
   return (
     <div className="col-lg-3">
+      <a href={props.url}></a>
+      <h3>Health Labels: </h3>
       <ul>
-        {Object.keys(props.nutritionalFacts).map((fact) =>
-          <ol>{fact}:{props.nutritionalFacts[fact]}</ol>
+        {props.healthLabels.map((fact) =>
+          <ol>{fact}</ol>
         )}
       </ul>
     </div>

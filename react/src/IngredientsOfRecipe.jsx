@@ -9,6 +9,7 @@ const IngredientsOfRecipe = (props) => {
   return (
     <div className="col-lg-3">
       <ul className="ingredients-list">
+        <h3>Ingredients:</h3>
         {props.ingredients.map((ingredient, index) =>
           <li key={index}>{ingredient.text}</li>
         )}

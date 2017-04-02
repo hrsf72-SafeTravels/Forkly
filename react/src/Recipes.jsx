@@ -8,7 +8,7 @@ class Recipes extends React.Component {
     super(props);
     this.state = {
       showIndividualRecipe: false,
-      individualRecipe: null,
+      individualRecipe: {},
     };
     this.showIndividualRecipe = this.showIndividualRecipe.bind(this);
   }
