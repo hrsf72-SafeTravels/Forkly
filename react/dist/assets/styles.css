@@ -198,10 +198,10 @@ body {
   font-size: 16px;
 }
 
-input[type="text"].form-control {
+/*input[type="text"].form-control {
   width: 40%;
   margin: 2% auto;
-}
+}*/
 
 .searchText button {
   margin-top: 0;
@@ -222,7 +222,9 @@ input[type="text"].form-control {
 
 .recipeImage {
   margin: auto;
-  max-width: 850px;
+  /*max-width: 850px;*/
+  width: 800px;
+  height: 400px;
 }
 
 .recipeHeader {
@@ -249,8 +251,9 @@ input[type="text"].form-control {
   font-size: 18px;
 }
 
-.recipe-name-input {
+.recipeinput {
   margin-left: 0px;
+  width: 200px;
 }
 
 /*
@@ -611,4 +614,13 @@ input:focus {
 
 .ingredients-list {
   list-style-type: circle;
+}
+
+.directions {
+  width: 400px;
+  height: 500px;
+}
+
+.btn-warning {
+  margin-right: 10px;
 }

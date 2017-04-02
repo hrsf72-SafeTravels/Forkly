@@ -42,10 +42,10 @@ class AddRecipeIngredients extends React.Component {
       return (
         <tbody>
           <tr>
-            <td><input type="number" name="quantity" id="quantity-input"/></td>
-            <td><input type="text" name="units" id="units-input"/></td>
-            <td><input type="text" name="ingredient" id="ingredient-input"/></td>
-            <td><input type="button" name="addRecipeNewRow" value="Add Row"
+            <td><input className="form-control" type="number" name="quantity" id="quantity-input"/></td>
+            <td><input className="form-control" type="text" name="units" id="units-input"/></td>
+            <td><input className="form-control" type="text" name="ingredient" id="ingredient-input"/></td>
+            <td><input className="form-control" type="button" name="addRecipeNewRow" value="Add Row"
               onClick={this.onClick}
             /></td>
           </tr>
@@ -58,7 +58,7 @@ class AddRecipeIngredients extends React.Component {
             <td><input type="number" name="quantity" id="quantity-input" placeholder={this.props.quantity} /></td>
             <td><input type="text" name="units" id="units-input" placeholder={this.props.units} /></td>
             <td><input type="text" name="ingredient" id="ingredient-input" placeholder={this.props.ingredient} /></td>
-            <td><input type="button" name="updateRecipeRow" value="Update Recipe" onClick={this.onClick}/></td>
+            <td><input className="btn" type="button" name="updateRecipeRow" value="Update Recipe" onClick={this.onClick}/></td>
           </tr>
         </tbody>
       );
