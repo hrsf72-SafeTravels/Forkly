@@ -53,6 +53,7 @@ class AddRecipe extends React.Component {
   }
 
   handleSubmit (event) {
+    event.preventDefault();
     const { router } = this.context;
     $.ajax({
       url: '/api/addRecipe',
@@ -63,7 +64,6 @@ class AddRecipe extends React.Component {
         router.history.push('/recipe/' + recipeId);
       }
     });
-    event.preventDefault();
   }
 
   addRow(ingredients, index) {
@@ -122,11 +122,11 @@ class AddRecipe extends React.Component {
         <br />
         <form onSubmit={this.handleSubmit}>
           <h3 className="recipeName">Recipe Name:</h3>
-          <input className="recipe-name-input form-control" type="text" value={this.state.name} name="name" onChange={this.handleInputChange}/>
+          <input className="recipeinput form-control" id="inlineFormInputGroup" type="text" value={this.state.name} name="name" onChange={this.handleInputChange}/>
           <br />
           <br />
 
-          <h3 className="title">Ingredients:</h3>
+          <h3 className="recipeName">Ingredients:</h3>
           <table className="ingredients">
             <thead>
               <tr>
@@ -150,18 +150,18 @@ class AddRecipe extends React.Component {
           </table>
           <br />
 
-          <h3 className="title"> Directions: </h3>
-          <textarea name="directions" placeholder={this.state.directions} onChange={this.handleInputChange}></textarea>
+          <h3 className="recipeName"> Directions: </h3>
+          <textarea className="form-control directions" name="directions" placeholder={this.state.directions} onChange={this.handleInputChange}></textarea>
           <div>
             <span>Select categories</span>
             <nav className="navbar navbar-static-top">
               <div className="container">
                 <div id="navbar" className="navbar-collapse collapse">
                   <ul className="nav navbar-nav">
-                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('salad')}>Salad</span></li>
-                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('soup')}>Soup</span></li>
-                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('mainDishes')}>Main Dishes</span></li>
-                    <li><span className="btn radioButton" onClick={() => this.handleCategoryClick('desserts')}>Desserts</span></li>
+                    <li><span className="btn btn-warning radioButton" onClick={() => this.handleCategoryClick('salad')}>Salad</span></li>
+                    <li><span className="btn btn-warning radioButton" onClick={() => this.handleCategoryClick('soup')}>Soup</span></li>
+                    <li><span className="btn btn-warning radioButton" onClick={() => this.handleCategoryClick('mainDishes')}>Main Dishes</span></li>
+                    <li><span className="btn btn-warning radioButton" onClick={() => this.handleCategoryClick('desserts')}>Desserts</span></li>
                   </ul>
                 </div>
               </div>
@@ -169,8 +169,8 @@ class AddRecipe extends React.Component {
           </div>
           <br />
           <div>
-            <input type="submit" name="addRecipeSave" value="Save" />
-            <input type="button" name="addRecipeCancel" value="Cancel" />
+            <button type="btn btn-secondary submit" name="addRecipeSave">Save</button>
+            <button type="btn btn-secondary button" name="addRecipeCancel">Cancel</button>
           </div>
         </form>
         <br/>
