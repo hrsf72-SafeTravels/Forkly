@@ -82,16 +82,29 @@ exports.getUserRecipes = function(req, res) {
 exports.addRecipe = function(req, res) {
   if (req.user) {
     req.body._creator = req.user._id;
+    console.log(req.body.name);
     // create recipe in database
     let recipeId;
-    db.Recipe.create(req.body).then((recipe) => {
-      // push recipe into user's recipes array
+    db.Recipe.update({name: req.body.name}, req.body, {upsert: true})
+    .then((recipe) => {
       recipeId = recipe.id;
       db.User.findByIdAndUpdate(req.user._id, {$push: {recipes: recipe.id}})
-      .then(() => {
-        res.json(recipeId);
-      })
+    })
+    .then(() => {
+      res.json(recipeId);
+    })
+    .catch((err) => {
+      res.status(400).send();
     });
+
+    // db.Recipe.create(req.body).then((recipe) => {
+    //   // push recipe into user's recipes array
+    //   recipeId = recipe.id;
+    //   db.User.findByIdAndUpdate(req.user._id, {$push: {recipes: recipe.id}})
+    //   .then(() => {
+    //     res.json(recipeId);
+    //   })
+    // });
   } else {
     res.end();
   }
