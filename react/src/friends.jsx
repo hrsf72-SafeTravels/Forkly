@@ -88,16 +88,16 @@ class Friends extends React.Component {
       <div className="myRecipes">
         <ViewRecipesNavBar />
         <div className="col-xs-6 col-md-4">
-          <div className="myRecipesTitle row">Friends</div>
+          <div className="myRecipesTitle">Friends</div>
           <div className="row">
-            <ul className="recipesArray">
+            <ul className="friendsArrays">
               {friendsList}
             </ul>
           </div>
         </div>
         { this.state.friendSavedRecipes ?
           <div className="col-xs-12 col-md-8">
-            <div className="myRecipesTitle row">{this.state.friendName}'s Saved Recipes</div>
+            <div className="myRecipesTitle">{this.state.friendName}'s Saved Recipes</div>
             <div className="row">
               <ul className="recipesArrays">
                 {savedRecipesArray}
@@ -105,7 +105,7 @@ class Friends extends React.Component {
             </div>
             { this.state.friendCreatedRecipes ?
               <div>
-              <div className="myRecipesTitle row">{this.state.friendName}'s Created Recipes</div>
+              <div className="myRecipesTitle">{this.state.friendName}'s Created Recipes</div>
               <div className="row">
                 <ul className="recipesArrays">
                   {createdRecipesArray}

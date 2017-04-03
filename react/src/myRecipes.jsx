@@ -40,15 +40,15 @@ class MyRecipes extends React.Component {
       url: '/getAllRecipes',
       type: 'GET',
       success: function(data){
-        if(boundThis.state.clicked === false) {
+        if(boundThis.state.clicked !== category) {
           let filteredData = data.filter(function(value) {
             if(value.categories.includes(category)) {
               return value;
             }
           });
-          boundThis.setState({ createdRecipes: filteredData, clicked: true });
+          boundThis.setState({ createdRecipes: filteredData, clicked: category });
         } else {
-          boundThis.setState({ createdRecipes: data, clicked: false })
+          boundThis.setState({ createdRecipes: data, clicked: null })
         }
       },
       error: function(err) {

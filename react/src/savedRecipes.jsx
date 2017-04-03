@@ -39,15 +39,15 @@ class SavedRecipes extends React.Component {
       url: '/getSavedRecipes',
       type: 'GET',
       success: function(data){
-        if(boundThis.state.clicked === false) {
+        if(boundThis.state.clicked !== category) {
           let filteredData = data.filter(function(value) {
             if(value.categories.includes(category)) {
               return value;
             }
           });
-          boundThis.setState({ savedRecipes: filteredData, clicked: true });
+          boundThis.setState({ savedRecipes: filteredData, clicked: category });
         } else {
-          boundThis.setState({ savedRecipes: data, clicked: false })
+          boundThis.setState({ savedRecipes: data, clicked: null })
         }
       },
       error: function(err) {
