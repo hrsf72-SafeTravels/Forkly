@@ -624,3 +624,13 @@ input:focus {
 .btn-warning {
   margin-right: 10px;
 }
+
+.recipe-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.top-recipe-entry {
+  margin: 10px 0;
+}
