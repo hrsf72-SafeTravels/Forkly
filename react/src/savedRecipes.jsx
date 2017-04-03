@@ -73,8 +73,8 @@ class SavedRecipes extends React.Component {
       template =
       <div className="myRecipes">
         <ViewRecipesNavBar />
-        <RadioButtonBar handleCategoryClick={this.handleCategoryClick} />
         <div className="myRecipesTitle">Saved Recipes</div>
+        <RadioButtonBar handleCategoryClick={this.handleCategoryClick} />
         <div className="recipesArrays">
           <ul className="recipesArray">
             {recipesArray}

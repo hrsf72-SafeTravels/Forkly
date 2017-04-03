@@ -9,7 +9,7 @@ class MyRecipes extends React.Component {
     this.state = {
       clicked: false
     }
-    this.handleCategoryClick = this.handleCategoryClick.bind(this);
+    this.handleCreatedRecipeClick = this.handleCreatedRecipeClick.bind(this);
   }
 
   //before initial render, use ajax call to retrieve all recipes belonging to user
@@ -20,7 +20,7 @@ class MyRecipes extends React.Component {
       type:'GET',
       success: function(data){
         console.log(data);
-        boundThis.setState({recipes: data});
+        boundThis.setState({createdRecipes: data});
       },
       error: function(err) {
         console.log('could not retrieve any recipes for user');
@@ -34,7 +34,7 @@ class MyRecipes extends React.Component {
     router.history.push('/recipe/' + recipeId);
   }
 
-  handleCategoryClick(category) {
+  handleCreatedRecipeClick(category) {
     let boundThis = this;
     $.ajax({
       url: '/getAllRecipes',
@@ -46,9 +46,9 @@ class MyRecipes extends React.Component {
               return value;
             }
           });
-          boundThis.setState({ recipes: filteredData, clicked: true });
+          boundThis.setState({ createdRecipes: filteredData, clicked: true });
         } else {
-          boundThis.setState({ recipes: data, clicked: false })
+          boundThis.setState({ createdRecipes: data, clicked: false })
         }
       },
       error: function(err) {
@@ -58,11 +58,11 @@ class MyRecipes extends React.Component {
   }
 
   render () {
-    var recipesArray = [];
+    var createdRecipesArray = [];
     var template = '';
-    if (this.state.recipes) {
-      this.state.recipes.forEach((recipe, index) => {
-      recipesArray.push(
+    if (this.state.createdRecipes) {
+      this.state.createdRecipes.forEach((recipe, index) => {
+      createdRecipesArray.push(
         <li className="recipeSingle" 
           key={index} 
           value={recipe} 
@@ -73,11 +73,11 @@ class MyRecipes extends React.Component {
       template = 
       <div className="myRecipes">
         <ViewRecipesNavBar />
-        <RadioButtonBar handleCategoryClick={this.handleCategoryClick}/>
         <div className="myRecipesTitle">My Recipes</div>
+        <RadioButtonBar handleCategoryClick={this.handleCreatedRecipeClick}/>
         <div className="recipesArrays">
           <ul className="recipesArray">
-            {recipesArray}
+            {createdRecipesArray}
           </ul>
         </div>
         <br />
