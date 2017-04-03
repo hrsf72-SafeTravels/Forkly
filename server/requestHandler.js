@@ -85,17 +85,24 @@ exports.addRecipe = function(req, res) {
     console.log(req.body.name);
     // create recipe in database
     let recipeId;
-    db.Recipe.update({name: req.body.name}, req.body, {upsert: true})
-    .then((recipe) => {
-      recipeId = recipe.upserted[0]._id;
-      db.User.findByIdAndUpdate(req.user._id, {$push: {recipes: recipe.id}})
-    })
-    .then(() => {
-      res.json(recipeId);
-    })
-    .catch((err) => {
-      res.status(400).send();
-    });
+    db.Recipe.findOneAndUpdate(
+      {name: req.body.name},
+      req.body,
+      {
+        upsert: true,
+        new: true
+      },
+      (error, recipe) => {
+        if (error) {
+          res.status(400).send();
+        }
+        db.User.findByIdAndUpdate(
+          req.user._id,
+          { $push: { recipes: recipe._id } }
+        );
+        res.status(201).json(recipe._id);
+      }
+    );
 
     // db.Recipe.create(req.body).then((recipe) => {
     //   // push recipe into user's recipes array

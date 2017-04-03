@@ -110,10 +110,8 @@ class TopRecipeList extends React.Component {
       type: 'GET',
       contentType: 'application/json',
       success: function(data) {
-        console.log('AJAX request to get top recipes succeeded');
-        console.log(data);
         context.setState({topRecipes: data});
-      },  
+      },
       error: function(err) {
         console.log('AJAX request to get top recipes failed')
       }
