@@ -298,8 +298,8 @@ body {
   text-shadow: 0 2px 5px #000, 0 0 10px #000;
   text-decoration-style: bold;
   font-size: 50px;
-  margin-left: 30px;
-  margin-top: 30px;
+  margin-left: 70px;
+  margin-top: 50px;
 }
 
 .loadingText{
@@ -309,13 +309,12 @@ body {
 
 .recipesArrays{
   position: relative;
-  padding: 10px;
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 15px;
+  margin-left: 90px;
 }
 
 .recipesArray{
-  padding: 20px;
+  padding: 10px;
 }
 
 .recipeSingle{
@@ -634,3 +633,32 @@ input:focus {
 .top-recipe-entry {
   margin: 10px 0;
 }
+
+.radio-button-bar {
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.radio-button-bar .container {
+  margin-top: 20px;
+  margin-left: -10px;
+}
+
+.radio-button-bar #radio-button-title {
+  color: #ee6000;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.friendsArrays{
+  position: relative;
+  margin-top: 30px;
+  margin-left: 90px;
+}
+
+ul.recipesArrays{
+  position: relative;
+  margin-top: 30px;
+  margin-left: 90px;
+}
+
